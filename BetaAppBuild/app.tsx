@@ -118,6 +118,7 @@ export class FinalApp extends React.Component {
 
 //Does this count as a change? --Nate
 //Mess with this comment
+//change # 3?
 
 
 ReactDOM.render(<FinalApp />, document.getElementById('function'));
