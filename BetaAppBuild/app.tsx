@@ -118,8 +118,8 @@ export class FinalApp extends React.Component {
 //Luke adding another comment to change
 
 //Does this count as a change? --Nate
-//Mess with this comment
+//Mess with this comment (messed with -- Steven)
 //change # 3?
-
+// Steven was here -- Steven
 
 ReactDOM.render(<FinalApp />, document.getElementById('function'));
