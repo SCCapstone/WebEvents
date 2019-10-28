@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\NodejsWebApp2",
+    "\\NodejsWebApp2\\NodejsWebApp2"
   ],
+  "SelectedNode": "\\NodejsWebApp2\\NodejsWebApp2\\package.json",
   "PreviewInSolutionExplorer": false
 }
