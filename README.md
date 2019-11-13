@@ -5,6 +5,10 @@ After bootstrapping I created a list of "Hello __" which you can add to. The lis
 
 In the project directory, you can run:
 
+### 'npm install'
+
+Need this to install node_modules. Do this once before npm start.
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
