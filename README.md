@@ -1,41 +1,44 @@
-# BetaAppBuild
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After bootstrapping I created a list of "Hello __" which you can add to. The list items have a button on which you can press to change the hello to goodbye. 
 
-### Quick Reminders to Self
-Each time you make changes to the app.tsx file, you must rerun the webpack command.
-* Open command prompt on the project file
-* Enter node_modules\.bin\webpack app.tsx --config webpack-config.js
-* Resolve all errors before continuing
+## Available Scripts
 
-### To Begin Development:
+In the project directory, you can run:
 
-Fork this repo to create your own branch.  
+### `npm start`
 
-Install Visual Studio. During installation when selecting which workloads you will be using
-make sure you select Node.js Development. If you forget to do this during initial
-installation you can add it later by opening the installer and selecting "Modify".  
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Once in Visual Studio, go into Manage Extensions under the extensions tab. Install the
-Github Extension for Visual Studio. This may require you to restart Visual Studio.  
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Under the view tab open up the Team Explorer view and log into github. Under local
-Git Repositories, select clone, and input the URL of your branched repo. This should
-sync all the files from your brnach to a new local repo.  
+### `npm test`
 
-Once this sync is complete, open that repo in team explorer by double clicking on it.
-Below the Project dropdown, there should be a Solutions dropdown with BetaAppBuild.sln shown.
-If this file is not shown you will need to add it to solutions using the "Open" command
-and locating the file in your local repo.  
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Once this is done open the solution by double clicking on it. Now all the files
-contained within the solution should be shown in the Solution Explorer window.  
+### `npm run build`
 
-To push changes:
-* Make a modification to a file and save
-* Under the team explorer window, open the changes tab
-* In the commit message please briefly describe what you did.
-* Select which changes you wish to commit by right clicking and selecting stage.
-* Alternatively you can commit all changes by selecting commit all.
-* Once this completes successfully, go to the syncronization tab and you should see an outgoing commit.
-* Push that commit and the modified files should have been pushed to your branch on github.
-* Once this is done and you are ready for your changes to be put into the master branch open a pull request on github.
-* Once reviewed if it is approved the changes will be saved to the master branch.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
