@@ -1,0 +1,11 @@
+.AddName {
+    border: 2px solid;
+    text-align: center;
+    background: rgba(139, 0, 1, 0.9);
+    color: black;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 0px;
+    padding: 20px;
+}
