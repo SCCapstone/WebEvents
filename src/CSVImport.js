@@ -20,17 +20,20 @@ class FileReader extends React.Component {
       csvfile: event.target.files[0]
     });
   };
-
+//called when button is pressed on webpage
   importCSV = () => {
     const { csvfile } = this.state;
     Papa.parse(csvfile, {
       complete: this.updateData,
-      header: true
+      header: true,
+      download: true
     });
   };
 
   updateData(result) {
     var data = result.data;
+    //THIS is where we would pass our data to a different function (pass to graphing function)
+    //pass data to createTable
     console.log(data);
   }
 
