@@ -32,7 +32,7 @@ class FileReader extends React.Component {
       header: true,
       download: true
     });
-  };*/
+  };
 
 
 
