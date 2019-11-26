@@ -4,6 +4,9 @@ import React, { Component } from "react"; //gives component class on top of reac
 //import Dropzone from "./dropzone";
 import "./csvImport.css";
 import Papa from "papaparse";
+import { JsonToTable } from "react-json-to-table";
+import { CSVLink, CSVDownload } from "react-csv";
+import XLSX from 'xlsx';
 //import { CSVReader } from 'react-papaparse';
 
 class FileReader extends React.Component {
@@ -11,7 +14,7 @@ class FileReader extends React.Component {
     super();
     this.state = {
       csvfile: undefined
-    };
+      };
     this.updateData = this.updateData.bind(this);
   }
 
@@ -20,6 +23,7 @@ class FileReader extends React.Component {
       csvfile: event.target.files[0]
     });
   };
+
 //called when button is pressed on webpage
   importCSV = () => {
     const { csvfile } = this.state;
@@ -28,19 +32,22 @@ class FileReader extends React.Component {
       header: true,
       download: true
     });
-  };
+  };*/
+
+
 
   updateData(result) {
     var data = result.data;
     //THIS is where we would pass our data to a different function (pass to graphing function)
     //pass data to createTable
     console.log(data);
+
   }
 
   render() {
     console.log(this.state.csvfile);
-    return (
-      <div className="csvImport">
+      return (
+        <div className="csvImport">
         <h2>Import CSV File!</h2>
         <input
           className="csv-input"
@@ -51,15 +58,18 @@ class FileReader extends React.Component {
           name="file"
           placeholder={null}
           onChange={this.handleChange}
-        />
+              />
         <p />
-        <button onClick={this.importCSV}> Upload now!</button>
+              <button onClick={this.importCSV}> Upload now!</button>
       </div>
     );
   }
 }
 
 export default FileReader;
+
+// <input type="file" onchange="parseExcelFile1(this)">
+
 
 // We pass onDrop function and accept prop to the component. It will be used as initial params for useDropzone hook
 /*    return (
