@@ -24,26 +24,24 @@ class FileReader extends React.Component {
     });
   };
 
- /* importCSV = () => {
+//called when button is pressed on webpage
+  importCSV = () => {
     const { csvfile } = this.state;
     Papa.parse(csvfile, {
       complete: this.updateData,
-        header: true,
-        dynamicTyping: true,
-        skipEmptyLines: true,
-        transformHeader: header =>
-            header
-                .toLowerCase()
-                .replace(/\W/g, '_')
+      header: true,
+      download: true
     });
   };*/
 
 
 
   updateData(result) {
-      var data = result.data;
-      console.log(data);
-      return data;
+    var data = result.data;
+    //THIS is where we would pass our data to a different function (pass to graphing function)
+    //pass data to createTable
+    console.log(data);
+
   }
 
   render() {
