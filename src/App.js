@@ -2,12 +2,15 @@ import React from "react";
 import "./App.css";
 import CSVImport from "./CSVImport";
 import TitleBar from "./TitleBar";
+import Options from "./Options";
 
 const App = () => {
   return (
     <div className="App">
-      <TitleBar />
-      <CSVImport />
+        <TitleBar />
+        <Options />
+        <CSVImport />
+        
     </div>
   );
 };
