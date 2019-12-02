@@ -1,37 +1,27 @@
 {
-  "name": "helloworld",
-  "version": "0.1.0",
-  "private": true,
+  "name": "webevents",
+  "version": "1.0.0",
+  "description": "Web scheduler",
+  "main": "server.js",
   "dependencies": {
-    "papaparse": "^5.1.0",
-    "react": "^16.10.2",
-    "react-csv": "^1.1.2",
-    "react-csv-reader": "^2.0.2",
-    "react-dom": "^16.10.2",
-    "react-json-to-csv": "^1.0.4",
-    "react-json-to-table": "^0.1.5",
-    "react-scripts": "3.2.0",
-    "xlsx": "^0.15.2"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.1"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCCapstone/WebEvents/tree/Development.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shmiggy1010/WebEvents/issues"
+  },
+  "homepage": "https://github.com/SCCapstone/WebEvents/tree/Development"
 }
