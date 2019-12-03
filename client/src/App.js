@@ -11,6 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <TitleBar />
+          <CSVImport />
           <SheetJSApp />
           <RequestServer />
           <FileUpload />
