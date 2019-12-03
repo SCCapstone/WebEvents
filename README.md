@@ -4,7 +4,7 @@ server was set up using medium guide:
 https://medium.com/@maison.moa/setting-up-an-express-backend-server-for-create-react-app-bc7620b20a61
 
 and file upload guided by:
-https://medium.com/@kris101/react-file-upload-the-easy-way-with-nodejs-e94c5e81fb8pu
+https://medium.com/@kris101/react-file-upload-the-easy-way-with-nodejs-e94c5e81fb8
 along with serverside of: 
 https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
 
@@ -13,9 +13,12 @@ https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-
 the client server file structure is:
 WebEvents (whole app)
     Client(all react frontend stuff there)
-    node_modules (for server)
-    package.json (for server)
-    server.js
+        -npm install
+        -npm start
+    Server(all backend stuff)
+        -npm install
+        -node server.js
+    
 
 ## Available Scripts
 
