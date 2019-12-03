@@ -10,7 +10,7 @@ import Options from "./Options";
 const App = () => {
   return (
     <div className="App">
-      <TitleBar />
+          <TitleBar />
           <CSVImport />
           <SheetJSApp />
           <RequestServer />
