@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 import ical from "ical";
 // SET your own endpoint
 const endpoint = "http://localhost:5000/upload";
