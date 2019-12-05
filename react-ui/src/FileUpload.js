@@ -1,8 +1,9 @@
 
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import ical from "ical";
 // SET your own endpoint
-const endpoint = "http://localhost:5000/";
+const endpoint = "http://localhost:5000/upload";
 class App extends Component {
   state = {
     selectedFile: null,
@@ -29,8 +30,10 @@ class App extends Component {
     }
     this.setState({ uploading: true });
     // define upload
-    const data = new FormData();
-    data.append("file", this.state.selectedFile, this.state.selectedFile.name);
+    // const data = new FormData();
+
+    var data = ical.parseFile(this.state.selectedFile.name);
+    // data.append("file", this.state.selectedFile, this.state.selectedFile.name);
     axios.post(endpoint, data, {
         onUploadProgress: ProgressEvent => {
           this.setState({
