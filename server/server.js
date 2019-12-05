@@ -26,10 +26,30 @@ app.post('/upload',function(req, res) {
     })
 
 });
+//port running from mozilla docs
+const http = require("http");
+const hostname = 'https://capstonewebevents.herokuapp.com/';
+const port = 3000;
+
+//Create HTTP server and listen on port 3000 for requests
+const server = http.createServer((req, res) => {
+
+  //Set the response HTTP header with HTTP status and Content type
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+//listen for request on port 3000, and as a callback function have the port listened on logged
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+//end mozilla docs
+
 //port to run on - if you change this change the proxy
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
 //console log for running port
-app.listen(port, () => console.log('Listening on port 5000'));
+//app.listen(port, () => console.log('Listening on port 5000'));
 
 //GET route that wwill be fetched from react
 //the REACT(not server) application needds a proxy for this
