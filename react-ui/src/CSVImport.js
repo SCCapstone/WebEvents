@@ -4,10 +4,10 @@ import React, { Component } from "react"; //gives component class on top of reac
 //import Dropzone from "./dropzone";
 import "./csvImport.css";
 import Papa from "papaparse";
-import { JsonToTable } from "react-json-to-table";
-import { CSVLink, CSVDownload } from "react-csv";
-import XLSX from 'xlsx';
-//import { CSVReader } from 'react-papaparse';
+// import { JsonToTable } from "react-json-to-table";
+// import { CSVLink, CSVDownload } from "react-csv";
+// import XLSX from 'xlsx';
+// import { CSVReader } from 'react-papaparse';
 
 class FileReader extends React.Component {
   constructor() {
