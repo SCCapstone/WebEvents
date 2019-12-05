@@ -32,7 +32,7 @@ class App extends Component {
     // define upload
     // const data = new FormData();
 
-    var data = ical.parseFile(this.state.selectedFile.name);
+    var data = ical.parseFile(this.state.selectedFile);
     // data.append("file", this.state.selectedFile, this.state.selectedFile.name);
     axios.post(endpoint, data, {
         onUploadProgress: ProgressEvent => {
