@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 // SET your own endpoint
-const endpoint = "http://localhost:5000/upload";
+const endpoint = "http://localhost:5000/";
 class App extends Component {
   state = {
     selectedFile: null,
@@ -31,8 +31,7 @@ class App extends Component {
     // define upload
     const data = new FormData();
     data.append("file", this.state.selectedFile, this.state.selectedFile.name);
-    axios
-      .post(endpoint, data, {
+    axios.post(endpoint, data, {
         onUploadProgress: ProgressEvent => {
           this.setState({
             loaded: Math.round(
