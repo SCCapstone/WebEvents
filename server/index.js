@@ -1,3 +1,5 @@
+
+/*
 const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
@@ -40,3 +42,13 @@ if (!isDev && cluster.isMaster) {
     console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);
   });
 }
+
+*/
+
+var express = require("express");
+var app = express();
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
+
+
