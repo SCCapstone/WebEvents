@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://webevents-client.herokuapp.com/"
+  "proxy": "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/"
 }
