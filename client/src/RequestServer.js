@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './ReqServer.css';
 
 class RequestServer extends Component  {
     state = {
