@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import CSVImport from "./CSVImport";
 import TitleBar from "./TitleBar";
 import SheetJSApp from "./sheet";
 import RequestServer from "./RequestServer";
@@ -10,11 +9,12 @@ import Options from "./Options";
 const App = () => {
   return (
     <div className="App">
-      <TitleBar />
+          <TitleBar />
+          <Options />
           <SheetJSApp />
           <RequestServer />
           <FileUpload />
-          <Options />
+          
     </div>
   );
 };
