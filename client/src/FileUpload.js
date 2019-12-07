@@ -1,6 +1,7 @@
-
 import React, { Component } from "react";
+import "./FileUpload.css";
 import axios from "axios";
+
 // SET your own endpoint
 const endpoint = "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/upload";
 class App extends Component {
