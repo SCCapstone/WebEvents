@@ -11,10 +11,10 @@ function uploadPost() {
     filename: function (req, file, cb) {
       cb(null, Date.now() + '-' + file.originalname)
     }
+
   })
   var upload = multer({ storage: storage }).single('file')
   app.post('/upload', function (req, res) {
-
     upload(req, res, function (err) {
       if (err instanceof multer.MulterError) {
         return res.status(500).json(err)
@@ -23,9 +23,8 @@ function uploadPost() {
       }
       return res.status(200).send(req.file)
     })
-  });
-}
-
+ 
+});
 //port running from mozilla docs
 const http = require("http");
 // hostname was 'localhost'
@@ -37,14 +36,8 @@ const server = http.createServer((req, res) => {
  
   //Set the response HTTP header with HTTP status and Content type
   res.statusCode = 200;
-  if (req.url == '/download') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.write(JSON.stringify({ message: "This is the downloaded data" }));
-    res.end();
-  }
-  if (req.url == '/upload') {
-    uploadPost();
-  }
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
 });
  
 //listen for request on port 3000, and as a callback function have the port listened on logged
