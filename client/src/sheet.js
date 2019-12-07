@@ -25,6 +25,8 @@ class SheetJSApp extends React.Component {
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+            const data2 = XLSX.utils.sheet_to_json(ws);
+            console.log(data2);
             /* Update state */
             this.setState({ data: data, cols: make_cols(ws['!ref']) });
         };
