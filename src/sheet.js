@@ -1,5 +1,6 @@
 import React from "react";
 import XLSX from "xlsx";
+import Test from "./sampleJSONstuff";
 
 
 class SheetJSApp extends React.Component {
@@ -25,18 +26,21 @@ class SheetJSApp extends React.Component {
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-            /* Update state */
+            const data2 = XLSX.utils.sheet_to_json(ws);
+            console.log(data2);
+        /* Update state */
             this.setState({ data: data, cols: make_cols(ws['!ref']) });
         };
         if (rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
     };
     exportFile() {
-        /* convert state to workbook */
-        const ws = XLSX.utils.aoa_to_sheet(this.state.data);
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
-        /* generate XLSX file and send to client */
-        XLSX.writeFile(wb, "sheetjs.xlsx")
+    /* convert state to workbook */
+        const data = this.state.data;
+        const ws = XLSX.utils.aoa_to_sheet(this.state.data); //converts array of arrays to sheet
+        const wb = XLSX.utils.book_new(); //creates new workbook
+        XLSX.utils.book_append_sheet(wb, ws, "SheetJS"); //append the sheet onto the workbook
+    /* generate XLSX file and send to client */
+        XLSX.writeFile(wb, "sheetjs.xlsx") //file download
     };
     render() {
         return (
