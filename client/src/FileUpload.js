@@ -10,7 +10,8 @@ class App extends Component {
     loaded: 0,
     message: "Choose a file...",
     defaultmessage: "Choose a file...",
-    uploading: false
+    uploading: false,
+    uploaded: false
   };
   handleFileChange = event => {
     this.setState({
@@ -46,7 +47,8 @@ class App extends Component {
         this.setState({
           selectedFile: null,
           message: "Uploaded successfully",
-          uploading: false
+          uploading: false,
+          uploaded: true
         });
       })
       .catch(err => {
