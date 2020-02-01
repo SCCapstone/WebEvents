@@ -10,12 +10,12 @@ import FileDownloader from "./FileDownload";
 const App = () => {
   return (
     <div className="App">
-      <TitleBar />
-      <Options />
-      <SheetJSApp />
-      <RequestServer />
-      <FileUpload />
-      <FileDownloader />
+          <TitleBar />
+          <Options />
+          <SheetJSApp />
+          <RequestServer />
+          <FileUpload />
+          <FileDownloader />
     </div>
   );
 };
