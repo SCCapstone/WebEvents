@@ -15,6 +15,7 @@ WebEvents (whole app)
     Client(all react frontend stuff there)
         -npm install
         -npm start
+        -npm test
     Server(all backend stuff)
         -npm install
         -node server.js
@@ -37,6 +38,8 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ### `npm test`
+For Unit testing.
+For Behavior testing go into client/Tests and open the html Document. You need UI.Vision webbrowser app installed to run behavior testing.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
