@@ -43,7 +43,7 @@ You will also see any lint errors in the console.
 
 Unit testing is located in the source folder in the file App.test.js, while the behavior testing is located in the Tests folder.
 
-For Unit testing, run npm test in the terminal. It will run the App.test.js file, and then give a report on what happened.
+For Unit testing, run npm test in the client source folder in the terminal. It will run the App.test.js file, and then give a report on what happened.
 For Behavior testing go into client/Tests and open the html Document. You need UI.Vision webbrowser app installed to run behavior testing.
 
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
