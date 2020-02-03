@@ -37,8 +37,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+# Testing
+
 ### `npm test`
-For Unit testing.
+
+Unit testing is located in the source folder in the file App.test.js, while the behavior testing is located in the Tests folder.
+
+For Unit testing, run npm test in the terminal. It will run the App.test.js file, and then give a report on what happened.
 For Behavior testing go into client/Tests and open the html Document. You need UI.Vision webbrowser app installed to run behavior testing.
 
 Launches the test runner in the interactive watch mode.<br />
