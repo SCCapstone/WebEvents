@@ -3,7 +3,7 @@ import XLSX from "xlsx";
 import _ from 'lodash';
 
 
-//This can return a key based on the value that you want
+//This can return a key based on the value that you want (keys are the dates, values are the preference number)
 Object.prototype.getKey = function (value) {
     for (var key in this) {
         if (this[key] == value) {
@@ -35,16 +35,17 @@ function Test(props) {
     console.log(result);
     */
     //console.log(props);
-    //console.log(Object.keys(props[1]));
+    //console.log(Object.keys(props[0]));
     for (var i = 0; i < props.length; i++)
     {
+        console.log(props[i]);
         dates[i] = [];
-        //console.log(Object.values(props[i]));
+        //console.log(Object.keys(props[i]));
         //console.log(props[i]["First name"]);
         dates[i][0] = (props[i]["First name"]);
         //dates[i][1] = (props[i]["Last name"]);
         //console.log(Object.values(props[i]))
-        for (var j = 1; j < 6; j++) //testing getting the first 5 options
+        for (var j = 1; j < 10; j++) //testing getting the first 5 options
         {
             dates[i][j] = [];
             var num = j.toString();
@@ -76,7 +77,7 @@ function Test(props) {
             }
     }*/
     for (var one = 0; one < dates.length; one++) {
-        console.log(dates[0][one]);
+        console.log(dates[16][one]);
     }
 
 };
