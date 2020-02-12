@@ -13,7 +13,7 @@ Object.prototype.getKey = function (value) {
     return null;
 };
 
-function swap(json) {
+function swap(json) { //swap function, doesn't work properly 
     var ret = {};
     for (var key in json) {
         ret[json[key]] = key;
@@ -32,20 +32,20 @@ function Test(props) {
       /*  var result = Object.keys(props[i]).map(function (key) {
             return [String(key), props[i][key]];
         });
-    console.log(result);
+    console.log(result); //
     */
-    //console.log(props);
+    //console.log(props); //this will just log all of the objects
     //console.log(Object.keys(props[0]));
     for (var i = 0; i < props.length; i++)
     {
         console.log(props[i]);
-        dates[i] = [];
+        dates[i] = []; //initialize the array
         //console.log(Object.keys(props[i]));
         //console.log(props[i]["First name"]);
-        dates[i][0] = (props[i]["First name"]);
+        dates[i][0] = (props[i]["First name"]); //sets first name as the first element of each row
         //dates[i][1] = (props[i]["Last name"]);
         //console.log(Object.values(props[i]))
-        for (var j = 1; j < 10; j++) //testing getting the first 5 options
+        for (var j = 1; j < 10; j++) //testing getting the first 9 options
         {
             dates[i][j] = [];
             var num = j.toString();
@@ -53,7 +53,7 @@ function Test(props) {
             var key = props[i].getKey(num);
             //console.log(key);
             //dates.push(key);
-            dates[i][j] = key;
+            dates[i][j] = key; //will put the persons first 9 preferrred dates as the next 9 elements of the array. If they don't have that many options, it will leave them empty
             //firstperson.push(key);
             //values[j] = j;
         }
