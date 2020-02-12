@@ -14,8 +14,10 @@ class FileDownloader extends Component {
     axios.get('http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/download')
       .then((response) => {
         console.log(response);
+
         var blob = new Blob(response.data, { type: "text/plain" });
         FileSaver.saveAs(blob, "downloadedFile.txt")
+
       })
       .then(this.setState({
         downMessage: "Downloaded!"
