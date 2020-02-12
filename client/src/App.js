@@ -5,6 +5,7 @@ import SheetJSApp from "./sheet";
 import RequestServer from "./RequestServer";
 import FileUpload from "./FileUpload";
 import Options from "./Options";
+import FileDownloader from "./FileDownload";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
           <SheetJSApp />
           <RequestServer />
           <FileUpload />
-          
+          <FileDownloader />
     </div>
   );
 };
