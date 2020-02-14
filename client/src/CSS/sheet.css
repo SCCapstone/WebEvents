@@ -9,23 +9,16 @@
 }
 
 .row {
-    
-    margin-left: 200px;
-    margin-right: 500px;
     margin-top: 50px;
     padding: 0px;
-    
 }
 
 .form-control {
-    
     margin-left: 20px;
 }
 
 .button {
     text-align: center;
-    margin-left: 200px;
-    margin-right: 500px;
     padding: 0px;
     border-right: solid;
     border-left: solid;
@@ -33,10 +26,7 @@
 
 .row2 {
     text-align: center;
-    margin-left: 200px;
-    margin-right: 500px;
 }
-
 
 .table-responsive {
     text-align: center;
