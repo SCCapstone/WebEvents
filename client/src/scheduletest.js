@@ -25,6 +25,7 @@ function swap(json) { //swap function, doesn't work properly
 var dates = []; //2D array, each row will represent a person
 var firstperson = [];
 var keys = [];
+var personVals = [];
 var vals = [];
 
 
@@ -38,26 +39,30 @@ function Test(props) {
     //console.log(props); //this will just log all of the objects
     //console.log(Object.keys(props[0]));
     keys = Object.keys(props[1]);
+    vals = [keys.length][keys.length];
     console.log(keys);
     for (var i = 0; i < props.length; i++)
     {
-        //console.log(props[i]);
+ 
         dates[i] = []; //initialize the array
+        //vals[i] = [];
         //console.log(Object.keys(props[i]));
         //console.log(props[i]["First name"]);
-        dates[i][0] = (props[i]["First name"]); //sets first name as the first element of each row
+        //dates[i][0] = (props[i]["First name"]); //sets first name as the first element of each row
         //dates[i][1] = (props[i]["Last name"]);
         //console.log(Object.values(props[i]))
-        for (var j = 0; j < props.length; j++) //testing getting the first 9 options
+        for (var j = 0; j < 35; j++) //testing getting the first 9 options
         {
+            //vals[i][j] = [];
             dates[i][j] = [];
-            var num = j.toString();
+            //var num = j.toString();
             //console.log(num);
             //var vals = props[i].getKey(num);
             vals = Object.values(props[i]);
+            console.log(vals);
             //console.log(key);
             //dates.push(key);
-            dates[i][0] = vals; //will put the persons first 9 preferrred dates as the next 9 elements of the array. If they don't have that many options, it will leave them empty
+            dates[i][j] = vals[j]; //will put the persons first 9 preferrred dates as the next 9 elements of the array. If they don't have that many options, it will leave them empty
             //firstperson.push(key);
             //values[j] = j;
         }
@@ -80,8 +85,8 @@ function Test(props) {
                 console.log(dates[first]);
             }
     }*/
-    for (var one = 0; one < dates.length; one++) {
-        console.log(dates[16][one]);
+    for (var one = 0; one < keys.length; one++) {
+        console.log(dates[0][one]);
     }
 
 };
