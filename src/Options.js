@@ -12,9 +12,11 @@ class Options extends Component {
 
         //options button
         return (
-            <div className="Options">
-                <button onClick={sayHello} type="Options" class="btn"> Options </button>
-            </div>
+            <select>
+                <option>Options</option> 
+                <option value="2 Person Group">2 Person Group</option>
+                <option value="3 Person Group">3 Person Group</option>
+            </select>          
         );
     }
 }
