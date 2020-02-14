@@ -32,4 +32,5 @@ class FileDownloader extends Component {
     );
   }
 }
+
 export default FileDownloader;

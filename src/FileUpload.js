@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./FileUpload.css";
+import "./CSS/FileUpload.css";
 import axios from "axios";
 
 // SET your own endpoint
@@ -94,3 +94,4 @@ class App extends Component {
 }
 
 export default App;
+
