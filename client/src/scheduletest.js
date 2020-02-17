@@ -59,7 +59,7 @@ function Test(props) {
             //console.log(num);
             //var vals = props[i].getKey(num);
             vals = Object.values(props[i]);
-            console.log(vals);
+            //console.log(vals);
             //console.log(key);
             //dates.push(key);
             dates[i][j] = vals[j]; //will put the persons first 9 preferrred dates as the next 9 elements of the array. If they don't have that many options, it will leave them empty
@@ -85,8 +85,12 @@ function Test(props) {
                 console.log(dates[first]);
             }
     }*/
-    for (var one = 0; one < keys.length; one++) {
-        console.log(dates[0][one]);
+    for (var one = 0; one < dates.length; one++) {
+        console.log("Person: "+one);
+        for (var two = 0; two < dates.length; two++) {
+            console.log("Number: "+two)
+            console.log(dates[one][two]);
+        }
     }
 
 };
