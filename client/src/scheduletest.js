@@ -86,12 +86,78 @@ function Test(props) {
             }
     }*/
     for (var one = 0; one < dates.length; one++) {
-        console.log("Person: "+one);
+        //console.log("Person: "+one);
         for (var two = 0; two < dates.length; two++) {
-            console.log("Number: "+two)
-            console.log(dates[one][two]);
+            //console.log("Number: "+two)
+            //console.log(dates[one][two]);
         }
     }
+    var sum = 0;
+    var groups = [];
+    var finalGroups = [];
+    var hasGroup = []; //this is a bool array that indicates if each person is already in a group
+    var counter = 0; //this will be used to count how many people are in each group
+    var cursor = 0; //will be used to control placement into array
+    for (var h = 0; h < dates.length; h++)
+    {
+        groups[h] = [];
+        hasGroup[h] = false;
+    }
+    for (var row = 0; row < dates.length; row++)
+    {
+        //console.log(dates[row][0]);
+        for (var column = 2; column < dates.length; column++)
+        {
+            groups[row] = [];
+            //sum += dates[column][row];
+            if (dates[row][column] == 1 && hasGroup[row] == false)
+            {
+                //hasGroup[column] = true;
+                //console.log(dates[row][0] + " prefers " + keys[column]);
+                //var other = row + 1;
+                for (var other=0; other < dates.length; other++)
+                {
+                    if (dates[other][column] <= 10 && other !== row && counter <= 4 && hasGroup[other] == false) //person has similar preference, group isn't too big, and they don't already have a group
+                    {                      
+                         //sets first name as first index of array
+                        groups[0] = keys[column]; //sets date as first index of array
+                       // console.log("There is a match with: " + dates[other][0]);
+                        hasGroup[other] = true;
+                        groups[counter + 1] = dates[other][0];      //starts to set other name into array
+                        if (counter == 4) //if group is full
+                        {
+                            console.log(cursor);
+                            finalGroups[cursor] = groups; //push it into final array
+                            groups = [];
+                            cursor++;
+                            counter = 0;
+                        }
+                        else if (other == dates.length-1)
+                        {
+                            console.log(cursor);
+                            finalGroups[cursor] = groups; //push it into final array
+                            groups = [];
+                            cursor++;
+                            counter = 0;
+                        }
+                        counter++;
+                    }
+                }
+                //counter = 0;
+            }
+        }
+        //console.log(keys[row]);
+        //console.log(sum);
+        sum = 0;
+    }
 
+
+
+    for (var i = 0; i < hasGroup.length; i++)
+        console.log(hasGroup[i]);
+
+
+        console.log(finalGroups);
+    return finalGroups;
 };
 export default Test;
