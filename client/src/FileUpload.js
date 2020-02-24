@@ -1,15 +1,17 @@
-
 import React, { Component } from "react";
+import "./FileUpload.css";
 import axios from "axios";
+
 // SET your own endpoint
-const endpoint = "http://localhost:5000/upload";
+const endpoint = "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/upload";
 class App extends Component {
   state = {
     selectedFile: null,
     loaded: 0,
     message: "Choose a file...",
     defaultmessage: "Choose a file...",
-    uploading: false
+    uploading: false,
+    uploaded: false
   };
   handleFileChange = event => {
     this.setState({
@@ -45,7 +47,8 @@ class App extends Component {
         this.setState({
           selectedFile: null,
           message: "Uploaded successfully",
-          uploading: false
+          uploading: false,
+          uploaded: true
         });
       })
       .catch(err => {
