@@ -3,7 +3,11 @@ import "./FileUpload.css";
 import axios from "axios";
 
 // SET your own endpoint
+<<<<<<< HEAD
 const endpoint = "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/upload";
+=======
+const endpoint = "http:/localhost:3000/upload";
+>>>>>>> 5952d2fda4a354b5b628419b49c216f5261247f9
 class App extends Component {
   state = {
     selectedFile: null,
