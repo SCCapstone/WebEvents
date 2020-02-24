@@ -11,37 +11,11 @@ class FileDownloader extends Component {
   }
 
   callAPI() {
-    axios.get('http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/download')
-      .then((response) => {
-        console.log(response);
-        //var blob = new Blob(response.data, { type: "text/plain" });
-        //FileSaver.saveAs(blob, "downloadedFile.txt")
-      })
-      .then(this.setState({
-        downMessage: "Downloaded!"
-      }));
-  }
-
-  handleDownload = event => {
-    event.preventDefault();
-    if (this.state.uploading) return;
-    if (this.state.downloading) return;
-    //if (!this.state.uploaded) {
-    //   this.setState({ downMessage: "No file uploaded" });
-    //  return;
-  state = {
-    apiResponse: "",
-    downloading: false,
-    downMessage: "",
-    response: null
-  }
-
-  callAPI() {
-    axios.get('http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/download')
+    axios.get('http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/download')
       .then((response) => {
         console.log(response);
 
-        var blob = new Blob(response.data, { type: "text/plain" });
+        var blob = new Blob([response.data], { type: "text/plain" });
         FileSaver.saveAs(blob, "downloadedFile.txt")
 
       })
@@ -74,4 +48,4 @@ class FileDownloader extends Component {
     );
   }
 }
-export defaul FileDownloader;
+export default FileDownloader;
