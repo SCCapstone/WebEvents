@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./CSS/FileUpload.css";
 import axios from "axios";
-
+const website = "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/";
 // SET your own endpoint
-const endpoint = "http:/localhost:3000/upload";
+const endpoint = website+"upload";
 class App extends Component {
   state = {
     selectedFile: null,
