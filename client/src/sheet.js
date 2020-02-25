@@ -1,6 +1,7 @@
 import React from "react";
 import XLSX from "xlsx";
-import "./sheet.css";
+import "./CSS/sheet.css";
+import Test from "./scheduletest.js";
 
 
 class SheetJSApp extends React.Component {
@@ -26,8 +27,9 @@ class SheetJSApp extends React.Component {
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-            const data2 = XLSX.utils.sheet_to_json(ws);
-            console.log(data2);
+            const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: "" });
+            //console.log(data2);
+            Test(data2);
             /* Update state */
             this.setState({ data: data, cols: make_cols(ws['!ref']) });
         };

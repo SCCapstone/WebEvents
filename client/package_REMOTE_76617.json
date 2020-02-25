@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/"
+  "proxy": "http://localhost:3000/"
 }
