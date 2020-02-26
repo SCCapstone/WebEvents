@@ -33,8 +33,8 @@ class SheetJSApp extends React.Component {
             var groups = Test(data2);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
-            this.setState({ data: data, cols: make_cols(ws['!ref']) });
-            //this.setState({ groups });
+            //this.setState({ data: data, cols: make_cols(ws['!ref']) });
+            this.setState({ data: groups });
         };
         if (rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
     };
@@ -42,9 +42,9 @@ class SheetJSApp extends React.Component {
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
         const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+        XLSX.utils.book_append_sheet(wb, ws, "results");
         /* generate XLSX file and send to client */
-        XLSX.writeFile(wb, "sheetjs.xlsx")
+        XLSX.writeFile(wb, "results.xlsx")
     };
     render() {
         return (
