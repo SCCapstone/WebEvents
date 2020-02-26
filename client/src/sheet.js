@@ -4,6 +4,7 @@ import "./CSS/sheet.css";
 import Test from "./scheduletest.js";
 
 
+
 class SheetJSApp extends React.Component {
     constructor(props) {
         super(props);
@@ -27,11 +28,13 @@ class SheetJSApp extends React.Component {
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-            const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: "" });
+            const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 15 });
             //console.log(data2);
-            Test(data2);
+            var groups = Test(data2);
+            const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
-            this.setState({ data: data, cols: make_cols(ws['!ref']) });
+            //this.setState({ data: data, cols: make_cols(ws['!ref']) });
+            this.setState({ data: groups });
         };
         if (rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
     };
@@ -39,9 +42,9 @@ class SheetJSApp extends React.Component {
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
         const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+        XLSX.utils.book_append_sheet(wb, ws, "results");
         /* generate XLSX file and send to client */
-        XLSX.writeFile(wb, "sheetjs.xlsx")
+        XLSX.writeFile(wb, "results.xlsx")
     };
     render() {
         return (
