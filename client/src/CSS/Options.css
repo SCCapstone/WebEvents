@@ -1,0 +1,18 @@
+﻿.Options {
+    font-weight: 500;
+    font-family: 'Tahoma';
+    
+    margin-right: 30px;
+    margin-top: 10px;
+    padding: 0px;
+    vertical-align: middle;
+}
+button[type="Options"].btn {
+    height: 20px;
+    background: white;
+    border-radius: 6px;
+}
+
+button[type="Options"].btn:hover {
+    background: #0099CC;
+}

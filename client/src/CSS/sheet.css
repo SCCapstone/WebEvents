@@ -1,0 +1,39 @@
+
+.form-group {
+    text-align: center;
+    padding: 0px;
+    font-weight: 800;
+    border-left: solid;
+    border-right: solid;
+    border-top: solid;
+}
+
+.row {
+    margin-top: 50px;
+    padding: 0px;
+}
+
+.form-control {
+    margin-left: 20px;
+}
+
+.button {
+    text-align: center;
+    padding: 0px;
+    border-right: solid;
+    border-left: solid;
+}
+
+.row2 {
+    text-align: center;
+}
+
+.table-responsive {
+    text-align: center;
+    border-right: solid;
+    border-left: solid;
+}
+
+.DataInput{
+    border: solid;
+}
