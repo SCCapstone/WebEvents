@@ -1,10 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-<<<<<<< HEAD
-=======
-/.vs
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
 /node_modules
 /.pnp
 .pnp.js
@@ -25,11 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
-=======
-/BetaAppBuild/bin
-/BetaAppBuild/node_modules/.bin
-/BetaAppBuild/node_modules/@babel/code-frame/lib/index.js
-/BetaAppBuild/node_modules
-/BetaAppBuild/obj/Debug
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
