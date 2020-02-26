@@ -1,0 +1,42 @@
+/*.App {
+  border: 5px solid maroon;
+  text-align: center;
+  background: maroon;
+  color: black;
+  margin: 0px;
+  padding: 20px;
+}
+*/
+
+/*
+    MainBody is a container to hold all central 
+    elements excluding the titlebar and footer
+
+    TODO: 
+        * Make it segmented and centralized.
+*/
+#MainBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100vh;
+    background-color: silver;
+}
+#MainBody-Left {
+    display: flex;
+}
+#MainBody-Center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+
+    width: 100vh;
+    height: 100vh;
+}
+#MainBody-Left {
+    display: flex;
+}
+.column-padding {
+    height: 100%;
+}
