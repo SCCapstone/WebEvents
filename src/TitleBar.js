@@ -8,7 +8,7 @@ class TitleBar extends Component {
     <div>
         <div id="TopBar">
             <div id="TopBar-Logo">
-                <img src="Logo.jpg" alt="Logo Failed to load" height="105" 
+                <img src="PlaceholderLogo.jpg" alt="Logo Failed to load" height="105" 
                         width="105" padding="10px">
                 </img>
             </div>
