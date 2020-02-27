@@ -39,5 +39,5 @@
     ]
 
   },
-  "proxy": "http://localhost:3000/"
+  "proxy": "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/"
 }
