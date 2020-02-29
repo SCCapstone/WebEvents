@@ -106,6 +106,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 =======
 >>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
 ### Deployment
+AWS Deployment:
+We are hosting our client and server under the same AWS EC2 instance. 
+to connect to this instance you must change directory to webevents so you have the key file available with LS run the command:
+ssh -i "keyServerWebEvents.pem" ubuntu@ec2-3-133-106-204.us-east-2.compute.amazonaws.com
+once logged in you must run the screen command to switch between terminal processes. 
+To use screen use 'Ctrl-A' followed by '?' to get the information page.
+
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
