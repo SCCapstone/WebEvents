@@ -1,28 +1,4 @@
-﻿/*.dropdown {
-    position:relative;
-    display:inline-block;
-    
-}
-
-#drop-content a{
-    display:block;
-}
-
-.Options {
-   
-
-    font-weight: 500;
-    font-family: 'Tahoma';
-    
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 0px;
-
-}
-
-
-
-/*.Options {
+﻿.Options {
     font-weight: 500;
     font-family: 'Tahoma';
     
@@ -39,4 +15,4 @@ button[type="Options"].btn {
 
 button[type="Options"].btn:hover {
     background: #0099CC;
-}*/
+}

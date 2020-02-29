@@ -10,5 +10,4 @@ function Test(data) {
     console.log(newdata["Last name"]);
     return data;
 }
-
 export default Test;
