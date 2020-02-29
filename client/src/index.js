@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./CSS/index.css";
 import App from "./App"; // App.js
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from "./components/serviceWorker";
 
 //THE main render call for the react app
 ReactDOM.render(<App />, document.getElementById("root"));
