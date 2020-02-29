@@ -15,7 +15,8 @@ import FileDownloader from "../components/FileDownload";
 
 
 import "../CSS/Home.css";
-import Option from "../components/Options.js"
+import SchedulerType from "../components/SchedulerType.js"
+import SchedulerOption from "../components/SchedulerOption.js"
 
 class home extends Component {
     constructor(props) {
@@ -35,10 +36,11 @@ class home extends Component {
                             <p>Test Option Panel <br/>
                             Input your options panel / type selector here
                             </p>
-                            <Option/>
+                            <SchedulerType/>
                         </div>
                         <div id="padded-container-left-option">
                             Test option pane
+                            <SchedulerOption/>
                         </div>
                     </div>
                     <div id="MainBody-Center">
