@@ -69,6 +69,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ### Deployment
+AWS Deployment:
+We are hosting our client and server under the same AWS EC2 instance. 
+to connect to this instance you must change directory to webevents so you have the key file available with LS run the command:
+ssh -i "keyServerWebEvents.pem" ubuntu@ec2-3-133-106-204.us-east-2.compute.amazonaws.com
+once logged in you must run the screen command to switch between terminal processes. 
+To use screen use 'Ctrl-A' followed by '?' to get the information page.
+
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
