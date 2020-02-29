@@ -21,7 +21,8 @@ class TitleBar extends Component {
                 </div>
             </div>
             <div id="Options-container">
-                <Options />
+                  <SchedulerType />
+                  <SchedulerOptions />
             </div>
         </div>
         <Navigation />
