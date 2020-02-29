@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./CSS/TitleBar.css";
-import Options from "./Options";
+
+import SchedulerType from "./SchedulerType";
+import SchedulerOptions from "./SchedulerOptions";
 
 class TitleBar extends Component {
   render() {
@@ -8,8 +10,8 @@ class TitleBar extends Component {
     <div>
         <div id="TopBar">
             <div id="TopBar-Logo">
-                <img src="logo512.png" alt="Logo Failed to load" height="60" 
-                        width="60" padding="10px">
+                <img src="PlaceholderLogo.jpg" alt="Logo Failed to load" height="105" 
+                        width="105" padding="10px">
                 </img>
             </div>
             <div id="TopBar-Div1">
@@ -21,7 +23,8 @@ class TitleBar extends Component {
                 </div>
             </div>
             <div id="Options-container">
-                <Options />
+                <SchedulerType />
+                <SchedulerOptions />
             </div>
         </div>
         <div id="GarnetHighlightBar"></div>

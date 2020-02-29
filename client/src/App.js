@@ -6,6 +6,7 @@ import RequestServer from "./RequestServer";
 import FileUpload from "./FileUpload";
 //import Options from "./Options";
 import FileDownloader from "./FileDownload";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // TOOK OUT <OPTIONS /> from under div MainBody-Cente
