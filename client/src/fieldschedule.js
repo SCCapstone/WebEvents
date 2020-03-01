@@ -90,5 +90,6 @@ function fieldscheduler(props)
         //console.log(sum);
     }
     console.log(finalGroups);
+    return finalGroups;
 }
 export default fieldscheduler;
