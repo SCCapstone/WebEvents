@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../CSS/TitleBar.css";
-import Options from "./Options";
+import SchedulerType from "./SchedulerType";
+import SchedulerOptions from "./SchedulerOptions";
 import Navigation from './NavigationBar';
 
 class TitleBar extends Component {
@@ -21,7 +22,8 @@ class TitleBar extends Component {
                 </div>
             </div>
             <div id="Options-container">
-                <Options />
+                  <SchedulerType />
+                  <SchedulerOptions />
             </div>
         </div>
         <Navigation />
