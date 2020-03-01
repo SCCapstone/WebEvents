@@ -2,6 +2,9 @@ import React from "react";
 import XLSX from "xlsx";
 import "../CSS/sheet.css";
 import Test from "./scheduletest.js";
+import seminarScheduler from "./scheduletest.js";
+import fieldscheduler from "./fieldschedule.js";
+
 
 class SheetJSApp extends React.Component {
     constructor(props) {
@@ -28,7 +31,8 @@ class SheetJSApp extends React.Component {
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 15 });
             //console.log(data2);
-            var groups = Test(data2);
+           // var groups = Test(data2);
+            var groups = fieldscheduler(data2);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             //this.setState({ data: data, cols: make_cols(ws['!ref']) });
@@ -106,8 +110,8 @@ class DataInput extends React.Component {
     };
     render() {
         return (
-            <form className="form-inline"> 
-                <div className="form-group"> 
+            <form className="form-inline">
+                <div className="form-group">
                     <label htmlFor="file">Spreadsheet:</label>
                     <input type="file" className="form-control" id="file" accept={SheetJSFT} onChange={this.handleChange} />
                 </div>
