@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./CSS/Options.css";
+import "../CSS/Options.css";
 
 class Options extends Component {
 

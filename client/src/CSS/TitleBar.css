@@ -6,6 +6,11 @@
         * Navigation bar?
 */
 
+[css].classname {
+    color: #333333;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
 #TopBar {
     display: flex;
     flex-direction: row;
@@ -40,6 +45,8 @@
     text-align: left;
     padding-left: 30px;
     vertical-align: middle;
+
+    padding-top: 20px;
 }
 #TitleBar {
     font-weight: Bold;
@@ -55,10 +62,34 @@
 #Options-container {
 
 }
+.nav-item {
+    font-size: inherit;
+    color: inherit;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.v-center-bar {
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 25px;
+}
+
 #GarnetHighlightBar {
-    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    height: 40px;
     width: 100%;
     background-color: rgba(139, 0, 1, 0.9);
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+
+    font-family: Impact, Charcoal, sans-serif;
+
 }
 img {
     max-width: 100%;

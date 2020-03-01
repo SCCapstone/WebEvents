@@ -1,0 +1,32 @@
+#DataPanel-Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#Excel-Container {
+    display: flex;
+    flex-direction: column;
+    margin: 3vw;
+
+    background-color: white;
+    border-style: solid;
+    border-color:silver;
+
+    width: 20vw;
+    height: auto;
+    border-width: 3px;
+}
+#ical-Container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vw;
+    margin-right: 3vw;
+
+    background-color: white;
+    border-style: solid;
+    border-color:silver;
+
+    width: 20vw;
+    height: auto;
+    border-width: 3px;
+}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './CSS/ReqServer.css';
+import '../CSS/ReqServer.css';
 
 class RequestServer extends Component  {
     state = {
@@ -27,10 +27,10 @@ class RequestServer extends Component  {
     
     render() {
         return(
-               <div className="RequestServer">
-               <p className="request">{this.state.data}</p>
-               </div>
-               );
+            <div className="RequestServer">
+               <p className="request">ReqServer.js</p>
+            </div>
+        );
     }
     
 }
