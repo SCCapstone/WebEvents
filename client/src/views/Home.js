@@ -16,7 +16,7 @@ import FileDownloader from "../components/FileDownload";
 
 import "../CSS/Home.css";
 import SchedulerType from "../components/SchedulerType.js"
-import SchedulerOption from "../components/SchedulerOption.js"
+import SchedulerOptions from "../components/SchedulerOptions.js"
 
 class home extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class home extends Component {
                         </div>
                         <div id="padded-container-left-option">
                             Test option pane
-                            <SchedulerOption/>
+                            <SchedulerOptions/>
                         </div>
                     </div>
                     <div id="MainBody-Center">
