@@ -7,7 +7,7 @@ class SchedulerOptions extends React.Component{
     //add groupsize 5-12 
     //add duplicants True or False ie checkbox
     render(){
-        //return(
+        //return( change
         return true;
         //)
     }

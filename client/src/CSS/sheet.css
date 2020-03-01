@@ -1,26 +1,37 @@
-
 .form-group {
     text-align: center;
     padding: 0px;
     font-weight: 800;
-    
-    
+    /* Removing borders in the child items
+        02/29/20
+        Lam Nguyen
+
+    border-left: solid;
+    border-right: solid;
+    border-top: solid; */
 }
 
 .row {
-    margin-top: 50px;
-    padding: 0px;
+    /* margin-top: 50px;
+    padding: 0px; */
 }
 
 .form-control {
-    margin-left: 20px;
+    /* Moving to more elegant forms of form control
+    
+    
+    margin-left: 20px; */
 }
 
 .button {
     text-align: center;
     padding: 0px;
+    /* Removing borders from Child elements
+        02/29/20
+        Lam Nguyen
+    
     border-right: solid;
-    border-left: solid;
+    border-left: solid; */
 }
 
 .row2 {
@@ -29,8 +40,12 @@
 
 .table-responsive {
     text-align: center;
+    /* Removing borders from Child Elements
+        02/29/20
+        Lam Nguyen
+    
     border-right: solid;
-    border-left: solid;
+    border-left: solid; */
 }
 
 .DataInput{

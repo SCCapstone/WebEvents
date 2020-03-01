@@ -16,7 +16,7 @@ class SchedulerType extends React.Component {
         };
         console.log("here");
         //this.type = this.setType.bind(this);
-
+        //change
         
     }
     

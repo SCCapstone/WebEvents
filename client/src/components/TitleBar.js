@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./CSS/TitleBar.css";
-
+import "../CSS/TitleBar.css";
 import SchedulerType from "./SchedulerType";
 import SchedulerOptions from "./SchedulerOptions";
+import Navigation from './NavigationBar';
 
 class TitleBar extends Component {
   render() {
@@ -10,24 +10,23 @@ class TitleBar extends Component {
     <div>
         <div id="TopBar">
             <div id="TopBar-Logo">
-                <img src="PlaceholderLogo.jpg" alt="Logo Failed to load" height="105" 
-                        width="105" padding="10px">
+                <img src="logo512.png" alt="Logo Failed to load" height="100" 
+                        width="100">
                 </img>
             </div>
             <div id="TopBar-Div1">
                 <div id="TitleBar">
-                    Web Events Scheduling
-                </div>
-                <div id="TopBar-SubText">
-                Applied Algorithmic Approach to Schedule Making
+                    <img src="TitleText.png" alt="Logo Failed to load" height="120" 
+                            width="600">
+                    </img>
                 </div>
             </div>
             <div id="Options-container">
-                <SchedulerType />
-                <SchedulerOptions />
+                  <SchedulerType />
+                  <SchedulerOptions />
             </div>
         </div>
-        <div id="GarnetHighlightBar"></div>
+        <Navigation />
     </div>
     );
   }
