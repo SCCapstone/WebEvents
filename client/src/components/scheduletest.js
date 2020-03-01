@@ -106,7 +106,7 @@ function promoteOption(keys,boolArray,dates,names)
     }
 }
 
-function Test(props) {
+function Test(props,size) {
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
@@ -230,7 +230,7 @@ function Test(props) {
                             console.log(groups);
                             sum = sum + dates[other][column];
 
-                            if (counter == 3 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
+                            if (counter == size-3 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -254,7 +254,7 @@ function Test(props) {
                                 break;
                             }
 
-                            if (counter == 4 && sum < sumRange || (column == dates.length && other == dates.length)) //if group is full
+                            if (counter == size-2 && sum < sumRange || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -309,5 +309,4 @@ function Test(props) {
     //yep
     return finalGroups;
 };
->>>>>>> c5cb3df32dabca9c16abcdefef0bd4575b49afc4:client/src/scheduletest.js
 export default Test;
