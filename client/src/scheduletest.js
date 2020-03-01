@@ -230,7 +230,7 @@ function Test(props) {
                             console.log(groups);
                             sum = sum + dates[other][column];
 
-                            if (counter == 1 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
+                            if (counter == 3 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -254,7 +254,7 @@ function Test(props) {
                                 break;
                             }
 
-                            if (counter == 2 && sum < sumRange || (column == dates.length && other == dates.length)) //if group is full
+                            if (counter == 4 && sum < sumRange || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {

@@ -13,6 +13,7 @@ function fieldscheduler(props)
     var dates = [];
     var cursor = 0;
     var finalGroups = [];
+    var prefLimit = 1;
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
@@ -21,75 +22,60 @@ function fieldscheduler(props)
     for (var i = 0; i < props.length; i++) {
 
         spreadsheet[i] = []; //initialize the array
-        for (var j = 0; j < props.length; j++) //testing getting the first 9 options
+        for (var j = 0; j < keys.length; j++) 
         {
             //vals[i][j] = [];
             spreadsheet[i][j] = [];
-            //var num = j.toString();
-            //console.log(num);
-            //var vals = props[i].getKey(num);
             vals = Object.values(props[i]);
-            //console.log(vals);
-            //console.log(key);
-            //dates.push(key);
-            spreadsheet[i][j] = vals[j]; //will put the persons first 9 preferrred dates as the next 9 elements of the array. If they don't have that many options, it will leave them empty
+            spreadsheet[i][j] = vals[j]; 
             //firstperson.push(key);
             //values[j] = j;
         }
         //dates[i] = key;
         //values[i] = "1";
     }
+    console.log(spreadsheet);
     for (var h = 0; h < spreadsheet.length; h++) {
         teams[h] = spreadsheet[h][0];
         finalDate[h] = [];
         hasGroup[h] = false;
-        dateTaken[h] = false;
-        console.log(dates[h]);
+        console.log(teams[h]);
+    }
+    for (var o = 0; o < keys.length; o++)
+    {
+        dateTaken[o] = false;
     }
     for (var row = 0; row < spreadsheet.length; row++)
     {
         //console.log(dates[row][0]);
-        //console.log(names[row]);
-        for (var column = 1; column < spreadsheet.length; column++) {
+        console.log(teams[row]);
+        for (var column = 1; column < keys.length; column++) { //more columns then rows
             finalDate[row] = [];
+            console.log("COL IS: " + column);
             //sum += dates[column][row];
-            if (spreadsheet[row][column] <= 3 && hasGroup[row] == false)
+            
+            console.log("Pref value is: " + spreadsheet[row][column]);
+            if (spreadsheet[row][column] <= prefLimit && hasGroup[row] == false &&  dateTaken[column] == false)
             {
+                dateTaken[column] = true;
+                hasGroup[row] = true;
                 finalDate[0] = keys[column];
                // console.log("Dates is: "+keys[column]);
                 finalDate[1] = teams[row];  
-                finalDate[2] = spreadsheet[row][column];
-                for (var k = 0; k < spreadsheet.length; k++)
-                {
-                    for (var l = 0; l < spreadsheet.length; l++)
-                    {
-                        if (finalDate[0] == keys[l]) {
-                            console.log("Person is: " + teams[l]); //checks if name is in group, makes true if so
-                            hasGroup[l] = true;
-                        }
-                        if (finalDate[1] == keys[l])
-                        {
-                            console.log("Date is alr")
-                        }
-                    }
-                }
+                finalDate[2] = "Preference value is: "+spreadsheet[row][column];
                 console.log("Pushing array");
                 finalGroups[cursor] = finalDate; //push it into final array
                 // console.log(finalGroups[cursor]);
                 finalDate = [];
                 cursor++;
-                //counter = 0;
-                //preference = 1;
-                //sum = 0;
-                //numOfGroups++;
                 break;
             }
            
         }
-        //console.log(keys[row]);
-        //console.log(sum);
+        prefLimit++;
     }
     console.log(finalGroups);
+    console.log(dateTaken);
     return finalGroups;
 }
 export default fieldscheduler;
