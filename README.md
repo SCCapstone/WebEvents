@@ -1,7 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<<<<<<< HEAD
-=======
+
 server was set up using medium guide:
 https://medium.com/@maison.moa/setting-up-an-express-backend-server-for-create-react-app-bc7620b20a61
 
@@ -10,7 +9,9 @@ https://medium.com/@kris101/react-file-upload-the-easy-way-with-nodejs-e94c5e81f
 along with serverside of: 
 https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
 
+ ### TO RUN THE APPLICATION
  
+ After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run npm start, and the application should start in your local host. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the export button to run the algorithm on it. Usually, you will be able to select options such as group size, but that fell apart right before the deadline. There is also a dropdown for scheduling type, which will change between seminar, field scheduling, and work scheduling, but there was an issue with the dropdown communication, so that does not work. There are currently two types of algorithms, which are the seminar and the field scheduling, but because of the dropdown issues, the algorithm parameters are currently rigid, which means that we cannot dynamically update parameters, so it is stuck on the seminar scheduling algorithm, with 5 person groups.
 
 the client server file structure is:
 WebEvents (whole app)
@@ -28,8 +29,7 @@ WebEvents (whole app)
 
 In the project directory, you can run:
 
-<<<<<<< HEAD
-=======
+
 ### 'npm install'
 
 Need this to install node_modules. Do this once before npm start.

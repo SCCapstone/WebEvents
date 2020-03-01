@@ -16,7 +16,7 @@ Object.prototype.getKey = function (value) {
     return null;
 };
 
-function swap(json) { //swap function, doesn't work properly 
+function swap(json) { //swap function, doesn't work properly
     var ret = {};
     for (var key in json) {
         ret[json[key]] = key;
@@ -173,6 +173,7 @@ function Test(props) {
     var numOfPeople = 0;
     var names = []; //array of everyones names for reference
     var preference = 1;
+    var sumRange = 10;
     for (var h = 0; h < dates.length; h++)
     {
         names[h] = dates[h][0]+" "+dates[h][1];
@@ -197,16 +198,16 @@ function Test(props) {
     //console.log(dates.length);
 
     findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    while (numOfGroups < 4) {
+
+
+   // while (numOfGroups < 3) {
         console.log("NUM OF GROUPS IS: " + numOfGroups);
         for (var row = 0; row < dates.length; row++) {
             //console.log(dates[row][0]);
             //console.log(names[row]);
             for (var column = 2; column < dates.length; column++) {
                 pointer++;
+                findDate(keys, sumArr, datesBool, dates, names);
                 // groups[row] = [];
                 //sum += dates[column][row];
                 if (dates[row][column] <= preference && hasGroup[row] == false) {
@@ -223,12 +224,13 @@ function Test(props) {
                             //sets first name as first index of array, dates as second
                             groups[0] = keys[column];
                             groups[1] = names[row];
-                            // console.log("There is a match with: " + dates[other][0]);
+                             console.log("There is a match with: " + dates[other][0]);
                             //hasGroup[other] = true;
                             groups[counter + 2] = names[other];      //starts to set other name into array
-                            // console.log(groups);
+                            console.log(groups);
                             sum = sum + dates[other][column];
-                            if (counter == 0 && sum < 20 || (column == dates.length && other == dates.length)) //if group is full
+
+                            if (counter == 3 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -240,7 +242,31 @@ function Test(props) {
                                 }
                                 console.log("Pushing array");
                                 finalGroups[cursor] = groups; //push it into final array
-                                // console.log(finalGroups[cursor]);
+                                console.log(finalGroups[cursor]);
+                                groups = [];
+                                cursor++;
+                                counter = 0;
+                                // preference = 1;
+                                sum = 0;
+                                console.log("ADDING TO NUM OF GROOPS");
+                                numOfGroups++;
+                                console.log("NEW NUM OF GROOPS IS:" + numOfGroups);
+                                break;
+                            }
+
+                            if (counter == 4 && sum < sumRange || (column == dates.length && other == dates.length)) //if group is full
+                            {
+                                for (var k = 0; k < dates.length; k++) {
+                                    for (var l = 0; l < dates.length; l++) {
+                                        if (groups[k] == names[l]) {
+                                            //   console.log("Person is: " + names[l]); //checks if name is in group, makes true if so
+                                            hasGroup[l] = true;
+                                        }
+                                    }
+                                }
+                                console.log("Pushing array");
+                                finalGroups[cursor] = groups; //push it into final array
+                                console.log(finalGroups[cursor]);
                                 groups = [];
                                 cursor++;
                                 counter = 0;
@@ -264,9 +290,10 @@ function Test(props) {
             }
             sum = 0;
             preference++;
+            sumRange++;
             console.log("PREF IS: " + preference);
         }
-    }
+    //}
     var num;
     groups[0] = "No group"
     for (var k = 0; k < names.length; k++)
@@ -282,4 +309,5 @@ function Test(props) {
     //yep
     return finalGroups;
 };
+>>>>>>> c5cb3df32dabca9c16abcdefef0bd4575b49afc4:client/src/scheduletest.js
 export default Test;

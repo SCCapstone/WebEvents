@@ -3,6 +3,9 @@ import XLSX from "xlsx";
 import "../CSS/sheet.css";
 import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
+import seminarScheduler from "./scheduletest.js";
+import fieldscheduler from "./fieldschedule.js";
+
 
 class SheetJSApp extends React.Component {
     constructor(props) {
@@ -29,7 +32,8 @@ class SheetJSApp extends React.Component {
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 15 });
             //console.log(data2);
-            var groups = Test(data2);
+           // var groups = Test(data2);
+            var groups = fieldscheduler(data2);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             //this.setState({ data: data, cols: make_cols(ws['!ref']) });
