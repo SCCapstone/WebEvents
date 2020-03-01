@@ -50,7 +50,7 @@ class SchedulerType extends React.Component {
                 <DropdownButton
                     drop={direction}
                     variant="secondary"
-                    title={` Drop ${direction} `}
+                    title={` Scheduler Type `}
                     id={`dropdown-button-drop-${direction}`}
                     key={direction}
                 >
