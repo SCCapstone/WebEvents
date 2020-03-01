@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 90vh;
+    height:80vh;
     background-color: silver;
 }
 #MainBody-Left {
@@ -39,7 +39,7 @@
 
 
     height: auto;
-    width: 60vw;
+    width: 55vw;
     border: solid silver;
 }
 
@@ -49,16 +49,18 @@
     justify-content: flex-start;
 
     height: auto;
-    width: 20vw;
+    width: 25vw;
     border: solid silver;
 
 }
 
 #padded-container-center {
-    margin: 5vh;
+    margin: 3vh;
+    margin-top: 5vh;
+
     height: 75vh;
     background-color: white;
-    border: 2px grey solid;
+    border: 3px grey solid;
 }
 #padded-container-left-type{
     margin: 5vh; 
@@ -66,27 +68,30 @@
 
     height: 20vh;
     width: 17vw;
-    border: 2px grey solid;
+    border: 3px grey solid;
+
+    text-align: center;
 }
 #padded-container-left-option {
     margin: 5vh; 
     margin-top: 0vh;
     background-color: white;
 
-    height: 50vh;
+    height: 55vh;
     width: 17vw;
 
-    border: 2px grey solid;
+    border: 3px grey solid;
+    text-align: center;
 }
 #padded-container-right-instructions {
     margin: 5vh;
     margin-left: 0vh;
     background-color: white;
 
-    height: 80vh;
-    width: 19vw;
+    height: 75vh;
+    width: 22vw;
 
-    border: 2px grey solid;
+    border: 3px grey solid;
 }
 .column-padding {
     margin: 3vw; 

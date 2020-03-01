@@ -39,9 +39,6 @@ class SchedulerType extends React.Component {
 
     render() {
 
-        
-       
-        
         //options dropdown-button
         return(
         // Adjusts button to fall at right-handside, if no space on right falls left
@@ -50,7 +47,7 @@ class SchedulerType extends React.Component {
                 <DropdownButton
                     drop={direction}
                     variant="secondary"
-                    title={` Drop ${direction} `}
+                    title={` Scheduler Type `}
                     id={`dropdown-button-drop-${direction}`}
                     key={direction}
                 >

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../CSS/FileDownload.css";
 const axios = require("axios");
 var FileSaver = require("file-saver");
 
@@ -37,14 +38,9 @@ class FileDownloader extends Component {
 
   render() {
     return (
-      <div>
-        <button type="submit" onClick={this.handleDownload} >
-          download
-        </button>
-        <span>
-          {this.state.downMessage}
-        </span>
-      </div>
+      <button className="btn btn-success" onClick={this.handleDownload} >
+        2. Download ICal Output File
+      </button>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import XLSX from "xlsx";
 import "../CSS/sheet.css";
+import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
 
 class SheetJSApp extends React.Component {
@@ -47,20 +48,33 @@ class SheetJSApp extends React.Component {
     render() {
         return (
             <DragDropFile handleFile={this.handleFile}>
-                <div className="row"><div className="col-xs-1">
+                <div className="col-xs-1">
                     <DataInput handleFile={this.handleFile} />
-                </div></div>
-                <div className="button"><div className="col-xs-2">
-                    <button disabled={!this.state.data.length} className="btn btn-success" onClick={this.exportFile}>Export</button>
-                </div></div>
-                <div className="row2"><div className="col-xs-3">
-                    <OutTable data={this.state.data} cols={this.state.cols} />
-                </div></div>
+                </div>
+                <br/>
+                <div>
+                    <button id="upload-button" onClick={this.handleUpload}>
+                        1. Process Uploaded Excel File
+                    </button>
+                </div>
+                <br/>
+                <div className="col-xs-2">   
+                <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
+                </div>
             </DragDropFile>
         );
     };
 };
 
+/** TAKEN OUT OF RETURN ABOVE
+ *  3/01/2020
+ *  Lam Nguyen
+ * 
+<div className="row2"><div className="col-xs-3">
+                    <OutTable data={this.state.data} cols={this.state.cols} />
+                </div></div>
+
+*/
 //if (typeof module !== 'undefined') module.exports = SheetJSApp
 
 /* -------------------------------------------------------------------------- */
@@ -106,12 +120,7 @@ class DataInput extends React.Component {
     };
     render() {
         return (
-            <form className="form-inline"> 
-                <div className="form-group"> 
-                    <label htmlFor="file">Spreadsheet:</label>
-                    <input type="file" className="form-control" id="file" accept={SheetJSFT} onChange={this.handleChange} />
-                </div>
-            </form>
+            <input type="file" className="form-control" accept={SheetJSFT} onChange={this.handleChange} />
         );
     };
 }
