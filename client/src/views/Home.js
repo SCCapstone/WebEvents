@@ -52,14 +52,15 @@ class home extends Component {
                     <div id="MainBody-Right">
                         <div id="padded-container-right-instructions">
                             <div id="instructions-text">
-                                <h1>Instructions</h1>
+                                <h1>instructions</h1>
                                 <p>
-                                We have created an app that will provide an optimal schedule of event attendees based on their mutual 
-                                preferences for dates and times. The app user would be the event organizer. Our app will have a web-page
-                                take an input of an excel file that has scheduling preferences and output a schedule that has
-                                scheduled clients based on their preferences. The target audience is event organizers who need to 
-                                schedule a lot of people in a set period of time while attempting to make event speakers happy with 
-                                their scheduled times.
+                                -First, the file must be in the correct format of First name- 
+                                Last name- preferences for all of the people<br/>
+                                -Next, you must select the the scheduling type that you want to use<br/>
+                                -After you select the type, you have to select the specific 
+                                options for that type<br/>
+                                -Finally, you will upload your file, and click the export file to 
+                                download the finished schedule.<br/>
                                 </p>
                             </div>
                         </div>
