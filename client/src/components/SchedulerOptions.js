@@ -5,23 +5,32 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-
-
+import SheetJSApp from "./sheet.js";
 
 
 
 class SchedulerOptions extends React.Component{
+
+    sendData = () => {
+        this.props.parentCallback("Hey Popsie, How’s it going?");
+    };
+
     //todo
     //add groupsize 5-12 
     //add duplicants True or False ie checkbox
 
     constructor(props){
-        super (props);
+        super(props);
+        this.set2 = this.set2.bind(this);
         this.state = {
             dupes: false,
             groupsize: 0,     
         };
-
+      /*  this.handleChangeOnGroup = this.handleChangeOnGroup.bind(this);
+        handleChangeOnGroup(e)
+        {
+            this.props.setState(e.target.groupsize);
+        } */
     }
 
     allowDupes = () => {
@@ -30,6 +39,7 @@ class SchedulerOptions extends React.Component{
     }
 
     set2 = () => {
+        //this.setState( this.state.groupsize = 2 );
         this.setState({groupsize: 2});
     //    console.log(this.state.groupsize);
     }
@@ -99,7 +109,7 @@ class SchedulerOptions extends React.Component{
                     key={direction}
                 >
     
-                    <Dropdown.Item onClick = {this.set2}>Group of 2 </Dropdown.Item>
+                    <Dropdown.Item onClick = {this.set2.bind(this)}>Group of 2 </Dropdown.Item>
                     <Dropdown.Item onClick = {this.set3}>Group of 3  </Dropdown.Item>
                     <Dropdown.Item onClick = {this.set4}>Group of 4  </Dropdown.Item>
                     <Dropdown.Item onClick = {this.set5}>Group of 5  </Dropdown.Item>
@@ -112,16 +122,18 @@ class SchedulerOptions extends React.Component{
                     <Dropdown.Item onClick = {this.set12}>Group of 12  </Dropdown.Item>
    
                     
-                    {console.log(this.state.groupsize)}
+                    { /*console.log(this.state.groupsize)*/}
                 </DropdownButton>
 ))} 
-            </ButtonToolbar>
+                </ButtonToolbar>
+                {this.state.groupsize}
+                <SheetJSApp name={this.state.groupsize} />
             </div>
+            
         );
 
         
     };
-
 
 }
 
