@@ -4,19 +4,34 @@ import "../CSS/sheet.css";
 import Test from "./scheduletest.js";
 import seminarScheduler from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
+//import SchedulerOptions from "./SchedulerOptions";
 
+//var options = this.props.SchedulerOptions.groupsize;
+//console.log("OPTIONS IS: " + options);
+var whatever;
+console.log(whatever);
 
 class SheetJSApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            groupsize: 0,
             data: [], /* Array of Arrays e.g. [["a","b"],[1,2]] */
             cols: []  /* Array of column objects e.g. { name: "C", K: 2 } */
         };
         this.handleFile = this.handleFile.bind(this);
         this.exportFile = this.exportFile.bind(this);
     };
-    handleFile(file/*:File*/) {
+
+    getSize = () => {
+        this.setState({ groupsize: this.props.name })
+        //return this.groupsize;
+        console.log(this.state.groupsize);
+        return;
+    }
+
+    whatever2 = this.props.name;
+    handleFile(file/*:File*/,whatever2) {
         /* Boilerplate to set up FileReader */
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
@@ -29,10 +44,17 @@ class SheetJSApp extends React.Component {
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-            const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 15 });
+            const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
+            whatever2 = this.props.name;
+            console.log(whatever2);
             //console.log(data2);
-           // var groups = Test(data2);
-            var groups = fieldscheduler(data2);
+            //var options = this.getSize();
+            //var options = this.groupsize;
+           // console.log(options);
+           // console.log("GROOP SIZE IS: "+options);
+            var groups = Test(data2, whatever2);
+
+            //var groups = fieldscheduler(data2,whatever2);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             //this.setState({ data: data, cols: make_cols(ws['!ref']) });
@@ -48,9 +70,11 @@ class SheetJSApp extends React.Component {
         /* generate XLSX file and send to client */
         XLSX.writeFile(wb, "results.xlsx")
     };
-    render() {
+       render() {
         return (
             <DragDropFile handleFile={this.handleFile}>
+                { whatever = this.props.name /* this.getSize(this.props.name)   */          /*this.getSize({ groupsize: this.props.name })*/}
+                {/*console.log(this.props.name)*/}
                 <div className="row"><div className="col-xs-1">
                     <DataInput handleFile={this.handleFile} />
                 </div></div>
@@ -61,6 +85,7 @@ class SheetJSApp extends React.Component {
                     <OutTable data={this.state.data} cols={this.state.cols} />
                 </div></div>
             </DragDropFile>
+
         );
     };
 };
