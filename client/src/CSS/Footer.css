@@ -13,3 +13,11 @@
 
     font-size: 20px;
 }
+#footer-dual-columns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50vw;
+}
+

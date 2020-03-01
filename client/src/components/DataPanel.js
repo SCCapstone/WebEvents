@@ -24,7 +24,9 @@ class DataPanel extends Component {
                 <div id="padded-text">
                     <h1>ICal Files Input</h1>
                     <p>File extensions supported: .ical</p>
+                    <br/>
                     <FileUpload />
+                    <br/>
                     <FileDownloader />
                 </div>
             </div>

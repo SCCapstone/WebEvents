@@ -3,3 +3,7 @@
     text-align: justify;
 
 }
+#center-mid {
+    display: block;
+    text-align: center;
+}

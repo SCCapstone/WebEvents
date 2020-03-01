@@ -28,7 +28,7 @@ class RequestServer extends Component  {
     render() {
         return(
             <div className="RequestServer">
-               <p className="request">ReqServer.js</p>
+               <p className="request"></p>
             </div>
         );
     }
