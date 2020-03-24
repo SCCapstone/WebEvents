@@ -199,19 +199,20 @@ function Test(props,size) {
 
     findDate(keys, sumArr, datesBool, dates, names);
 
-
    // while (numOfGroups < 3) {
         console.log("NUM OF GROUPS IS: " + numOfGroups);
-        for (var row = 0; row < dates.length; row++) {
+        for (var row = 0; row < names.length; row++) {
             //console.log(dates[row][0]);
             //console.log(names[row]);
-            for (var column = 2; column < dates.length; column++) {
+            for (var column = 2; column < keys.length; column++) {
                 pointer++;
                 findDate(keys, sumArr, datesBool, dates, names);
                 // groups[row] = [];
                 //sum += dates[column][row];
-                if (dates[row][column] <= preference && hasGroup[row] == false) {
-                    // console.log("Lead of group is: " + names[row]);
+                console.log("values is: " + dates[row][column]);
+                console.log(preference);
+                if (dates[row][column] <= preference  && hasGroup[row] == false) {
+                     console.log("Lead of group is: " + names[row]);
                     // console.log("Date is: " + dates[0][column]);
                     // groups[1] = names[row];
                     // hasGroup[row] = true;
@@ -230,7 +231,7 @@ function Test(props,size) {
                             console.log(groups);
                             sum = sum + dates[other][column];
 
-                            if (counter == size-3 && sum < sumRange && preference > 12 || (column == dates.length && other == dates.length)) //if group is full
+                            if (counter == size-3 && sum < sumRange && preference > names.length / 2 || (column == dates.length && other == dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -294,6 +295,7 @@ function Test(props,size) {
             console.log("PREF IS: " + preference);
         }
     //}
+    console.log(hasGroup);
     var num;
     groups[0] = "No group"
     for (var k = 0; k < names.length; k++)
