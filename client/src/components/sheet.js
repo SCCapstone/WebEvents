@@ -76,8 +76,8 @@ class SheetJSApp extends React.Component {
             <DragDropFile handleFile={this.handleFile}>
                 { whatever = this.props.name /* this.getSize(this.props.name)   */          /*this.getSize({ groupsize: this.props.name })*/}
                 {/*console.log(this.props.name)*/}
-                <div className="row"><div className="col-xs-1">
-          <DataInput handleFile={this.handleFile} />
+                <div className="col-xs-1">
+                <DataInput handleFile={this.handleFile} />
                 </div>
                 <br/>
                 <div>
@@ -90,7 +90,6 @@ class SheetJSApp extends React.Component {
                 <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
                 </div>
             </DragDropFile>
-
         );
     };
 };
