@@ -7,10 +7,6 @@
 .pnp.js
 
 #removed node modules from being tracked by commits. These should be constantly readjusted each time 'npm install' occurs:
-/client/package.json
-/client/package-lock.json
-/server/package.json
-/server/package-lock.json
 
 # testing
 /coverage
