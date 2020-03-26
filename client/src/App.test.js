@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SheetJSApp from "./sheet";
+import SheetJSApp from "./components/sheet.js";
 import App from './App';
 import { create } from "react-test-renderer";
 
