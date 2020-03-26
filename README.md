@@ -24,18 +24,21 @@ WebEvents (whole app)
         -node server.js
     
 
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, remember to change directory to the /client/ directory. This can be done with 
 
+### 'cd client'
+
+Next, the node modules must be installed and migrated. This has to be done once and before 'npm start':
 
 ### 'npm install'
 
-Need this to install node_modules. Do this once before npm start.
+Afterwwards, start the app: 
 
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
-### `npm start`
+### `npm start <PORT_NUMBER>`
+
+[ By default, the development server is set to start at port 3000 on your local machine, you can also specify <PORT_NUMBER> ]
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -43,11 +46,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-<<<<<<< HEAD
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-=======
 # Testing
 
 ### `npm test`
@@ -57,7 +55,6 @@ Unit testing is located in the source folder in the file App.test.js, while the 
 For Unit testing, run npm test in the client source folder in the terminal. It will run the App.test.js file, and then give a report on what happened.
 For Behavior testing go into client/Tests and open the html Document. You need UI.Vision webbrowser app installed to run behavior testing.
 
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -80,7 +77,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-<<<<<<< HEAD
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -103,8 +99,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-=======
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
+
 ### Deployment
 AWS Deployment:
 We are hosting our client and server under the same AWS EC2 instance. 
@@ -116,9 +111,8 @@ To use screen use 'Ctrl-A' followed by '?' to get the information page.
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-<<<<<<< HEAD
+
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
->>>>>>> 89d3444642acac6ad4cd79932c617e6045f7f416
+
