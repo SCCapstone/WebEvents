@@ -40,17 +40,17 @@ class SheetJSApp extends React.Component {
             /**
              *  TODO REFACTOR THIS
              */
-
-            // whatever2 = this.props.name;
-            
-            console.log(whatever2);
-            var groups = Test(data2, whatever2);
+            var groups = Test(data2, this.props.groupSize);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             this.setState({ data: groups });
         };
-        if (rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
+        if (rABS) 
+            reader.readAsBinaryString(file); 
+        else 
+            reader.readAsArrayBuffer(file);
     };
+    
     exportFile() {
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
