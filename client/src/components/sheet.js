@@ -22,12 +22,6 @@ class SheetJSApp extends React.Component {
         this.handleFile = this.handleFile.bind(this);
         this.exportFile = this.exportFile.bind(this);
     };
-
-    getSize = () => {
-        this.setState({ groupsize: this.props.name })
-        return;
-    }
-
     
     handleFile(file/*:File*/,whatever2) {
         /* Boilerplate to set up FileReader */
@@ -43,27 +37,16 @@ class SheetJSApp extends React.Component {
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
-
             /**
              *  TODO REFACTOR THIS
              */
 
-
             // whatever2 = this.props.name;
-
-
-
+            
             console.log(whatever2);
-            //console.log(data2);
-            //var options = this.getSize();
-           // console.log(options);
-           // console.log("GROOP SIZE IS: "+options);
             var groups = Test(data2, whatever2);
-
-            //var groups = fieldscheduler(data2,whatever2);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
-            //this.setState({ data: data, cols: make_cols(ws['!ref']) });
             this.setState({ data: groups });
         };
         if (rABS) reader.readAsBinaryString(file); else reader.readAsArrayBuffer(file);
@@ -76,13 +59,12 @@ class SheetJSApp extends React.Component {
         /* generate XLSX file and send to client */
         XLSX.writeFile(wb, "results.xlsx")
     };
-       render() {
+
+    render() {
         return (
             <DragDropFile handleFile={this.handleFile}>
-                { whatever = this.props.name }
-                {/*console.log(this.props.name)*/}
                 <div className="col-xs-1">
-                <DataInput handleFile={this.handleFile} />
+                    <DataInput handleFile={this.handleFile} />
                 </div>
                 <br/>
                 <div>
@@ -92,7 +74,7 @@ class SheetJSApp extends React.Component {
                 </div>
                 <br/>
                 <div className="col-xs-2">   
-                <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
+                    <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
                 </div>
             </DragDropFile>
         );
@@ -149,7 +131,8 @@ class DataInput extends React.Component {
     };
     handleChange(e) {
         const files = e.target.files;
-        if (files && files[0]) this.props.handleFile(files[0]);
+        if (files && files[0]) 
+            this.props.handleFile(files[0]);
     };
     render() {
         return (

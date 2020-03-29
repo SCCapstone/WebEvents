@@ -8,6 +8,17 @@ import FileDownloader from "../components/FileDownload";
 
 import "../CSS/DataPanel.css";
 
+
+/**
+ * 
+ * NOTE: Datapanel.js is now retired, all functionalities is now refactored to the specific views
+ * In this case, home.js
+ * 
+ * Lam Nguyen
+ * 
+ * 
+ */
+
 class DataPanel extends React.Component {
     render() {
         return (

@@ -15,8 +15,13 @@ import FileDownloader from "../components/FileDownload";
 
 
 import "../CSS/Home.css";
+import "../CSS/DataPanel.css";
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
+import SheetJSApp from "../components/sheet";
+import RequestServer from "../components/RequestServer";
+import FileUpload from "../components/FileUpload";
+import FileDownloader from "../components/FileDownload";
 
 
 // This is our parent class ot our component/*.js
@@ -63,6 +68,33 @@ class home extends Component {
             />
         )
     }
+
+    renderDataPanel() {
+        return (
+            <div id="DataPanel-Container">
+                <div id="Excel-Container">
+                    <div id="padded-text">
+                        <h1>Excel Files Input</h1>
+                        <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
+                        <SheetJSApp />
+                        <RequestServer />
+                    </div>
+                </div>
+
+                <div id="ical-Container">
+                    <div id="padded-text">
+                        <h1>ICal Files Input</h1>
+                        <p>File extensions supported: .ical</p>
+                        <br/>
+                        <FileUpload />
+                        <br/>
+                        <FileDownloader />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return(
             <div className="App">
@@ -91,7 +123,7 @@ class home extends Component {
                     </div>
                     <div id="MainBody-Center">
                         <div id="padded-container-center">
-                            <DataPanel/>
+                            {this.renderDataPanel()}
                         </div>
                     </div>
                     <div id="MainBody-Right">
