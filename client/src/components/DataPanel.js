@@ -8,7 +8,7 @@ import FileDownloader from "../components/FileDownload";
 
 import "../CSS/DataPanel.css";
 
-class DataPanel extends Component {
+class DataPanel extends React.Component {
     render() {
         return (
         <div id="DataPanel-Container">

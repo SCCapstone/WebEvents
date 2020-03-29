@@ -22,9 +22,29 @@ class home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          navbarClass: "home"
+          navbarClass: "home",
+
+          //Used by SchedulerType
+          scheduleType: null, // default value, needs to be reset or readjusted
+
+          //Used by ScheduleOption
+          groupSize: null, // default value, needs to be reset or readjusted
         }
       }
+    
+    // Method used to handle ScheduleType Selection
+    handleTypeSelect(x) {
+        const types = this.state.scheduleType.slice();
+        types = x;
+        this.setState({scheduleType: types})
+    }
+
+    // Method used to handle scheduleOption Group size selection
+    handleGroupSizeSelect(x) {
+        const size = this.state.groupSize.slice();
+        size = x;
+        this.setState({groupSize: size})
+    }
 
     render() {
         return(
@@ -37,7 +57,7 @@ class home extends Component {
                             <h5>Type Selection Panel</h5>
                             <br/>
                             <div>
-                                <SchedulerType/>
+                                <SchedulerType onClick={() => this.handleTypeSelect(x)}/>
                             </div>
                         </div>
                         <div id="padded-container-left-option">
@@ -45,7 +65,7 @@ class home extends Component {
                             <h5>Option Selection Panel</h5>
                             <br/>
                             <div>
-                                <SchedulerOption/>
+                                <SchedulerOption onClick={() => this.handleGroupSizeSelect(x)}/>
                             </div>
                         </div>
                     </div>
