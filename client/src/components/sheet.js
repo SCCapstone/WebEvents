@@ -50,7 +50,7 @@ class SheetJSApp extends React.Component {
         else 
             reader.readAsArrayBuffer(file);
     };
-    
+
     exportFile() {
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
@@ -62,21 +62,24 @@ class SheetJSApp extends React.Component {
 
     render() {
         return (
-            <DragDropFile handleFile={this.handleFile}>
-                <div className="col-xs-1">
-                    <DataInput handleFile={this.handleFile} />
-                </div>
-                <br/>
-                <div>
-                    <button id="upload-button" onClick={this.handleUpload}>
-                        1. Process Uploaded Excel File
-                    </button>
-                </div>
-                <br/>
-                <div className="col-xs-2">   
-                    <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
-                </div>
-            </DragDropFile>
+            <div class="sheetjs">
+                <p>The groupSize variable from within sheet.js: {this.props.groupSize}</p>
+                <DragDropFile handleFile={this.handleFile}>
+                    <div className="col-xs-1">
+                        <DataInput handleFile={this.handleFile} />
+                    </div>
+                    <br/>
+                    <div>
+                        <button id="upload-button" onClick={this.handleUpload}>
+                            1. Process Uploaded Excel File
+                        </button>
+                    </div>
+                    <br/>
+                    <div className="col-xs-2">   
+                        <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
+                    </div>
+                </DragDropFile>
+            </div>
         );
     };
 };
