@@ -15,7 +15,6 @@ class SheetJSApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            groupsize: 0,
             data: [], /* Array of Arrays e.g. [["a","b"],[1,2]] */
             cols: []  /* Array of column objects e.g. { name: "C", K: 2 } */
         };
@@ -37,9 +36,13 @@ class SheetJSApp extends React.Component {
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
+
             /**
-             *  TODO REFACTOR THIS
+             * Refactoring successful
+             * Lam Nguyen
+             * 2020-03-29 1858
              */
+            
             var groups = Test(data2, this.props.groupSize);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
@@ -56,6 +59,7 @@ class SheetJSApp extends React.Component {
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "results");
+
         /* generate XLSX file and send to client */
         XLSX.writeFile(wb, "results.xlsx")
     };

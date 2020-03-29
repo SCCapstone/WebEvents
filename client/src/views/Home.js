@@ -76,7 +76,7 @@ class home extends Component {
                     <div id="padded-text">
                         <h1>Excel Files Input</h1>
                         <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-                        <SheetJSApp />
+                        <SheetJSApp groupSize = {this.state.groupSize} />
                         <RequestServer />
                     </div>
                 </div>
