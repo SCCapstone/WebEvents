@@ -18,18 +18,58 @@ import "../CSS/Home.css";
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 
+
+// This is our parent class ot our component/*.js
 class home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          navbarClass: "home"
-        }
-      }
+          navbarClass: "home",
 
+          //Used by SchedulerType
+          scheduleType: "null", // default value, needs to be reset or readjusted
+
+          //Used by ScheduleOption
+          groupSize: 0, // default value, needs to be reset or readjusted
+        };
+      }
+    
+    // Method used to handle ScheduleType Selection
+    handleTypeSelect(x) {
+        var types = this.state.scheduleType.slice();
+        types = x;
+        this.setState({scheduleType: types})
+        console.log("The Schedule Type got changed to "+this.state.scheduleType);
+    }
+
+    // Method used to handle scheduleOption Group size selection
+    handleGroupSizeSelect(x) {
+        this.setState({groupSize: x})
+        console.log("The group size got changed to "+this.state.groupSize);
+    }
+
+    renderScheduleType() {
+        return (
+            <SchedulerType 
+                onClick = {(x) => this.handleTypeSelect(x)}
+            />
+        )
+    }
+
+    renderScheduleOptions() {
+        return (
+            <SchedulerOption 
+                onClick = {(x) => this.handleGroupSizeSelect(x)}
+            />
+        )
+    }
     render() {
         return(
-
             <div className="App">
+                <h1>Debug Area</h1>
+                1. Schedule Type {this.state.scheduleType} <br/>
+                2. Group Size {this.state.groupSize}
+
                 <div id="MainBody">
                     <div id="MainBody-Left">
                         <div id="padded-container-left-type">
@@ -37,7 +77,7 @@ class home extends Component {
                             <h5>Type Selection Panel</h5>
                             <br/>
                             <div>
-                                <SchedulerType/>
+                                {this.renderScheduleType()}
                             </div>
                         </div>
                         <div id="padded-container-left-option">
@@ -45,7 +85,7 @@ class home extends Component {
                             <h5>Option Selection Panel</h5>
                             <br/>
                             <div>
-                                <SchedulerOption/>
+                                {this.renderScheduleOptions()}
                             </div>
                         </div>
                     </div>

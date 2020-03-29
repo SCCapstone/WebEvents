@@ -7,7 +7,6 @@ import seminarScheduler from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 //import SchedulerOptions from "./SchedulerOptions";
 
-//var options = this.props.SchedulerOptions.groupsize;
 //console.log("OPTIONS IS: " + options);
 var whatever;
 console.log(whatever);
@@ -26,12 +25,10 @@ class SheetJSApp extends React.Component {
 
     getSize = () => {
         this.setState({ groupsize: this.props.name })
-        //return this.groupsize;
-        console.log(this.state.groupsize);
         return;
     }
 
-    whatever2 = this.props.name;
+    
     handleFile(file/*:File*/,whatever2) {
         /* Boilerplate to set up FileReader */
         const reader = new FileReader();
@@ -46,11 +43,19 @@ class SheetJSApp extends React.Component {
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
-            whatever2 = this.props.name;
+
+            /**
+             *  TODO REFACTOR THIS
+             */
+
+
+            // whatever2 = this.props.name;
+
+
+
             console.log(whatever2);
             //console.log(data2);
             //var options = this.getSize();
-            //var options = this.groupsize;
            // console.log(options);
            // console.log("GROOP SIZE IS: "+options);
             var groups = Test(data2, whatever2);
@@ -74,7 +79,7 @@ class SheetJSApp extends React.Component {
        render() {
         return (
             <DragDropFile handleFile={this.handleFile}>
-                { whatever = this.props.name /* this.getSize(this.props.name)   */          /*this.getSize({ groupsize: this.props.name })*/}
+                { whatever = this.props.name }
                 {/*console.log(this.props.name)*/}
                 <div className="col-xs-1">
                 <DataInput handleFile={this.handleFile} />

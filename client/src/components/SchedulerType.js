@@ -14,28 +14,10 @@ class SchedulerType extends React.Component {
         this.state = {
             type: "",     
         };
-        console.log("here");
         //this.type = this.setType.bind(this);
         //change
         
     }
-    
-    setType1 = () => {
-       // this.setState(state => ({ type: "seminar"}));
-        this.setState({type: "seminar"});
-       // console.log(this.state.type)
-    }
-    setType2 = () => {
-        // this.setState(state => ({ type: "seminar"}));
-         this.setState({type: "field"});
-        // console.log(this.state.type)
-     }
-     setType3 = () => {
-        // this.setState(state => ({ type: "seminar"}));
-         this.setState({type: "work"});
-        // console.log(this.state.type)
-     }
-    
 
     render() {
 
@@ -52,11 +34,11 @@ class SchedulerType extends React.Component {
                     key={direction}
                 >
                     
-                    <Dropdown.Item onClick = {this.setType1}>Seminar Scheduler </Dropdown.Item>
+                    <Dropdown.Item onClick = {() => this.props.onClick("seminar")}>Seminar Scheduler </Dropdown.Item>
                     
-                    <Dropdown.Item onClick= {this.setType2}>Field Scheduler</Dropdown.Item>
+                    <Dropdown.Item onClick = {() => this.props.onClick("field")}>Field Scheduler</Dropdown.Item>
                     
-                    <Dropdown.Item onClick={this.setType3}>Work Scheduler</Dropdown.Item>
+                    <Dropdown.Item onClick = {() => this.props.onClick("work")}>Work Scheduler</Dropdown.Item>
                     {console.log(this.state.type)}
                     </DropdownButton>
                 ))} 
