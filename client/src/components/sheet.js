@@ -42,7 +42,7 @@ class SheetJSApp extends React.Component {
              * Lam Nguyen
              * 2020-03-29 1858
              */
-            
+
             var groups = Test(data2, this.props.groupSize);
             const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
@@ -67,7 +67,6 @@ class SheetJSApp extends React.Component {
     render() {
         return (
             <div class="sheetjs">
-                <p>The groupSize variable from within sheet.js: {this.props.groupSize}</p>
                 <DragDropFile handleFile={this.handleFile}>
                     <div className="col-xs-1">
                         <DataInput handleFile={this.handleFile} />

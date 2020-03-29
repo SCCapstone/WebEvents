@@ -78,8 +78,13 @@ class SchedulerOptions extends React.Component{
                 {this.state.groupsize}
 
 
-                { /* TODO refactor this */}
-                <SheetJSApp name={this.state.groupsize} />
+                { /*
+                Refactoring Successful 
+                Lam Nguyen
+                2020-03-29 1858
+                Removed the following line creating the secondary upload
+                */}
+                
             </div>
             
         );
