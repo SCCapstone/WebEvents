@@ -22,7 +22,7 @@ class SheetJSApp extends React.Component {
         this.exportFile = this.exportFile.bind(this);
     };
     
-    handleFile(file/*:File*/,whatever2) {
+    handleFile() {
         /* Boilerplate to set up FileReader */
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
@@ -48,11 +48,21 @@ class SheetJSApp extends React.Component {
             /* Update state */
             this.setState({ data: groups });
         };
-        if (rABS) 
-            reader.readAsBinaryString(file); 
-        else 
-            reader.readAsArrayBuffer(file);
+        if(this.props.uploadFile != null) {
+            if (rABS) 
+                reader.readAsBinaryString(this.props.uploadFile); 
+            else 
+                reader.readAsArrayBuffer(this.props.uploadFile);
+        } else {
+            console.log("ERROR 1084: Upload File is NULL!");
+        }
     };
+    
+    // Method used by the first button to process file
+    manualProcessFile(){
+        this.props.processFile(this.props.uploadFile);
+        this.handleFile();
+    }
 
     exportFile() {
         /* convert state to workbook */
@@ -67,13 +77,19 @@ class SheetJSApp extends React.Component {
     render() {
         return (
             <div class="sheetjs">
-                <DragDropFile handleFile={this.handleFile}>
+                <DragDropFile 
+                        handleFile={this.handleFile}
+                        processFile={this.props.processFile}
+                >
                     <div className="col-xs-1">
-                        <DataInput handleFile={this.handleFile} />
+                        <DataInput 
+                            handleFile={this.handleFile} 
+                            processFile={this.props.processFile}
+                        />
                     </div>
                     <br/>
                     <div>
-                        <button id="upload-button" onClick={this.handleUpload}>
+                        <button id="upload-button" onClick={() => this.manualProcessFile()}>
                             1. Process Uploaded Excel File
                         </button>
                     </div>
@@ -87,34 +103,35 @@ class SheetJSApp extends React.Component {
     };
 };
 
-/** TAKEN OUT OF RETURN ABOVE
- *  3/01/2020
- *  Lam Nguyen
- * 
-<div className="row2"><div className="col-xs-3">
-                    <OutTable data={this.state.data} cols={this.state.cols} />
-                </div></div>
-
-*/
-//if (typeof module !== 'undefined') module.exports = SheetJSApp
-
-/* -------------------------------------------------------------------------- */
 
 /*
   Simple HTML5 file drag-and-drop wrapper
   usage: <DragDropFile handleFile={handleFile}>...</DragDropFile>
     handleFile(file:File):void;
 */
+
 class DragDropFile extends React.Component {
     constructor(props) {
         super(props);
         this.onDrop = this.onDrop.bind(this);
     };
-    suppress(evt) { evt.stopPropagation(); evt.preventDefault(); };
+
+    suppress(evt) { 
+        evt.stopPropagation(); 
+        evt.preventDefault(); 
+    };
+
     onDrop(evt) {
-        evt.stopPropagation(); evt.preventDefault();
+        evt.stopPropagation(); 
+        evt.preventDefault();
         const files = evt.dataTransfer.files;
-        if (files && files[0]) this.props.handleFile(files[0]);
+
+        // Used in refactorization of code
+        if (files && files[0]) {
+            this.props.processFile(files[0]);
+        } else {
+            this.props.processFile(files);
+        }
     };
     render() {
         return (
@@ -137,8 +154,11 @@ class DataInput extends React.Component {
     };
     handleChange(e) {
         const files = e.target.files;
-        if (files && files[0]) 
-            this.props.handleFile(files[0]);
+        if (files && files[0]) {
+            this.props.processFile(files[0]);
+        } else {
+            this.props.processFile(files);
+        }
     };
     render() {
         return (

@@ -31,11 +31,14 @@ class home extends Component {
         this.state = {
           navbarClass: "home",
 
-          //Used by SchedulerType
+          //Used by SchedulerTypes
           scheduleType: "null", // default value, needs to be reset or readjusted
 
-          //Used by ScheduleOption
+          //Used by ScheduleOptions
           groupSize: 0, // default value, needs to be reset or readjusted
+
+          //Used by SheetJSApp
+          uploadFile: null,
         };
       }
     
@@ -49,8 +52,32 @@ class home extends Component {
 
     // Method used to handle scheduleOption Group size selection
     handleGroupSizeSelect(x) {
-        this.setState({groupSize: x})
+        this.setState({groupSize: x});
         console.log("The group size got changed to "+this.state.groupSize);
+    }
+
+    // Method used by sheetjs
+    processFile(file) {
+
+        //To Remove
+        if (file == null) {
+            console.log("The file in processFile is null");
+        } else {
+            console.log("The file in processFile is OK.")
+        }
+
+        console.log("processFile(file): Attempted process file");
+        var currFile = this.state.uploadFile;
+
+        currFile = file;
+        this.setState({uploadFile: currFile});
+
+        // To Remove
+        if (this.state.uploadFile == null) {
+            console.log("The uploadFile in processFile is null");
+        } else {
+            console.log("The uploadFile in processFile is OK.")
+        }
     }
 
     renderScheduleType() {
@@ -69,6 +96,7 @@ class home extends Component {
         )
     }
 
+
     renderDataPanel() {
         return (
             <div id="DataPanel-Container">
@@ -76,7 +104,11 @@ class home extends Component {
                     <div id="padded-text">
                         <h1>Excel Files Input</h1>
                         <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-                        <SheetJSApp groupSize = {this.state.groupSize} />
+                        <SheetJSApp 
+                            groupSize = {this.state.groupSize}
+                            uploadFile = {this.state.processFile}
+                            processFile = {(file) => this.processFile(file)}
+                        />
                         <RequestServer />
                     </div>
                 </div>
