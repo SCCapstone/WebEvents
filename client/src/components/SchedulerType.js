@@ -35,9 +35,7 @@ class SchedulerType extends React.Component {
                     >
                         
                         <Dropdown.Item onClick = {() => this.props.onClick("seminar")}>Seminar Scheduler </Dropdown.Item>
-                        
                         <Dropdown.Item onClick = {() => this.props.onClick("field")}>Field Scheduler</Dropdown.Item>
-                        
                         <Dropdown.Item onClick = {() => this.props.onClick("work")}>Work Scheduler</Dropdown.Item>
                         {console.log(this.state.type)}
                         </DropdownButton>
