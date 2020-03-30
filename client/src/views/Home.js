@@ -130,6 +130,12 @@ class home extends Component {
                     1. Schedule Type {this.state.scheduleType} <br/>
                     2. Group Size {this.state.groupSize} 
                 */}
+
+                
+
+
+
+                {/* retired, old version of the home page
                 <div id="MainBody">
                     <div id="MainBody-Left">
                         <div id="padded-container-left-type">
@@ -173,6 +179,7 @@ class home extends Component {
                         </div>
                     </div>
                 </div>
+                */}
             </div>
 
         );
