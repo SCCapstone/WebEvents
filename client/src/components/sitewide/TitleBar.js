@@ -4,7 +4,33 @@ import Navigation from './NavigationBar';
 
 class TitleBar extends Component {
   render() {
+    /**
+     * Titlebar v2
+     * Lam Nguyen
+     * 2020-03-29
+     */
     return (
+        <div class="header">
+            <div class="inner-header">
+                <div class="logo-container">
+                    <a href="home"><h1>Web<span> Events Scheduling </span></h1></a>
+                </div>
+
+                <ul class="basic-navigation">
+                    <a href="home"><li>Home</li></a>
+                    <a href="about"><li>About us</li></a>
+                    <a href="contact"><li>Contact us</li></a>
+                </ul>
+            </div>
+        </div>
+    );
+
+    /**
+     * Retiring Titlebar v1
+     * Lam Nguyen
+     * 2020-03-29
+     * 
+     * return (
     <div>
         <div id="TopBar">
             <div id="TopBar-Logo">
@@ -26,7 +52,9 @@ class TitleBar extends Component {
         <Navigation />
     </div>
     );
+    */
   }
+  
 }
 
 export default TitleBar;
