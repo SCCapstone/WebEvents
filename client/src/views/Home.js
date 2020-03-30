@@ -103,6 +103,14 @@ class home extends Component {
                     </div>
                 </div> 
 
+
+
+
+                {/* Retired iCal container
+                    This scheduler seems to be specifically excel sheets only
+                    Lam Nguyen
+                    2020-03-29
+
                 <div id="ical-Container">
                     <div id="padded-text">
                         <h1>ICal Files Input</h1>
@@ -113,6 +121,7 @@ class home extends Component {
                         <FileDownloader />
                     </div>
                 </div>
+                */}
             </div>
         );
     }
@@ -132,21 +141,25 @@ class home extends Component {
                 */}
 
                 <div className="main-body">
-                    {/* this is referenced by ScheduleTypes */}
-                    <h5>Type Selection Panel</h5>
-                    <br/>
-                    <div>
-                        {this.renderScheduleType()}
-                    </div>
-                
-                    {/* This is referenced by ScheduleOptions */}
-                    <h5>Option Selection Panel</h5>
-                    <br/>
-                    <div>
-                        {this.renderScheduleOptions()}
-                    </div>
+                    <div className="inner-main-body">
+                        {/* this is referenced by ScheduleTypes */}
+                        <div>
+                            <h5>Type Selection Panel</h5>
+                            {this.renderScheduleType()}
+                        </div>
 
-                    
+                        {/* This is referenced by ScheduleOptions */}
+                        <div>
+                            <h5>Option Selection Panel</h5>
+                            {this.renderScheduleOptions()}
+                        </div>
+
+                        {/* This is for the excel file input*/}
+                        <div>
+                            <h5>Web Based Scheduler</h5>
+                            {this.renderDataPanel()}
+                        </div>
+                    </div>
                 </div>
 
                 {/* retired, old version of the home page

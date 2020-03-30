@@ -34,13 +34,13 @@ img {
 
 .main-body {
     display: block;
-    float: right;
+    text-align: center;
 }
 
 .inner-main-body {
     width: 1000px;
     height: 100%;
-    display: block;
+    display: inline-block;
     margin: 0 auto;
     background-color: white;
     text-align: center;
