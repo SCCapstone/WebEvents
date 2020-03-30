@@ -13,6 +13,7 @@ import FileDownloader from "../components/FileDownload";
 */
 
 
+import "../CSS/App.css";
 import "../CSS/Home.css";
 import "../CSS/DataPanel.css";
 import SchedulerType from "../components/SchedulerType.js";
@@ -100,7 +101,7 @@ class home extends Component {
             <div id="DataPanel-Container">
                 <div id="Excel-Container">
                     <div id="padded-text">
-                        <h1>Excel Files Input</h1>
+                        <h1>Upload your Spreadsheet</h1>
                         <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
                         <SheetJSApp 
                             groupSize = {this.state.groupSize}
@@ -147,18 +148,21 @@ class home extends Component {
                     1. Schedule Type {this.state.scheduleType} <br/>
                     2. Group Size {this.state.groupSize} 
                 */}
-
+                <br/>
                 <div className="main-body">
                     <div className="inner-main-body">
                         {/* this is referenced by ScheduleTypes */}
+                        <div className="">
+
+                        </div>
                         <div>
-                            <h2>Select the type of scheduler</h2>
+                            <h1>Select the type of scheduler</h1>
                             {this.renderScheduleType()}
                         </div>
 
                         {/* This is referenced by ScheduleOptions */}
                         <div>
-                            <h2>Select your group size and duplicity</h2>
+                            <h1>Select your group size and duplicity</h1>
                             {this.renderScheduleOptions()}
                         </div>
 

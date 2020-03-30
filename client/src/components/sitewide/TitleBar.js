@@ -19,9 +19,11 @@ class TitleBar extends Component {
                 <ul class="basic-navigation">
                     <a href="home"><li>Home</li></a>
                     <a href="about"><li>About us</li></a>
+                    <a href="instructions"><li>Instructions</li></a>
                     <a href="contact"><li>Contact us</li></a>
                 </ul>
             </div>
+            <div className="redLine" />
         </div>
     );
 

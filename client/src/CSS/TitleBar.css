@@ -3,6 +3,7 @@
     height: 80px;
     display: block;
     background-color: #101010;
+    overflow: hidden;
 }
 .inner-header {
     width: 1000px;
@@ -60,6 +61,11 @@
     font-size: 16px;
 }
 
+.redLine {
+    height: 50px;
+    width: 100%;
+    background-color: red;
+}
 /*  Retired Titlebar v1
     Lam Nguyen
     2020-03-29

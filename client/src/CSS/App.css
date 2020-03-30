@@ -33,8 +33,10 @@ img {
 */
 
 .main-body {
+    margin: 20px 0;
     display: block;
     text-align: center;
+    min-height: 1000px;
 }
 
 .inner-main-body {
