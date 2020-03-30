@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
- 
+import "../CSS/App.css";
+import "../CSS/Home.css";
+
 class Instructions extends Component {
     constructor(props) {
         super(props)

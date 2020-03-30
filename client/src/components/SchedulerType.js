@@ -4,9 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
-
+import "../CSS/scheduleTypeAndOptions.css";
 
 class SchedulerType extends React.Component {
     constructor(props){
@@ -17,34 +16,32 @@ class SchedulerType extends React.Component {
         //this.type = this.setType.bind(this);
         //change
         
-    }
+    } 
 
     render() {
 
         //options dropdown-button
         return(
-        // Adjusts button to fall at right-handside, if no space on right falls left
-            <ButtonToolbar>
-                {['right'].map(direction => (
-                <DropdownButton
-                    drop={direction}
-                    variant="secondary"
-                    title={` Scheduler Type `}
-                    id={`dropdown-button-drop-${direction}`}
-                    key={direction}
-                >
-                    
-                    <Dropdown.Item onClick = {() => this.props.onClick("seminar")}>Seminar Scheduler </Dropdown.Item>
-                    
-                    <Dropdown.Item onClick = {() => this.props.onClick("field")}>Field Scheduler</Dropdown.Item>
-                    
-                    <Dropdown.Item onClick = {() => this.props.onClick("work")}>Work Scheduler</Dropdown.Item>
-                    {console.log(this.state.type)}
-                    </DropdownButton>
-                ))} 
-                
-            </ButtonToolbar>
-            
+            <div className="schedulerTypeCont">
+                <div className="scheduleTypeBar">
+                    {['right'].map(direction => (
+                    <DropdownButton
+                        drop={direction}
+                        variant="secondary"
+                        title={` Scheduler Type `}
+                        id={`dropdown-button-drop-${direction}`}
+                        key={direction}
+                    >
+                        
+                        <Dropdown.Item onClick = {() => this.props.onClick("seminar")}>Seminar Scheduler </Dropdown.Item>
+                        <Dropdown.Item onClick = {() => this.props.onClick("field")}>Field Scheduler</Dropdown.Item>
+                        <Dropdown.Item onClick = {() => this.props.onClick("work")}>Work Scheduler</Dropdown.Item>
+                        {console.log(this.state.type)}
+                        </DropdownButton>
+                    ))} 
+                    <h5>Selected Schedule Type: {this.props.schedulerType}</h5>
+                </div>
+            </div>
         );
              
        // console.log(this.props.type);

@@ -3,8 +3,8 @@ import React from "react";
 
 import SheetJSApp from "../sheet";
 import RequestServer from "../RequestServer";
-import FileUpload from "../FileUpload";
-import FileDownloader from "../FileDownload";
+import FileUpload from "./FileUpload";
+import FileDownloader from "./FileDownload";
 
 import "../CSS/DataPanel.css";
 
