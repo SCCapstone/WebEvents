@@ -4,10 +4,18 @@
     list-style: none;
     text-decoration: none;
 }
+.App {
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
 body {
     padding: 0;
-    margin: 0;
+    margin: 0; 
 }
 
 img {
@@ -35,6 +43,7 @@ img {
     display: block;
     margin: 0 auto;
     background-color: white;
+    text-align: center;
 }
 
 

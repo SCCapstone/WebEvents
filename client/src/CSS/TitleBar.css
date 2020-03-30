@@ -43,6 +43,7 @@
 .basic-navigation {
     height: 100%;
     float: right;
+    margin-bottom: 0px;
 }
 .basic-navigation a {
     height: 100%;
