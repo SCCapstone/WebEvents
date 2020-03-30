@@ -1,12 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
 
-import SheetJSApp from "../components/sheet";
-import RequestServer from "../components/RequestServer";
-import FileUpload from "../components/FileUpload";
-import FileDownloader from "../components/FileDownload";
+import SheetJSApp from "../sheet";
+import RequestServer from "../RequestServer";
+import FileUpload from "../FileUpload";
+import FileDownloader from "../FileDownload";
 
 import "../CSS/DataPanel.css";
+
+
+/**
+ * 
+ * NOTE: Datapanel.js is now retired, all functionalities is now refactored to the specific views
+ * In this case, home.js
+ * 
+ * Lam Nguyen
+ * 
+ * 
+ */
 
 class DataPanel extends React.Component {
     render() {

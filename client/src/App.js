@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //Home style sheet.
@@ -32,8 +32,8 @@ import About from './views/About';
 import Error from './views/ErrorPage';
 import UserInstructions from "./views/UserInstructions";
 
-import TitleBar from "./components/TitleBar";
-import Footer from "./components/Footer.js";
+import TitleBar from "./components/sitewide/TitleBar";
+import Footer from "./components/sitewide/Footer.js";
 
 // TOOK OUT <OPTIONS /> from under div MainBody-Center
 const App = () => {

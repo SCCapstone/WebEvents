@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DataPanel from "../components/DataPanel";
 
 /** Moved these imports into /component/DataPanel.js
  * 02/29/20
@@ -15,8 +14,13 @@ import FileDownloader from "../components/FileDownload";
 
 
 import "../CSS/Home.css";
+import "../CSS/DataPanel.css";
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
+import SheetJSApp from "../components/sheet";
+import RequestServer from "../components/RequestServer";
+import FileUpload from "../components/FileUpload";
+import FileDownloader from "../components/FileDownload";
 
 
 // This is our parent class ot our component/*.js
@@ -26,11 +30,14 @@ class home extends Component {
         this.state = {
           navbarClass: "home",
 
-          //Used by SchedulerType
+          //Used by SchedulerTypes
           scheduleType: "null", // default value, needs to be reset or readjusted
 
-          //Used by ScheduleOption
+          //Used by ScheduleOptions
           groupSize: 0, // default value, needs to be reset or readjusted
+
+          //Used by SheetJSApp
+          uploadFile: null,
         };
       }
     
@@ -44,8 +51,23 @@ class home extends Component {
 
     // Method used to handle scheduleOption Group size selection
     handleGroupSizeSelect(x) {
-        this.setState({groupSize: x})
+        this.setState({groupSize: x});
         console.log("The group size got changed to "+this.state.groupSize);
+    }
+
+    // Method used by sheetjs
+    processFile(file) {
+
+        //To Remove
+        if (file == null) {
+            console.log("The file in processFile is null");
+        } else {
+            console.log("The file in processFile is OK.")
+        }
+
+        console.log("processFile(file): Attempted process file");
+
+        this.setState({uploadFile: file});
     }
 
     renderScheduleType() {
@@ -63,6 +85,38 @@ class home extends Component {
             />
         )
     }
+
+
+    renderDataPanel() {
+        return (
+            <div id="DataPanel-Container">
+                <div id="Excel-Container">
+                    <div id="padded-text">
+                        <h1>Excel Files Input</h1>
+                        <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
+                        <SheetJSApp 
+                            groupSize = {this.state.groupSize}
+                            uploadFile = {this.state.uploadFile}
+                            processFile = {(file) => this.processFile(file)}
+                        />
+                        <RequestServer />
+                    </div>
+                </div> 
+
+                <div id="ical-Container">
+                    <div id="padded-text">
+                        <h1>ICal Files Input</h1>
+                        <p>File extensions supported: .ical</p>
+                        <br/>
+                        <FileUpload />
+                        <br/>
+                        <FileDownloader />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return(
             <div className="App">
@@ -91,7 +145,7 @@ class home extends Component {
                     </div>
                     <div id="MainBody-Center">
                         <div id="padded-container-center">
-                            <DataPanel/>
+                            {this.renderDataPanel()}
                         </div>
                     </div>
                     <div id="MainBody-Right">

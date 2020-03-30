@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import "../CSS/TitleBar.css";
-import SchedulerType from "./SchedulerType";
-import SchedulerOptions from "./SchedulerOptions";
+import "../../CSS/TitleBar.css";
 import Navigation from './NavigationBar';
 
 class TitleBar extends Component {
