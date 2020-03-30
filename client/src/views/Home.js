@@ -80,6 +80,7 @@ class home extends Component {
         return (
             <SchedulerType 
                 onClick = {(x) => this.handleTypeSelect(x)}
+                scheduleType = {this.state.scheduleType}
             />
         )
     }
@@ -88,6 +89,7 @@ class home extends Component {
         return (
             <SchedulerOption 
                 onClick = {(x) => this.handleGroupSizeSelect(x)}
+                groupSize = {this.state.groupSize}
             />
         )
     }
@@ -150,19 +152,18 @@ class home extends Component {
                     <div className="inner-main-body">
                         {/* this is referenced by ScheduleTypes */}
                         <div>
-                            <h5>Type Selection Panel</h5>
+                            <h2>Select the type of scheduler</h2>
                             {this.renderScheduleType()}
                         </div>
 
                         {/* This is referenced by ScheduleOptions */}
                         <div>
-                            <h5>Option Selection Panel</h5>
+                            <h2>Select your group size and duplicity</h2>
                             {this.renderScheduleOptions()}
                         </div>
 
                         {/* This is for the excel file input*/}
                         <div>
-                            <h5>Web Based Scheduler</h5>
                             {this.renderDataPanel()}
                         </div>
                     </div>

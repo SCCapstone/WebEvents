@@ -13,7 +13,7 @@ class SchedulerOptions extends React.Component{
         this.props.parentCallback("Hey Popsie, How�s it going?");
     };
 
-    //todo
+    //todo 
     //add groupsize 5-12 
     //add duplicants True or False ie checkbox
 
