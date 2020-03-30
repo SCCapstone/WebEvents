@@ -19,8 +19,14 @@ import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
 import RequestServer from "../components/RequestServer";
+
+/** Retired iCal properties
+ * Lam Nguyen
+ * 2020-03-29
+ * 
 import FileUpload from "../components/FileUpload";
 import FileDownloader from "../components/FileDownload";
+*/
 
 
 // This is our parent class ot our component/*.js
