@@ -131,9 +131,23 @@ class home extends Component {
                     2. Group Size {this.state.groupSize} 
                 */}
 
+                <div className="main-body">
+                    {/* this is referenced by ScheduleTypes */}
+                    <h5>Type Selection Panel</h5>
+                    <br/>
+                    <div>
+                        {this.renderScheduleType()}
+                    </div>
                 
+                    {/* This is referenced by ScheduleOptions */}
+                    <h5>Option Selection Panel</h5>
+                    <br/>
+                    <div>
+                        {this.renderScheduleOptions()}
+                    </div>
 
-
+                    
+                </div>
 
                 {/* retired, old version of the home page
                 <div id="MainBody">
