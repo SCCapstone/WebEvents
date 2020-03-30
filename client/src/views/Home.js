@@ -96,12 +96,12 @@ class home extends Component {
                         <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
                         <SheetJSApp 
                             groupSize = {this.state.groupSize}
-                            uploadFile = {this.state.processFile}
+                            uploadFile = {this.state.uploadFile}
                             processFile = {(file) => this.processFile(file)}
                         />
                         <RequestServer />
                     </div>
-                </div>
+                </div> 
 
                 <div id="ical-Container">
                     <div id="padded-text">

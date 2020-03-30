@@ -26,7 +26,13 @@ class SheetJSApp extends React.Component {
     handleFile() {
         /* Boilerplate to set up FileReader */
 
-        // Testing Global File Refactor
+
+        /**
+         * Testing file global refactor successful
+         * The upload file is now successfully integrated into the website as is.
+         * Lam Nguyen
+         * 2020-03-29
+         */
         var file = this.props.uploadFile;
 
         const reader = new FileReader();
@@ -39,7 +45,7 @@ class SheetJSApp extends React.Component {
             const wsname = wb.SheetNames[0];
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
-            //const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+            const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
 
             /**

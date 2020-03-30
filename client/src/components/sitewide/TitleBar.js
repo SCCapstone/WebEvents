@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../CSS/TitleBar.css";
+import "../../CSS/TitleBar.css";
 import Navigation from './NavigationBar';
 
 class TitleBar extends Component {
