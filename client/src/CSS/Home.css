@@ -38,3 +38,10 @@
 .object-fit_cover {
     object-fit: cover;
 }
+
+.Instructions {
+    width: 800px;
+    height: 100%;
+    text-align: center;
+    margin: auto;
+}

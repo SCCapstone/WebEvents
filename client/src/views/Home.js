@@ -151,10 +151,21 @@ class home extends Component {
                 <br/>
                 <div className="main-body">
                     <div className="inner-main-body">
-                        {/* this is referenced by ScheduleTypes */}
-                        <div className="">
-
+                        <div className="Instructions">
+                            <h1>Quick Instructions</h1>
+                            <p>
+                                To use this application, follow the steps below:<br/><br/>
+                                1. The file must be in the correct format of First name- 
+                                Last name- preferences for all of the people<br/><br/>
+                                2. You must select the the scheduling type that you want to use<br/><br/>
+                                3. After you select the type, you have to select the specific 
+                                options for that type<br/><br/>
+                                4. Finally, you will upload your file, and click the export file to 
+                                download the finished schedule.<br/><br/>
+                            </p>
                         </div>
+                        {/* this is referenced by ScheduleTypes */}
+                        
                         <div>
                             <h1>Select the type of scheduler</h1>
                             {this.renderScheduleType()}
