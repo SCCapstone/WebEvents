@@ -125,11 +125,11 @@ class home extends Component {
                         src="homepageBanner.jpg" 
                         alt="home-major-image-1"/>
                 </div>
-                <div>
+                {/*
                     <h1>Debug Area</h1>
                     1. Schedule Type {this.state.scheduleType} <br/>
                     2. Group Size {this.state.groupSize} 
-                </div>
+                */}
                 <div id="MainBody">
                     <div id="MainBody-Left">
                         <div id="padded-container-left-type">

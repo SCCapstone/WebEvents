@@ -16,14 +16,14 @@
         * Make it segmented and centralized.
 */
 #MainBody {
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: space-evenly;
     height:80vh;
     background-color: silver;
 }
 #MainBody-Left {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: flex-start;
 
@@ -32,7 +32,7 @@
     border: solid silver;
 }
 #MainBody-Center {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: flex-start;
     background-color: silver;
@@ -44,7 +44,7 @@
 }
 
 #MainBody-Right {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: flex-start;
 
