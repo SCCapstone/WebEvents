@@ -38,10 +38,10 @@ class home extends Component {
           navbarClass: "home",
 
           //Used by SchedulerTypes
-          scheduleType: "null", // default value, needs to be reset or readjusted
+          scheduleType: "field", // default value, needs to be reset or readjusted
 
           //Used by ScheduleOptions
-          groupSize: 0, // default value, needs to be reset or readjusted
+          groupSize: 3, // default value, needs to be reset or readjusted
 
           //Used by SheetJSApp
           uploadFile: null,
@@ -81,7 +81,7 @@ class home extends Component {
         return (
             <SchedulerType 
                 onClick = {(x) => this.handleTypeSelect(x)}
-                scheduleType = {this.state.scheduleType}
+                schedulerType = {this.state.scheduleType}
             />
         )
     }

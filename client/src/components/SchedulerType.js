@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 import "../CSS/scheduleTypeAndOptions.css";
 
@@ -23,8 +22,8 @@ class SchedulerType extends React.Component {
 
         //options dropdown-button
         return(
-            <div className="scheduleTypeBar">
-                <ButtonToolbar>
+            <div className="schedulerTypeCont">
+                <div className="scheduleTypeBar">
                     {['right'].map(direction => (
                     <DropdownButton
                         drop={direction}
@@ -40,8 +39,8 @@ class SchedulerType extends React.Component {
                         {console.log(this.state.type)}
                         </DropdownButton>
                     ))} 
-                </ButtonToolbar>
-                <h1>test text</h1>
+                    <h5>Selected Schedule Type: {this.props.schedulerType}</h5>
+                </div>
             </div>
         );
              
