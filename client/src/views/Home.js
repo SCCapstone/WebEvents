@@ -120,10 +120,16 @@ class home extends Component {
     render() {
         return(
             <div className="App">
-                <h1>Debug Area</h1>
-                1. Schedule Type {this.state.scheduleType} <br/>
-                2. Group Size {this.state.groupSize}
-
+                <div class="intro-banner img-cont">
+                    <img class="object-fit_cover" 
+                        src="homepageBanner.jpg" 
+                        alt="home-major-image-1"/>
+                </div>
+                <div>
+                    <h1>Debug Area</h1>
+                    1. Schedule Type {this.state.scheduleType} <br/>
+                    2. Group Size {this.state.groupSize} 
+                </div>
                 <div id="MainBody">
                     <div id="MainBody-Left">
                         <div id="padded-container-left-type">
