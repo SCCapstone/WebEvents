@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import SchedulerType from "./SchedulerType";
+import React from "react";
 import Form from 'react-bootstrap/Form';
 //import Checkbox from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import SheetJSApp from "./sheet.js";
 
 
 

@@ -1,6 +1,4 @@
 //schedule a single team at a field, at various times. Each team will be assigned a single time
-import React from "react";
-import XLSX from "xlsx";
 function fieldscheduler(props)
 {
     var spreadsheet = [];
@@ -10,7 +8,7 @@ function fieldscheduler(props)
     var hasGroup = [];
     var dateTaken = [];
     var finalDate = [];
-    var dates = [];
+    //var dates = [];
     var cursor = 0;
     var finalGroups = [];
     var prefLimit = 1;
@@ -55,7 +53,7 @@ function fieldscheduler(props)
             //sum += dates[column][row];
             
             console.log("Pref value is: " + spreadsheet[row][column]);
-            if (spreadsheet[row][column] <= prefLimit && hasGroup[row] == false &&  dateTaken[column] == false)
+            if (spreadsheet[row][column] <= prefLimit && hasGroup[row] === false &&  dateTaken[column] === false)
             {
                 dateTaken[column] = true;
                 hasGroup[row] = true;

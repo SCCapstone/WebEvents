@@ -3,9 +3,10 @@ import XLSX from "xlsx";
 import "../CSS/sheet.css";
 import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
+/* not used
 import seminarScheduler from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
-//import SchedulerOptions from "./SchedulerOptions";
+*/
 
 //console.log("OPTIONS IS: " + options);
 var whatever;
@@ -34,7 +35,7 @@ class SheetJSApp extends React.Component {
             const wsname = wb.SheetNames[0];
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
-            const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+            //const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
 
             /**
@@ -44,7 +45,7 @@ class SheetJSApp extends React.Component {
              */
 
             var groups = Test(data2, this.props.groupSize);
-            const wsd = XLSX.utils.aoa_to_sheet(groups);
+            //const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             this.setState({ data: groups });
         };
@@ -154,27 +155,34 @@ class DataInput extends React.Component {
     };
     handleChange(e) {
         const files = e.target.files;
-        if (files && files[0]) {
+        if (files && files[0])
             this.props.processFile(files[0]);
-        } else {
-            this.props.processFile(files);
-        }
     };
+
     render() {
         return (
             <input type="file" className="form-control" accept={SheetJSFT} onChange={this.handleChange} />
         );
-    };
+    }
 }
 
-/*
-  Simple HTML Table
-  usage: <OutTable data={data} cols={cols} />
-    data:Array<Array<any> >;
-    cols:Array<{name:string, key:number|string}>;
-*/
+
+
+/* Out Table is now retired, no use for now
+    Lam Nguyen
+    2020-03-19
+
+    
+    Simple HTML Table
+    usage: <OutTable data={data} cols={cols} />
+        data:Array<Array<any> >;
+        cols:Array<{name:string, key:number|string}>;
+    
+
 class OutTable extends React.Component {
-    constructor(props) { super(props); };
+    constructor(props) { 
+        super(props); 
+    };
     render() {
         return (
             <div className="table-responsive">
@@ -192,16 +200,25 @@ class OutTable extends React.Component {
         );
     };
 };
+*/
 
 /* list of supported file types */
 const SheetJSFT = [
     "xlsx", "xlsb", "xlsm", "xls", "xml", "csv", "txt", "ods", "fods", "uos", "sylk", "dif", "dbf", "prn", "qpw", "123", "wb*", "wq*", "html", "htm"
 ].map(function (x) { return "." + x; }).join(",");
 
-/* generate an array of column objects */
+
+/** not used 
+ * retired as of now
+ * Lam Nguyen
+ * 2020-03-29
+ * 
+     generate an array of column objects 
 const make_cols = refstr => {
     let o = [], C = XLSX.utils.decode_range(refstr).e.c + 1;
     for (var i = 0; i < C; ++i) o[i] = { name: XLSX.utils.encode_col(i), key: i }
     return o;
 };
+*/
+
 export default SheetJSApp;

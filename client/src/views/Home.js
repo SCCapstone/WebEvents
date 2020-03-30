@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DataPanel from "../components/DataPanel";
 
 /** Moved these imports into /component/DataPanel.js
  * 02/29/20
@@ -67,17 +66,8 @@ class home extends Component {
         }
 
         console.log("processFile(file): Attempted process file");
-        var currFile = this.state.uploadFile;
 
-        currFile = file;
-        this.setState({uploadFile: currFile});
-
-        // To Remove
-        if (this.state.uploadFile == null) {
-            console.log("The uploadFile in processFile is null");
-        } else {
-            console.log("The uploadFile in processFile is OK.")
-        }
+        this.setState({uploadFile: file});
     }
 
     renderScheduleType() {
