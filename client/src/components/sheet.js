@@ -25,6 +25,10 @@ class SheetJSApp extends React.Component {
     
     handleFile() {
         /* Boilerplate to set up FileReader */
+
+        // Testing Global File Refactor
+        var file = this.props.uploadFile;
+
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
         reader.onload = (e) => {
@@ -51,9 +55,9 @@ class SheetJSApp extends React.Component {
         };
         if(this.props.uploadFile != null) {
             if (rABS) 
-                reader.readAsBinaryString(this.props.uploadFile); 
+                reader.readAsBinaryString(file); 
             else 
-                reader.readAsArrayBuffer(this.props.uploadFile);
+                reader.readAsArrayBuffer(file);
         } else {
             console.log("ERROR 1084: Upload File is NULL!");
         }
