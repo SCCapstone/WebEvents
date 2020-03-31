@@ -1,7 +1,5 @@
 .form-group {
     text-align: center;
-    padding: 0px;
-    font-weight: 800;
     /* Removing borders in the child items
         02/29/20
         Lam Nguyen
@@ -24,7 +22,7 @@
 }
 
 .button {
-    text-align: center;
+    /* text-align: center; */
     padding: 0px;
     /* Removing borders from Child elements
         02/29/20
@@ -50,4 +48,26 @@
 
 .DataInput{
     border: solid;
+}
+
+#col-xs-2 {
+    margin-left: 10px;
+}
+#upload-button {
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: #5555FF;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
 }
