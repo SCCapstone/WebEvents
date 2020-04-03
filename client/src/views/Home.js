@@ -100,10 +100,11 @@ class home extends Component {
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
             <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-            <SheetJSApp
-              groupSize={this.state.groupSize}
-              uploadFile={this.state.uploadFile}
-              processFile={file => this.processFile(file)}
+                    <SheetJSApp
+                        groupSize={this.state.groupSize}
+                        uploadFile={this.state.uploadFile}
+                        processFile={file => this.processFile(file)}
+                        scheduleType={this.state.scheduleType}          
             />
             <TemplateDownload scheduleType={this.state.scheduleType} />
             <RequestServer />
