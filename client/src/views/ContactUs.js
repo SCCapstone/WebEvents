@@ -18,7 +18,7 @@ class ContactUs extends Component {
                   <div id="padded-container-center">
                   <h1>Contact Us</h1>
                      <p>
-                        Contact us page
+                        If you have any issues, contact us at webevents490@gmail.com and we will respond as soon as possible
                      </p>
                      <div className="column-padding"></div>
                   </div>
