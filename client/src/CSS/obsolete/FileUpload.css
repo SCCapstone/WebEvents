@@ -1,0 +1,62 @@
+.box {
+
+    /* THERE SHOULD NOT BE BORDERS IN THE CHILD ITEMS
+        02/29/20
+        Lam Nguyen
+    
+    border-bottom: solid;
+    border-right: solid;
+    border-left: solid; */
+}
+#upload-button {
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: #5555FF;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: blue;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-success.disabled, .btn-success:disabled {
+    color: #fff;
+    background-color: blue;
+    border-color: blue;
+}
+
+.btn.disabled, .btn:disabled {
+    opacity: .65;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: blue;
+    border-color: blue;
+}

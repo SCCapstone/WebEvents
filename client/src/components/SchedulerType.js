@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 //import "./CSS/Options.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
-
+import "../CSS/scheduleTypeAndOptions.css";
 
 class SchedulerType extends React.Component {
     constructor(props){
@@ -14,58 +13,35 @@ class SchedulerType extends React.Component {
         this.state = {
             type: "",     
         };
-        console.log("here");
         //this.type = this.setType.bind(this);
         //change
         
-    }
-    
-    setType1 = () => {
-       // this.setState(state => ({ type: "seminar"}));
-        this.setState({type: "seminar"});
-       // console.log(this.state.type)
-    }
-    setType2 = () => {
-        // this.setState(state => ({ type: "seminar"}));
-         this.setState({type: "field"});
-        // console.log(this.state.type)
-     }
-     setType3 = () => {
-        // this.setState(state => ({ type: "seminar"}));
-         this.setState({type: "work"});
-        // console.log(this.state.type)
-     }
-    
+    } 
 
     render() {
 
-        
-       
-        
         //options dropdown-button
         return(
-        // Adjusts button to fall at right-handside, if no space on right falls left
-            <ButtonToolbar>
-                {['right'].map(direction => (
-                <DropdownButton
-                    drop={direction}
-                    variant="secondary"
-                    title={` Drop ${direction} `}
-                    id={`dropdown-button-drop-${direction}`}
-                    key={direction}
-                >
-                    
-                    <Dropdown.Item onClick = {this.setType1}>Seminar Scheduler </Dropdown.Item>
-                    
-                    <Dropdown.Item onClick= {this.setType2}>Field Scheduler</Dropdown.Item>
-                    
-                    <Dropdown.Item onClick={this.setType3}>Work Scheduler</Dropdown.Item>
-                    {console.log(this.state.type)}
-                    </DropdownButton>
-                ))} 
-                
-            </ButtonToolbar>
-            
+            <div className="schedulerTypeCont">
+                <div className="scheduleTypeBar">
+                    {['right'].map(direction => (
+                    <DropdownButton
+                        drop={direction}
+                        variant="secondary"
+                        title={` Scheduler Type `}
+                        id={`dropdown-button-drop-${direction}`}
+                        key={direction}
+                    >
+                        
+                        <Dropdown.Item onClick = {() => this.props.onClick("seminar")}>Seminar Scheduler </Dropdown.Item>
+                        <Dropdown.Item onClick = {() => this.props.onClick("field")}>Field Scheduler</Dropdown.Item>
+                        <Dropdown.Item onClick = {() => this.props.onClick("work")}>Work Scheduler</Dropdown.Item>
+                        {console.log(this.state.type)}
+                        </DropdownButton>
+                    ))} 
+                    <h5>Selected Schedule Type: {this.props.schedulerType}</h5>
+                </div>
+            </div>
         );
              
        // console.log(this.props.type);
