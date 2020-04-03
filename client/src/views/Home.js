@@ -218,6 +218,7 @@ class home extends Component {
                     <div id="MainBody-Right">
                         <div id="padded-container-right-instructions">
                             <div id="instructions-text">
+
                                 <br/>
                                 <h1>Instructions</h1>
                                 <p>
@@ -229,6 +230,7 @@ class home extends Component {
                                     options for that type<br/><br/>
                                     4. Finally, you will upload your file, and click the export file to 
                                     download the finished schedule.<br/><br/>
+
                                 </p>
                             </div>
                         </div>

@@ -16,10 +16,12 @@ class About extends Component {
             <div id="MainBody-Left"></div>
                <div id="MainBody-Center">
                   <div id="padded-container-center">
+
                   <h1>About US</h1>
                      <p>
 
                           We are a group of five seniors at the University of South Carolina. 
+
 
                         We have created an app that will provide an optimal schedule of event attendees based on their mutual
                         preferences for dates and times. The app user would be the event organizer. Our app will have a web-page
