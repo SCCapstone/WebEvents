@@ -1,34 +1,32 @@
-import React from "react";
-import XLSX from "xlsx";
-import _ from 'lodash';
-
 var hasBeenPromoted = [];
 var datesBool = [];
-var maxPerGroup = 3; //this is number of people per group
+//var maxPerGroup = 3; //this is number of people per group
 
 //This can return a key based on the value that you want (keys are the dates, values are the preference number)
 Object.prototype.getKey = function (value) {
     for (var key in this) {
-        if (this[key] == value) {
+        if (this[key] === value) {
             return key;
         }
     }
     return null;
 };
 
-function swap(json) { //swap function, doesn't work properly 
+/** unused, turned off
+function swap(json) { //swap function, doesn't work properly
     var ret = {};
     for (var key in json) {
         ret[json[key]] = key;
     }
     return ret;
 }
+*/
 
 //empty arrays for testing purposes
 var dates = []; //2D array, each row will represent a person
-var firstperson = [];
+//var firstperson = [];
 var keys = [];
-var personVals = [];
+//var personVals = [];
 var vals = [];
 
 function findDate(keys,sumArray,boolArray,dates,names)
@@ -38,12 +36,12 @@ function findDate(keys,sumArray,boolArray,dates,names)
     var lowestSumDate;
     var arrayPosition;
     var datePosition;
-   // boolArray = [];
+    // boolArray = [];
     lowestSum = sumArray[0];
     lowestSumDate = keys[2];
     for (var i = 0; i < keys.length; i++)
     {
-        if (sumArray[i] < lowestSum && boolArray[i] != true)
+        if (sumArray[i] < lowestSum && boolArray[i] !== true)
         {
             lowestSum = sumArray[i];
             lowestSumDate = keys[i + 2];
@@ -63,7 +61,7 @@ function removeDate(array,boolArray)
     var dateToRemove;
     for (var i = 0; i < array.length; i++)
     {
-        if (boolArray[i] == true)
+        if (boolArray[i] === true)
         {
             dateToRemove = i + 2;
             //console.log("Date at: " + dateToRemove + " needs to be removed");
@@ -76,13 +74,13 @@ function promoteOption(keys,boolArray,dates,names)
    // var hasBeenPromoted = [];
     for (var i = 2; i < keys.length; i++)
     {
-        if (boolArray[i-2] == true) //bool is offset from the keys array by 2
+        if (boolArray[i-2] === true) //bool is offset from the keys array by 2
         {
             //console.log("BOOL IS TRUE");
             //console.log("Date at: " + dateToRemove + " needs to be removed");
             for (var j = 0; j < dates.length; j++)
             {
-                if (dates[j][i] < 900 && hasBeenPromoted[i] != true)
+                if (dates[j][i] < 900 && hasBeenPromoted[i] !== true)
                 {
                    // console.log("I is: "+i);
                     hasBeenPromoted[i] = true;
@@ -106,7 +104,7 @@ function promoteOption(keys,boolArray,dates,names)
     }
 }
 
-function Test(props) {
+function Test(props,size) {
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
@@ -170,9 +168,10 @@ function Test(props) {
     var hasGroup = []; //this is a bool array that indicates if each person is already in a group
     var counter = 0; //this will be used to count how many people are in each group
     var cursor = 0; //will be used to control placement into array
-    var numOfPeople = 0;
+    //var numOfPeople = 0;
     var names = []; //array of everyones names for reference
     var preference = 1;
+    var sumRange = 10;
     for (var h = 0; h < dates.length; h++)
     {
         names[h] = dates[h][0]+" "+dates[h][1];
@@ -180,7 +179,7 @@ function Test(props) {
         hasGroup[h] = false;
     }
 
-  /*  findDate(keys, sumArr, datesBool, dates, names);
+    /*  findDate(keys, sumArr, datesBool, dates, names);
     console.log("1-----------------");
     findDate(keys, sumArr, datesBool, dates, names);
     console.log("2-----------------");
@@ -197,20 +196,21 @@ function Test(props) {
     //console.log(dates.length);
 
     findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    findDate(keys, sumArr, datesBool, dates, names);
-    while (numOfGroups < 4) {
+
+   // while (numOfGroups < 3) {
         console.log("NUM OF GROUPS IS: " + numOfGroups);
-        for (var row = 0; row < dates.length; row++) {
+        for (var row = 0; row < names.length; row++) {
             //console.log(dates[row][0]);
             //console.log(names[row]);
-            for (var column = 2; column < dates.length; column++) {
+            for (var column = 2; column < keys.length; column++) {
                 pointer++;
+                findDate(keys, sumArr, datesBool, dates, names);
                 // groups[row] = [];
                 //sum += dates[column][row];
-                if (dates[row][column] <= preference && hasGroup[row] == false) {
-                    // console.log("Lead of group is: " + names[row]);
+                console.log("values is: " + dates[row][column]);
+                console.log(preference);
+                if (dates[row][column] <= preference  && hasGroup[row] === false) {
+                     console.log("Lead of group is: " + names[row]);
                     // console.log("Date is: " + dates[0][column]);
                     // groups[1] = names[row];
                     // hasGroup[row] = true;
@@ -218,21 +218,22 @@ function Test(props) {
                     //var other = row + 1;
                     for (var other = 0; other < dates.length; other++) {
                         //  console.log(other);
-                        if (dates[other][column] <= preference && other !== row && counter <= 4 && hasGroup[other] == false) //person has similar preference, group isn't too big, and they don't already have a group
+                        if (dates[other][column] <= preference && other !== row && counter <= 4 && hasGroup[other] === false) //person has similar preference, group isn't too big, and they don't already have a group
                         {
                             //sets first name as first index of array, dates as second
                             groups[0] = keys[column];
                             groups[1] = names[row];
-                            // console.log("There is a match with: " + dates[other][0]);
+                             console.log("There is a match with: " + dates[other][0]);
                             //hasGroup[other] = true;
                             groups[counter + 2] = names[other];      //starts to set other name into array
-                            // console.log(groups);
+                            console.log(groups);
                             sum = sum + dates[other][column];
-                            if (counter == 0 && sum < 20 || (column == dates.length && other == dates.length)) //if group is full
+
+                            if ((counter === size-3 && sum < sumRange && preference > names.length / 2) || (column === dates.length && other === dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
-                                        if (groups[k] == names[l]) {
+                                        if (groups[k] === names[l]) {
                                             //   console.log("Person is: " + names[l]); //checks if name is in group, makes true if so
                                             hasGroup[l] = true;
                                         }
@@ -240,7 +241,31 @@ function Test(props) {
                                 }
                                 console.log("Pushing array");
                                 finalGroups[cursor] = groups; //push it into final array
-                                // console.log(finalGroups[cursor]);
+                                console.log(finalGroups[cursor]);
+                                groups = [];
+                                cursor++;
+                                counter = 0;
+                                // preference = 1;
+                                sum = 0;
+                                console.log("ADDING TO NUM OF GROOPS");
+                                numOfGroups++;
+                                console.log("NEW NUM OF GROOPS IS:" + numOfGroups);
+                                break;
+                            }
+
+                            if ((counter === size-2 && sum < sumRange) || (column === dates.length && other === dates.length)) //if group is full
+                            {
+                                for (var kj = 0; kj < dates.length; kj++) {
+                                    for (var lj = 0; lj < dates.length; lj++) {
+                                        if (groups[kj] === names[lj]) {
+                                            //   console.log("Person is: " + names[l]); //checks if name is in group, makes true if so
+                                            hasGroup[lj] = true;
+                                        }
+                                    }
+                                }
+                                console.log("Pushing array");
+                                finalGroups[cursor] = groups; //push it into final array
+                                console.log(finalGroups[cursor]);
                                 groups = [];
                                 cursor++;
                                 counter = 0;
@@ -264,17 +289,19 @@ function Test(props) {
             }
             sum = 0;
             preference++;
+            sumRange++;
             console.log("PREF IS: " + preference);
         }
-    }
-    var num;
+    //}
+    console.log(hasGroup);
+    //var num;
     groups[0] = "No group"
-    for (var k = 0; k < names.length; k++)
+    for (var kjj = 0; kjj < names.length; kjj++)
     {
-        if (hasGroup[k] == false)
+        if (hasGroup[kjj] === false)
         {
            // console.log(names[k]);
-            groups.push(names[k]);
+            groups.push(names[kjj]);
         }
     }
     //console.log(groups);
