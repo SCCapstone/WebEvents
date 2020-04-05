@@ -57,10 +57,15 @@ class Footer extends Component {
             </li>
           </div>
           <div class="footer-third">
+            <h1>Links</h1>
             <li>
-              <h1>
                 <a href="https://github.com/SCCapstone/WebEvents">Our Github</a>
-              </h1>
+            </li><br/>
+            <li>
+                <a href="https://github.com/SCCapstone/WebEvents/wiki">Visit our Wiki</a>
+            </li>
+            <li>
+                <a href="https://github.com/SCCapstone/WebEvents/wiki/Legal-Issues">Legal Issues</a>
             </li>
           </div>
         </div>
