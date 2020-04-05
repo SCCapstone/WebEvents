@@ -13,7 +13,14 @@ class Instructions extends Component {
     render() {
         return (
             <div id="MainBody">
-            <div id="MainBody-Left"></div>
+              <div class="intro-banner img-cont">
+          <img
+            class="object-fit_cover"
+            src="homepageBanner.jpg"
+            alt="home-major-image-1"
+          />
+        </div>
+            
                <div id="MainBody-Center">
                   <div id="padded-container-center">
 
