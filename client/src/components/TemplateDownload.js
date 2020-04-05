@@ -38,10 +38,10 @@ class TemplateDownload extends React.Component {
   render() {
     return (
       //download
-      <div>
-      <button className="template-button" onClick={this.downloadTemplateFile}>
-        Download {this.props.scheduleType} Template File
-      </button>
+      <div className="template-cont">
+        <button id="template-button" onClick={this.downloadTemplateFile}>
+          Download {this.props.scheduleType} Template File
+        </button>
       </div>
     );
   }
