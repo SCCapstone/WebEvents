@@ -64,19 +64,19 @@ app.get("/express_backend", (req, res) => {
 
 app.get("/seminar", function(req, res) {
   console.log("user downloading: ");
-  const file = "WebEvents/server/public/SchedulingAppTestFile.csv";
+  const file = "../server/public/SchedulingAppTestFile.csv";
   res.download(file);
   //res.sendFile = "WebEvents/server/public/SchedulingAppTestFile.csv";
 });
 app.get("/field", function(req, res) {
   console.log("user downloading: ");
-  const file = "WebEvents/server/public/SchedulingAppTestFile.csv";
+  const file = "../server/public/SchedulingAppTestFile.csv";
   res.download(file);
   //res.sendFile = "WebEvents/server/public/SchedulingAppTestFile.csv";
 });
 app.get("/work", function(req, res) {
   console.log("user downloading: ");
-  const file = "WebEvents/server/public/SchedulingAppTestFile.csv";
+  const file = "../server/public/SchedulingAppTestFile.csv";
   res.download(file);
   //res.sendFile = "WebEvents/server/public/SchedulingAppTestFile.csv";
 });

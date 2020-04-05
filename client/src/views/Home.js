@@ -100,10 +100,11 @@ class home extends Component {
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
             <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-            <SheetJSApp
-              groupSize={this.state.groupSize}
-              uploadFile={this.state.uploadFile}
-              processFile={file => this.processFile(file)}
+                    <SheetJSApp
+                        groupSize={this.state.groupSize}
+                        uploadFile={this.state.uploadFile}
+                        processFile={file => this.processFile(file)}
+                        scheduleType={this.state.scheduleType}          
             />
             <TemplateDownload scheduleType={this.state.scheduleType} />
             <RequestServer />
@@ -217,6 +218,7 @@ class home extends Component {
                     <div id="MainBody-Right">
                         <div id="padded-container-right-instructions">
                             <div id="instructions-text">
+
                                 <br/>
                                 <h1>Instructions</h1>
                                 <p>
@@ -228,6 +230,7 @@ class home extends Component {
                                     options for that type<br/><br/>
                                     4. Finally, you will upload your file, and click the export file to 
                                     download the finished schedule.<br/><br/>
+
                                 </p>
                             </div>
                         </div>
