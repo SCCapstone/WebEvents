@@ -216,7 +216,7 @@ function Test(props,size) {
                     // hasGroup[row] = true;
                     //console.log(dates[row][0] + " prefers " + keys[column]);
                     //var other = row + 1;
-                    for (var other = 0; other < dates.length; other++) {
+                    for (var other = 0; other < names.length; other++) {
                         //  console.log(other);
                         if (dates[other][column] <= preference && other !== row && counter <= 4 && hasGroup[other] === false) //person has similar preference, group isn't too big, and they don't already have a group
                         {
@@ -296,16 +296,73 @@ function Test(props,size) {
     console.log(hasGroup);
     //var num;
     groups[0] = "No group"
-    for (var kjj = 0; kjj < names.length; kjj++)
+    //cursor = 2;
+    var newcount = 2;
+    var groupsize = 1;
+    console.log(size - 3);
+    for (var kjj = 0; kjj < names.length; kjj++) //find people who do not have a group, and brute force them into a smaller group that works
     {
         if (hasGroup[kjj] === false)
         {
-           // console.log(names[k]);
-            groups.push(names[kjj]);
+            console.log(names[kjj]);
+            for (var newcol = 2; newcol < keys.length; newcol++)
+            {
+                if (dates[kjj][newcol] < 15) {
+                    console.log(keys[newcol]);
+                    console.log(dates[kjj][newcol]);
+                    groups[0] = keys[kjj];
+                    groups[1] = names[kjj];
+                    for (var newrow = 0; newrow < names.length; newrow++)
+                    {
+                        if (dates[newrow][newcol] <= 15 && newrow !== kjj && hasGroup[newrow] === false && groupsize < (size-2))
+                        {
+                            groupsize++;
+                            newcount++;
+                            groups[0] = keys[newcol];
+                            groups[1] = names[kjj];
+                            console.log("There is a match with: " + dates[newrow][0]);
+                            //hasGroup[other] = true;
+                            console.log("PUSHING" + names[newrow]);
+                            groups[newcount] = names[newrow];      //starts to set other name into array
+                            console.log(groups);
+                            console.log(size-2);
+                            console.log(groupsize);
+                            if (groupsize >= (size-2))
+                            {
+                                console.log("ADFADFAFDADFAFAF");
+                                finalGroups[cursor] = groups;
+                                console.log("FINAL GROUPS ARE" + finalGroups);
+
+                                for (var k = 0; k < dates.length; k++) {
+                                    for (var l = 0; l < dates.length; l++) {
+                                        if (groups[k] === names[l]) {
+                                            //   console.log("Person is: " + names[l]); //checks if name is in group, makes true if so
+                                            hasGroup[l] = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                groupsize = 1;
+                groups = [];
+            }
+            //groups.push(names[kjj]);
+        }
+    }
+    console.log(groups);
+    finalGroups[cursor + 1] = groups;
+
+    groups[0] = "No group";
+    for (var o = 0; o < names.length; o++) {
+        if (hasGroup[o] === false) {
+            // console.log(names[k]);
+            groups.push(names[o]);
         }
     }
     //console.log(groups);
-    finalGroups[cursor+1] = groups;
+   // finalGroups[cursor + 2] = groups;
     //yep
     return finalGroups;
 };
