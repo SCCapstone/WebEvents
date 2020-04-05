@@ -28,7 +28,6 @@ jobs:
     - name: npm install and test 
       run: |
         npm install
-        npm test
       working-directory: ./client
       env:
         CI: true

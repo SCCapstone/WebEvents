@@ -3,6 +3,7 @@ import XLSX from "xlsx";
 import "../CSS/sheet.css";
 import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
+import fieldscheduler from "./fieldschedule.js";
 /* not used
 import seminarScheduler from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
@@ -10,7 +11,6 @@ import fieldscheduler from "./fieldschedule.js";
 
 //console.log("OPTIONS IS: " + options);
 var whatever;
-console.log(whatever);
 
 class SheetJSApp extends React.Component {
     constructor(props) {
@@ -35,6 +35,7 @@ class SheetJSApp extends React.Component {
          */
         var file = this.props.uploadFile;
 
+
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
         reader.onload = (e) => {
@@ -53,8 +54,23 @@ class SheetJSApp extends React.Component {
              * Lam Nguyen
              * 2020-03-29 1858
              */
-
-            var groups = Test(data2, this.props.groupSize);
+            
+            console.log(this.props.scheduleType);
+            console.log(this.props.groupSize);
+            if (this.props.scheduleType == "seminar") {
+                console.log("seminar scheduler");
+                var groups = Test(data2, this.props.groupSize);
+            }
+            else if (this.props.scheduleType == "field") {
+                console.log("field scheduler")
+                var groups = fieldscheduler(data2);
+            }
+           else if (this.props.scheduleType == "work")
+            {
+                console.log("work scheduler");
+                var groups = Test(data2, this.props.groupSize);
+            }
+            //var groups = fieldscheduler(data2);
             //const wsd = XLSX.utils.aoa_to_sheet(groups);
             /* Update state */
             this.setState({ data: groups });
