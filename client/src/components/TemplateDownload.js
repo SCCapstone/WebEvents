@@ -1,4 +1,7 @@
 import React from "react";
+import "../CSS/sheet.css";
+import "../CSS/DataPanel.css";
+
 /**
  * this class for grabbing templated files
  * from the backend server. The downloaded
@@ -35,9 +38,11 @@ class TemplateDownload extends React.Component {
   render() {
     return (
       //download
-      <button className="tmpltDown" onClick={this.downloadTemplateFile}>
-        Download Template File
+      <div>
+      <button className="template-button" onClick={this.downloadTemplateFile}>
+        Download {this.props.scheduleType} Template File
       </button>
+      </div>
     );
   }
 }
