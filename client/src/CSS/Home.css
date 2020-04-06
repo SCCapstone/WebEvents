@@ -45,3 +45,17 @@
     text-align: center;
     margin: auto;
 }
+
+.links {
+    font-size: 30px;
+}
+.contactUs {
+    text-align: center;
+}
+.MainBody-inner {
+    width: 60vw;
+    margin: auto;
+}
+.center {
+    text-align: center;
+}

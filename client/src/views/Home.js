@@ -92,7 +92,14 @@ class home extends Component {
       />
     );
   }
-
+  renderSchedulerTemplate() {
+    return (
+      <div>
+        <TemplateDownload scheduleType={this.state.scheduleType} />
+        <RequestServer />
+      </div>
+    ); 
+  }
   renderDataPanel() {
     return (
       <div id="DataPanel-Container">
@@ -100,14 +107,12 @@ class home extends Component {
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
             <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-                    <SheetJSApp
-                        groupSize={this.state.groupSize}
-                        uploadFile={this.state.uploadFile}
-                        processFile={file => this.processFile(file)}
-                        scheduleType={this.state.scheduleType}          
+            <SheetJSApp
+                groupSize={this.state.groupSize}
+                uploadFile={this.state.uploadFile}
+                processFile={file => this.processFile(file)}
+                scheduleType={this.state.scheduleType}          
             />
-            <TemplateDownload scheduleType={this.state.scheduleType} />
-            <RequestServer />
           </div>
         </div>
 
@@ -183,6 +188,12 @@ class home extends Component {
             <div>
               <h1>Select your group size and duplicity</h1>
               {this.renderScheduleOptions()}
+            </div>
+
+            {/* This is for the template downloads*/}
+            <div>
+              <h1>Need a scheduler template?</h1>
+              {this.renderSchedulerTemplate()}
             </div>
 
             {/* This is for the excel file input*/}

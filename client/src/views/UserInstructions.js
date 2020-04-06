@@ -13,8 +13,15 @@ class Instructions extends Component {
     render() {
         return (
             <div id="MainBody">
-            <div id="MainBody-Left"></div>
-               <div id="MainBody-Center">
+              <div class="intro-banner img-cont">
+                <img
+                  class="object-fit_cover"
+                  src="homepageBanner.jpg"
+                  alt="home-major-image-1"
+                />
+              </div>
+            
+               <div class="MainBody-inner">
                   <div id="padded-container-center">
 
                   <h1>Instructions how to use Web Events</h1>
