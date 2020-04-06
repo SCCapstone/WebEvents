@@ -92,7 +92,14 @@ class home extends Component {
       />
     );
   }
-
+  renderSchedulerTemplate() {
+    return (
+      <div>
+        <TemplateDownload scheduleType={this.state.scheduleType} />
+        <RequestServer />
+      </div>
+    ); 
+  }
   renderDataPanel() {
     return (
       <div id="DataPanel-Container">
@@ -100,14 +107,12 @@ class home extends Component {
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
             <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
-                    <SheetJSApp
-                        groupSize={this.state.groupSize}
-                        uploadFile={this.state.uploadFile}
-                        processFile={file => this.processFile(file)}
-                        scheduleType={this.state.scheduleType}          
+            <SheetJSApp
+                groupSize={this.state.groupSize}
+                uploadFile={this.state.uploadFile}
+                processFile={file => this.processFile(file)}
+                scheduleType={this.state.scheduleType}          
             />
-            <TemplateDownload scheduleType={this.state.scheduleType} />
-            <RequestServer />
           </div>
         </div>
 
@@ -185,6 +190,12 @@ class home extends Component {
               {this.renderScheduleOptions()}
             </div>
 
+            {/* This is for the template downloads*/}
+            <div>
+              <h1>Need a scheduler template?</h1>
+              {this.renderSchedulerTemplate()}
+            </div>
+
             {/* This is for the excel file input*/}
             <div>{this.renderDataPanel()}</div>
           </div>
@@ -218,6 +229,7 @@ class home extends Component {
                     <div id="MainBody-Right">
                         <div id="padded-container-right-instructions">
                             <div id="instructions-text">
+
                                 <br/>
                                 <h1>Instructions</h1>
                                 <p>
@@ -229,6 +241,7 @@ class home extends Component {
                                     options for that type<br/><br/>
                                     4. Finally, you will upload your file, and click the export file to 
                                     download the finished schedule.<br/><br/>
+
                                 </p>
                             </div>
                         </div>

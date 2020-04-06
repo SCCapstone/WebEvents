@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-server was set up using medium guide:
+server was set up using medium guide: 
 https://medium.com/@maison.moa/setting-up-an-express-backend-server-for-create-react-app-bc7620b20a61
 
 and file upload guided by:
@@ -11,13 +11,13 @@ https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-
 
  ### TO RUN THE APPLICATION
  
- After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run npm start, and the application should start in your local host. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:3000/. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the export button to run the algorithm on it. The only current working option is the group size option. The odd part is that the Excel file input in the center of the screen is not the part that acutally works. You must upload it at the upload at the bottom left part of the screen. This will be fixed for RC1. The scheduler type option does not work either, so you cannot actually test the field scheduling algorithm, but what it does is assign a single team to a field at an individual time.
+ After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run npm start, and the application should start in your local host. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the export button to run the algorithm on it. The only current working option is the group size option. The odd part is that the Excel file input in the center of the screen is not the part that acutally works. You must upload it at the upload at the bottom left part of the screen. This will be fixed for RC1. The scheduler type option does not work either, so you cannot actually test the field scheduling algorithm, but what it does is assign a single team to a field at an individual time.
  
 the client server file structure is:
 WebEvents (whole app)
     Client(all react frontend stuff there)
         -npm install
-        -npm start
+        -sudo npm start
         -npm test
     Server(all backend stuff)
         -npm install
