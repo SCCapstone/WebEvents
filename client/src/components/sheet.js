@@ -4,6 +4,7 @@ import "../CSS/sheet.css";
 import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
+import workschedule from "./workschedule.js";
 /* not used
 import seminarScheduler from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
@@ -68,7 +69,7 @@ class SheetJSApp extends React.Component {
            else if (this.props.scheduleType == "work")
             {
                 console.log("work scheduler");
-                var groups = Test(data2, this.props.groupSize);
+                var groups = workschedule(data2);
             }
             //var groups = fieldscheduler(data2);
             //const wsd = XLSX.utils.aoa_to_sheet(groups);
