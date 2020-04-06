@@ -77,7 +77,7 @@ function workschedule(props) {
     //fill the shift that are empty 
     for (c = 1; c < keys.length; c++)
     {
-        for (r = 1; r < workweek; r++)
+        for (r = 1; r < workweek.length; r++)
         {
             if (shiftfull[c] != true && shiftworked[r] < maxshifts)
             {
