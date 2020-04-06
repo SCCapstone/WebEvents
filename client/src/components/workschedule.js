@@ -21,7 +21,7 @@ function workschedule(props) {
     var index = 0;
     var pref = 1;
 
-    keys = Object.keys(prop[1]);
+    keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
     for (var i = 0; i < props.length; i++)
     {
@@ -36,7 +36,7 @@ function workschedule(props) {
 
     for (var l = 0; l < workweek.length; l++)
     {
-        employee[l] = workweek[h][0];
+        employee[l] = workweek[l][0];
         shift[l] = [];
         shiftworked[l] = 0;
     }
@@ -79,7 +79,7 @@ function workschedule(props) {
     {
         for (r = 1; r < workweek.length; r++)
         {
-            if (shiftfull[c] != true && shiftworked[r] < maxshifts)
+            if (shiftfull[c] != true && shiftworked[r] < maxShifts)
             {
                 shiftworked[r] += 1;
                 counter = counter + 1;
