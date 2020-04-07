@@ -6,6 +6,11 @@
 /.pnp
 .pnp.js
 
+
+# Remove if doesn't work, being doubly redundant on package.json ignore
+**/node_modules
+client/package.json
+
 #removed node modules from being tracked by commits. These should be constantly readjusted each time 'npm install' occurs:
 
 # testing
