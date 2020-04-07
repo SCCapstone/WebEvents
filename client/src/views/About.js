@@ -29,7 +29,6 @@ class About extends Component {
                         Steven Edwards: coordinates with customer, Frontend Support <br/>
                         Justin Greer: Editor, Optimist <br/>
                         Luke Whittle: Editor, Backend Support <br/>
-                        Jesse Estry (Fall Semester): Backend Support, Github Repo. Master <br/>
                         Lam Nguyen (Spring Semester): Visual Support, Editor <br/>
                         <br/>
                </h4>
