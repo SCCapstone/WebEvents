@@ -16,7 +16,7 @@ class Instructions extends Component {
               <div class="intro-banner img-cont">
                 <img
                   class="object-fit_cover"
-                  src="homepageBanner.jpg"
+                  src="Banner3.jpg"
                   alt="home-major-image-1"
                 />
               </div>
