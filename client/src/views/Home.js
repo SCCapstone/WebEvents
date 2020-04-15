@@ -106,7 +106,7 @@ class home extends Component {
         <div id="Excel-Container">
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
-            <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
+            <p>File extensions supported: .csv, .xls, .xlsx, .xlsm, .xltx, xltm</p>
             <SheetJSApp
                 groupSize={this.state.groupSize}
                 uploadFile={this.state.uploadFile}
