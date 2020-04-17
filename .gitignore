@@ -6,6 +6,7 @@
 /.pnp
 .pnp.js
 
+
 # Remove if doesn't work, being doubly redundant on package.json ignore
 **/node_modules
 client/package.json

@@ -1,61 +1,72 @@
 #instructions-text {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    text-align: justify;
-
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align: justify;
 }
 #center-mid {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 /* Imported from neXtInstitute */
 .intro-banner {
-    height: 100%;
-    width: 100%;
-    color: red;
+  height: 100%;
+  width: 100%;
+  color: red;
 }
 
 .intro-banner.img-cont {
-    float: left;
-    width: 100%;
-    height: auto;
-    &:nth-child(2n) {
-      clear: left;
-    }
-    &:nth-child(2n+1) {
-      margin-right: 0;
-    }
-}
-.intro-banner.img-cont img{
-    height: 400px;
-    background-color: #444;
+  float: left;
+  width: 100%;
+  height: auto;
+  &:nth-child(2n) {
+    clear: left;
   }
-  
+  &:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+}
+.intro-banner.img-cont img {
+  height: 400px;
+  background-color: #444;
+}
+
 .intro-banner.img-cont img[class] {
-    width: 100%;
+  width: 100%;
 }
 
 .object-fit_cover {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .Instructions {
-    width: 800px;
-    height: 100%;
-    text-align: center;
-    margin: auto;
+  width: 800px;
+  height: 100%;
+  text-align: center;
+  margin: auto;
 }
 
 .links {
-    font-size: 30px;
+  font-size: 30px;
 }
 .contactUs {
-    text-align: center;
+  text-align: center;
 }
 .MainBody-inner {
-    width: 60vw;
-    margin: auto;
+  width: 60vw;
+  margin: auto;
 }
 .center {
-    text-align: center;
+  text-align: center;
+}
+
+ul {
+  list-style: upper-alpha;
+}
+ol {
+  list-style: lower-alpha;
+}
+li {
+  list-style: decimal;
+  text-align: center;
+  list-style-position: inside;
 }
