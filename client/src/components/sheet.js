@@ -123,7 +123,6 @@ class SheetJSApp extends React.Component {
   usage: <DragDropFile handleFile={handleFile}>...</DragDropFile>
     handleFile(file:File):void;
 */
-
 class DragDropFile extends React.Component {
     constructor(props) {
         super(props);
