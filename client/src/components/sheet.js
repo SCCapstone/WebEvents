@@ -36,17 +36,15 @@ class SheetJSApp extends React.Component {
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
             
-            console.log(this.props.scheduleType);
-            console.log(this.props.groupSize);
-            if (this.props.scheduleType == "seminar") {
+            if (this.props.scheduleType === "seminar") {
                 console.log("seminar scheduler");
                 var groups = Test(data2, this.props.groupSize);
             }
-            else if (this.props.scheduleType == "field") {
+            else if (this.props.scheduleType === "field") {
                 console.log("field scheduler")
                 var groups = fieldscheduler(data2);
             }
-           else if (this.props.scheduleType == "work")
+           else if (this.props.scheduleType === "work")
             {
                 console.log("work scheduler");
                 var groups = workschedule(data2);
@@ -65,13 +63,12 @@ class SheetJSApp extends React.Component {
         }
     };
     
-    // Method used by the first button to process file
-    manualProcessFile(){
-        this.props.processFile(this.props.uploadFile);
-        this.handleFile();
-    }
 
     exportFile() {
+        // Process File 
+        this.props.processFile(this.props.uploadFile);
+        this.handleFile();
+
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
         const wb = XLSX.utils.book_new();
@@ -79,6 +76,7 @@ class SheetJSApp extends React.Component {
 
         /* generate XLSX file and send to client */
         XLSX.writeFile(wb, "results.xlsx")
+
     };
 
     render() {
@@ -95,14 +93,9 @@ class SheetJSApp extends React.Component {
                         />
                     </div>
                     <br/>
-                    <div>
-                        <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                            1. Process Uploaded Excel File
-                        </button>
-                    </div>
                     <br/>
                     <div className="col-xs-2">   
-                        <button className="btn btn-success" onClick={this.exportFile}>Download Processed Schedule</button>
+                        <button className="btn btn-success" onClick={() => this.exportFile()}>Download Processed Schedule</button>
                     </div>
                 </DragDropFile>
             </div>

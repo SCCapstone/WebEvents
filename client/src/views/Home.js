@@ -65,6 +65,7 @@ class home extends Component {
   processFile(file) {
     //To Remove
     if (file == null) {
+      // TODO Setup popup window and disable button
       console.log("The file in processFile is null");
     } else {
       console.log("The file in processFile is OK.");
@@ -117,23 +118,6 @@ class home extends Component {
             />
           </div>
         </div>
-
-        {/* Retired iCal container
-                    This scheduler seems to be specifically excel sheets only
-                    Lam Nguyen
-                    2020-03-29
-
-                <div id="ical-Container">
-                    <div id="padded-text">
-                        <h1>ICal Files Input</h1>
-                        <p>File extensions supported: .ical</p>
-                        <br/>
-                        <FileUpload />
-                        <br/>
-                        <FileDownloader />
-                    </div>
-                </div>
-                */}
       </div>
     );
   }
