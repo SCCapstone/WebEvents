@@ -12,9 +12,8 @@ import FileUpload from "../components/FileUpload";
 import FileDownloader from "../components/FileDownload";
 */
 
-import "../CSS/App.css";
-import "../CSS/Home.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
+
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";

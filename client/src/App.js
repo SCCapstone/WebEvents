@@ -2,20 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //Home style sheet.
-import "./CSS/App.css";
-
-/** MOVED IMPORTS TO views/Home.js
- * 02/29/20
- * Lam Nguyen
- * 
-import TitleBar from "./TitleBar";
-import SheetJSApp from "./sheet";
-import RequestServer from "./RequestServer";
-import FileUpload from "./FileUpload";
-//import Options from "./Options";
-import FileDownloader from "./FileDownload";
-*/
-
+import "./CSS/webevents-main.css";
 
 /** 
  *  Our Views: Our webpages

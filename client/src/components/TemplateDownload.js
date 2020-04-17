@@ -1,6 +1,6 @@
 import React from "react";
-import "../CSS/sheet.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
+
 
 /**
  * this class for grabbing templated files

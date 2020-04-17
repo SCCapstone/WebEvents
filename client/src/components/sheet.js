@@ -1,7 +1,7 @@
 import React from "react";
 import XLSX from "xlsx";
-import "../CSS/sheet.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
+
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 import workschedule from "./workschedule.js";
@@ -123,7 +123,6 @@ class SheetJSApp extends React.Component {
   usage: <DragDropFile handleFile={handleFile}>...</DragDropFile>
     handleFile(file:File):void;
 */
-
 class DragDropFile extends React.Component {
     constructor(props) {
         super(props);
