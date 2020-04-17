@@ -69,7 +69,7 @@ class home extends Component {
     } else {
       console.log("The file in processFile is OK.");
     }
-
+ 
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });

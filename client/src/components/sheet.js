@@ -5,12 +5,7 @@ import "../CSS/DataPanel.css";
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 import workschedule from "./workschedule.js";
-/* not used
-import seminarScheduler from "./scheduletest.js";
-import fieldscheduler from "./fieldschedule.js";
-*/
 
-//console.log("OPTIONS IS: " + options);
 var whatever;
 
 class SheetJSApp extends React.Component {
@@ -25,17 +20,8 @@ class SheetJSApp extends React.Component {
     };
     
     handleFile() {
-        /* Boilerplate to set up FileReader */
 
-
-        /**
-         * Testing file global refactor successful
-         * The upload file is now successfully integrated into the website as is.
-         * Lam Nguyen
-         * 2020-03-29
-         */
         var file = this.props.uploadFile;
-
 
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
@@ -49,12 +35,6 @@ class SheetJSApp extends React.Component {
             /* Convert array of arrays */
             const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
-
-            /**
-             * Refactoring successful
-             * Lam Nguyen
-             * 2020-03-29 1858
-             */
             
             console.log(this.props.scheduleType);
             console.log(this.props.groupSize);
@@ -71,8 +51,7 @@ class SheetJSApp extends React.Component {
                 console.log("work scheduler");
                 var groups = workschedule(data2);
             }
-            //var groups = fieldscheduler(data2);
-            //const wsd = XLSX.utils.aoa_to_sheet(groups);
+
             /* Update state */
             this.setState({ data: groups });
         };
@@ -123,7 +102,7 @@ class SheetJSApp extends React.Component {
                     </div>
                     <br/>
                     <div className="col-xs-2">   
-                        <button className="btn btn-success" onClick={this.exportFile}>2. Download Excel Output File</button>
+                        <button className="btn btn-success" onClick={this.exportFile}>Download Processed Schedule</button>
                     </div>
                 </DragDropFile>
             </div>
