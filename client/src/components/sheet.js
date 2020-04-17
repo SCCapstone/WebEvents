@@ -62,12 +62,18 @@ class SheetJSApp extends React.Component {
             console.log("ERROR 1084: Upload File is NULL!");
         }
     };
-    
 
-    exportFile() {
-        // Process File 
+    // Method used by the first button to process file
+    manualProcessFile(){
         this.props.processFile(this.props.uploadFile);
         this.handleFile();
+        
+
+        this.props.checkUpload();
+        //this.props.isUploaded = true;
+    }
+
+    exportFile() {
 
         /* convert state to workbook */
         const ws = XLSX.utils.aoa_to_sheet(this.state.data);
@@ -75,8 +81,9 @@ class SheetJSApp extends React.Component {
         XLSX.utils.book_append_sheet(wb, ws, "results");
 
         /* generate XLSX file and send to client */
-        XLSX.writeFile(wb, "results.xlsx")
-
+        if(this.props.isUploaded) {
+            XLSX.writeFile(wb, "results.xlsx")
+        }
     };
 
     render() {
@@ -93,9 +100,16 @@ class SheetJSApp extends React.Component {
                         />
                     </div>
                     <br/>
+                    <div>
+                        <button id="upload-button" onClick={() => this.manualProcessFile()}>
+                            1. Process Uploaded File
+                        </button>
+                    </div>
                     <br/>
                     <div className="col-xs-2">   
-                        <button className="btn btn-success" onClick={() => this.exportFile()}>Download Processed Schedule</button>
+                        <button className="btn btn-success" onClick={() => this.exportFile()}>
+                            2. Download Processed Schedule
+                        </button>
                     </div>
                 </DragDropFile>
             </div>
@@ -165,59 +179,9 @@ class DataInput extends React.Component {
     }
 }
 
-
-
-/* Out Table is now retired, no use for now
-    Lam Nguyen
-    2020-03-19
-
-    
-    Simple HTML Table
-    usage: <OutTable data={data} cols={cols} />
-        data:Array<Array<any> >;
-        cols:Array<{name:string, key:number|string}>;
-    
-
-class OutTable extends React.Component {
-    constructor(props) { 
-        super(props); 
-    };
-    render() {
-        return (
-            <div className="table-responsive">
-                <table className="table table-striped">
-                    <thead>
-                        <tr>{this.props.cols.map((c) => <th key={c.key}>{c.name}</th>)}</tr>
-                    </thead>
-                    <tbody>
-                        {this.props.data.map((r, i) => <tr key={i}>
-                            {this.props.cols.map(c => <td key={c.key}>{r[c.key]}</td>)}
-                        </tr>)}
-                    </tbody>
-                </table>
-            </div>
-        );
-    };
-};
-*/
-
 /* list of supported file types */
 const SheetJSFT = [
     "xlsx", "xlsb", "xlsm", "xls", "xml", "csv", "txt", "ods", "fods", "uos", "sylk", "dif", "dbf", "prn", "qpw", "123", "wb*", "wq*", "html", "htm"
 ].map(function (x) { return "." + x; }).join(",");
-
-
-/** not used 
- * retired as of now
- * Lam Nguyen
- * 2020-03-29
- * 
-     generate an array of column objects 
-const make_cols = refstr => {
-    let o = [], C = XLSX.utils.decode_range(refstr).e.c + 1;
-    for (var i = 0; i < C; ++i) o[i] = { name: XLSX.utils.encode_col(i), key: i }
-    return o;
-};
-*/
 
 export default SheetJSApp;

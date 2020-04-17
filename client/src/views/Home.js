@@ -44,6 +44,8 @@ class home extends Component {
 
       //Used by SheetJSApp
       uploadFile: null,
+
+      isUploaded: false,
     };
   }
 
@@ -74,6 +76,13 @@ class home extends Component {
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });
+  }
+
+
+  checkUpload() {
+    if (this.state.uploadFile != null) {
+      this.state.isUploaded = true;
+    }
   }
 
   renderScheduleType() {
@@ -115,6 +124,8 @@ class home extends Component {
               uploadFile={this.state.uploadFile}
               processFile={(file) => this.processFile(file)}
               scheduleType={this.state.scheduleType}
+              isUploaded={this.state.isUploaded}
+              checkUpload={() => this.checkUpload()}
             />
           </div>
         </div>
