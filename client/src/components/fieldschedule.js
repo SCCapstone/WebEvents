@@ -1,4 +1,45 @@
 //schedule a single team at a field, at various times. Each team will be assigned a single time
+
+function findError(dates, keys, names) {
+    console.log("FINDING ROW WITH NO PREFERENCES");
+    var value = false;
+    for (var row = 1; row < dates.length; row++) {
+        for (var column = 2; column < keys.length; column++) {
+            console.log(dates[row][column]);
+            if (dates[row][column] < 500) {
+                value = true; //this means it has at least one entry
+                break;
+            }
+        }
+        if (value != true) {
+            console.log("AFDAGFAFDAFADFA");
+            console.log("PERSON IS:  " + names[row]);
+        }
+        value = false;
+    }
+}
+
+function findRepeat(dates, keys, names) {
+    var boolArray;
+    console.log("FINDING REPEATS");
+    var value = false;
+    for (var row = 0; row < dates.length; row++) {
+        for (var column = 2; column < keys.length; column++) {
+            for (var other = column + 1; other < dates.length; other++) {
+                if (dates[row][column] == dates[row][other] && dates[row][other] != 999999 && dates[row][column] != 999999) {
+                   // boolArray[row] = true; //means that there is a repeat in this file
+                    console.log("THERE ARE REPEATS with: " + names[row]);
+                    console.log("1st value is: " + dates[row][column]);
+                    console.log("2nd vale is: " + dates[row][other]);
+                }
+            }
+        }
+    }
+    return boolArray;
+}
+
+
+
 function fieldscheduler(props)
 {
     var spreadsheet = [];
@@ -15,8 +56,13 @@ function fieldscheduler(props)
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
+
+   
+
+
     //console.log(keys);
     //console.log(vals);
+
     for (var i = 0; i < props.length; i++) {
 
         spreadsheet[i] = []; //initialize the array
@@ -43,6 +89,10 @@ function fieldscheduler(props)
     {
         dateTaken[o] = false;
     }
+
+    findError(spreadsheet, vals, teams);
+    findRepeat(spreadsheet, vals, teams);
+
     for (var row = 0; row < spreadsheet.length; row++)
     {
         //console.log(dates[row][0]);
@@ -72,8 +122,7 @@ function fieldscheduler(props)
         }
         prefLimit++;
     }
-    //console.log(finalGroups);
-    //console.log(dateTaken);
+
     return finalGroups;
 }
 export default fieldscheduler;
