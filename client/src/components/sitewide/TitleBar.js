@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "../../CSS/TitleBar.css";
-import Navigation from './NavigationBar';
+import "../../CSS/webevents-main.css";
 
 class TitleBar extends Component {
   render() {

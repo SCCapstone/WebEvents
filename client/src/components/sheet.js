@@ -1,7 +1,7 @@
 import React from "react";
 import XLSX from "xlsx";
-import "../CSS/sheet.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
+
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 import workschedule from "./workschedule.js";
