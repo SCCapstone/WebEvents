@@ -43,7 +43,9 @@ class home extends Component {
       groupSize: 3, // default value, needs to be reset or readjusted
 
       //Used by SheetJSApp
-      uploadFile: null
+      uploadFile: null,
+
+      isUploaded: false,
     };
   }
 
@@ -65,20 +67,28 @@ class home extends Component {
   processFile(file) {
     //To Remove
     if (file == null) {
+      // TODO Setup popup window and disable button
       console.log("The file in processFile is null");
     } else {
       console.log("The file in processFile is OK.");
     }
-
+ 
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });
   }
 
+
+  checkUpload() {
+    if (this.state.uploadFile != null) {
+      this.state.isUploaded = true;
+    }
+  }
+
   renderScheduleType() {
     return (
       <SchedulerType
-        onClick={x => this.handleTypeSelect(x)}
+        onClick={(x) => this.handleTypeSelect(x)}
         schedulerType={this.state.scheduleType}
       />
     );
@@ -87,7 +97,7 @@ class home extends Component {
   renderScheduleOptions() {
     return (
       <SchedulerOption
-        onClick={x => this.handleGroupSizeSelect(x)}
+        onClick={(x) => this.handleGroupSizeSelect(x)}
         groupSize={this.state.groupSize}
       />
     );
@@ -98,7 +108,7 @@ class home extends Component {
         <TemplateDownload scheduleType={this.state.scheduleType} />
         <RequestServer />
       </div>
-    ); 
+    );
   }
   renderDataPanel() {
     return (
@@ -106,32 +116,19 @@ class home extends Component {
         <div id="Excel-Container">
           <div id="padded-text">
             <h1>Upload your Spreadsheet</h1>
-            <p>File extensions supported: .xls, .xlsx, .xlsm, .xltx, xltm</p>
+            <p>
+              File extensions supported: .csv, .xls, .xlsx, .xlsm, .xltx, xltm
+            </p>
             <SheetJSApp
-                groupSize={this.state.groupSize}
-                uploadFile={this.state.uploadFile}
-                processFile={file => this.processFile(file)}
-                scheduleType={this.state.scheduleType}          
+              groupSize={this.state.groupSize}
+              uploadFile={this.state.uploadFile}
+              processFile={(file) => this.processFile(file)}
+              scheduleType={this.state.scheduleType}
+              isUploaded={this.state.isUploaded}
+              checkUpload={() => this.checkUpload()}
             />
           </div>
         </div>
-
-        {/* Retired iCal container
-                    This scheduler seems to be specifically excel sheets only
-                    Lam Nguyen
-                    2020-03-29
-
-                <div id="ical-Container">
-                    <div id="padded-text">
-                        <h1>ICal Files Input</h1>
-                        <p>File extensions supported: .ical</p>
-                        <br/>
-                        <FileUpload />
-                        <br/>
-                        <FileDownloader />
-                    </div>
-                </div>
-                */}
       </div>
     );
   }
@@ -156,26 +153,25 @@ class home extends Component {
           <div className="inner-main-body">
             <div className="Instructions">
               <h1>Quick Instructions</h1>
-              <p>
-                To use this application, follow the steps below:
-                <br />
-                <br />
-                1. The file must be in the correct format of First name- Last
-                name- preferences for all of the people
-                <br />
-                <br />
-                2. You must select the the scheduling type that you want to use
-                <br />
-                <br />
-                3. After you select the type, you have to select the specific
-                options for that type
-                <br />
-                <br />
-                4. Finally, you will upload your file, and click the export file
-                to download the finished schedule.
-                <br />
-                <br />
-              </p>
+              To use this application, follow the steps below:
+              <ol>
+                <li>
+                  The file must be in the correct format of First name- Last
+                  name- preferences for all of the people
+                </li>
+
+                <li>
+                  You must select the the scheduling type that you want to use
+                </li>
+                <li>
+                  After you select the type, you have to select the specific
+                  options for that type
+                </li>
+                <li>
+                  Finally, you will upload your file, and click the export file
+                  to download the finished schedule.
+                </li>
+              </ol>
             </div>
             {/* this is referenced by ScheduleTypes */}
 

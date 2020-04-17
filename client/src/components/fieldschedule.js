@@ -56,10 +56,12 @@ function fieldscheduler(props)
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
-    console.log(keys);
-    console.log(vals);
 
    
+
+
+    //console.log(keys);
+    //console.log(vals);
 
     for (var i = 0; i < props.length; i++) {
 
@@ -76,12 +78,12 @@ function fieldscheduler(props)
         //dates[i] = key;
         //values[i] = "1";
     }
-    console.log(spreadsheet);
+    //console.log(spreadsheet);
     for (var h = 0; h < spreadsheet.length; h++) {
         teams[h] = spreadsheet[h][0];
         finalDate[h] = [];
         hasGroup[h] = false;
-        console.log(teams[h]);
+        //console.log(teams[h]);
     }
     for (var o = 0; o < keys.length; o++)
     {
@@ -97,10 +99,10 @@ function fieldscheduler(props)
         //console.log(teams[row]);
         for (var column = 1; column < keys.length; column++) { //more columns then rows
             finalDate[row] = [];
-            console.log("COL IS: " + column);
+            //console.log("COL IS: " + column);
             //sum += dates[column][row];
             
-            console.log("Pref value is: " + spreadsheet[row][column]);
+            //console.log("Pref value is: " + spreadsheet[row][column]);
             if (spreadsheet[row][column] <= prefLimit && hasGroup[row] === false &&  dateTaken[column] === false)
             {
                 dateTaken[column] = true;
@@ -120,8 +122,7 @@ function fieldscheduler(props)
         }
         prefLimit++;
     }
-   // console.log(finalGroups);
-    //console.log(dateTaken);
+
     return finalGroups;
 }
 export default fieldscheduler;
