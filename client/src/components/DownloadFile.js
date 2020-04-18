@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import "../CSS/DownloadFile.css";
+import "../CSS/webevents-main.css";
 // SET your own endpoint
 
 const endpoint = "http://localhost:9000/download";

@@ -4,8 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-import "../CSS/scheduleTypeAndOptions.css";
-
+import "../CSS/webevents-main.css";
 
 class SchedulerOptions extends React.Component{
 
