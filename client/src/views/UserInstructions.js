@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../CSS/webevents-main.css";
 
-
 class Instructions extends Component {
   constructor(props) {
     super(props);
@@ -26,16 +25,16 @@ class Instructions extends Component {
             <h1>Instructions how to use Web Events</h1>
             <h4>How to use:</h4>
             <ol>
-              <li>
+              <li style={{ textAlign: "left" }}>
                 Select the type of schedule you would like to create, (either
                 Seminar, Field, or Work) from the ScheduleOptions box in the top
                 left.
               </li>
-              <li>
+              <li style={{ textAlign: "left" }}>
                 Input the needed variables of the selected schedule type in the
                 sidebar to the left.
               </li>
-              <li>
+              <li style={{ textAlign: "left" }}>
                 upload a data file for the schedule you would like to make.
                 <ul>
                   <ul>-file types supported are CSV, XLSX, and ICS</ul>
@@ -51,7 +50,7 @@ class Instructions extends Component {
                   </ul>
                 </ul>
               </li>
-              <li>
+              <li style={{ textAlign: "left" }}>
                 Once the calculation is finished your optimal schedule may be
                 downloaded as a new file.
               </li>
