@@ -31,28 +31,37 @@ class Instructions extends Component {
                 left.
               </li>
               <li style={{ textAlign: "left" }}>
-                Input the needed variables of the selected schedule type in the
-                sidebar to the left.
+                Input the needed variables of the selected schedule type,
+                otherwise the default attributes will be selected.
               </li>
               <li style={{ textAlign: "left" }}>
-                upload a data file for the schedule you would like to make.
+                Upload a data file for the schedule you would like to make. If
+                you need a reference of the expected format download a template
+                file. The downloaded template file will be dependant on the
+                scheduler selected from the dropdown menu.
                 <ul>
-                  <ul>-file types supported are CSV, XLSX, and ICS</ul>
+                  <ul>-file types supported are CSV and XLSX</ul>
                   <ul>
-                    -seminars format rows are first and last name, the columns
-                    are dates and/or times available, and the data must be list
-                    of priorities
+                    -Seminar format is: Starting rows are first and last name
+                    followed by preferences. The columns are dates and/or times
+                    available, and the data must be list of priorities going
+                    from 1 as top priority to higher numbers being lower
+                    priority.
                   </ul>
                   <ul>
                     -fields format rows are the team names, and the columns are
                     dates and/or times the field is open, and the data must be a
-                    list of priorities.
+                    list of priorities with 1 being top priority and higher
+                    numbers being lower priority. This scheduling algorithm does
+                    not account for size and will give each person a unique time
+                    according to their preference.
                   </ul>
                 </ul>
               </li>
               <li style={{ textAlign: "left" }}>
-                Once the calculation is finished your optimal schedule may be
-                downloaded as a new file.
+                Press the process button to schedule your data. Once the
+                calculation is finished your optimal schedule may be downloaded
+                as a new file.
               </li>
             </ol>
 
