@@ -77,7 +77,10 @@ class SchedulerOptions extends React.Component {
               {/*console.log(this.state.groupsize)*/}
             </DropdownButton>
           ))}
-          <h5>Selected Group Size: {this.props.groupSize}</h5>
+          <h5>
+            Selected Group Size: {this.props.groupSize - 1}-
+            {this.props.groupSize}
+          </h5>
 
           {/*
                     Refactoring Successful 
