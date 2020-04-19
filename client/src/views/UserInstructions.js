@@ -30,10 +30,20 @@ class Instructions extends Component {
                 Seminar, Field, or Work) from the ScheduleOptions box in the top
                 left.
               </li>
+              <img
+                class="user-instructions-img"
+                src="InstructionsSchedulerType.png"
+                alt="Scheduler instructions image"
+              />
               <li style={{ textAlign: "left" }}>
                 Input the needed variables of the selected schedule type,
                 otherwise the default attributes will be selected.
               </li>
+              <img
+                class="user-instructions-img"
+                src="InstructionsGroupSize.png"
+                alt="Group size instructions image"
+              />
               <li style={{ textAlign: "left" }}>
                 Upload a data file for the schedule you would like to make. If
                 you need a reference of the expected format download a template
