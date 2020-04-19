@@ -44,7 +44,7 @@ class SheetJSApp extends React.Component {
                 console.log("field scheduler")
                 var groups = fieldscheduler(data2);
             }
-           else if (this.props.scheduleType === "work")
+            else if (this.props.scheduleType === "work")
             {
                 console.log("work scheduler");
                 var groups = workschedule(data2);

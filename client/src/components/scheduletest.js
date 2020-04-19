@@ -103,6 +103,7 @@ function promoteOption(keys,boolArray,dates,names)
         }
     }
 }
+var emptyRowCounter = 0;
 
 function findError(dates, keys, names)
 {
@@ -121,7 +122,8 @@ function findError(dates, keys, names)
         }
         if (value != true) {
             console.log("AFDAGFAFDAFADFA");
-            console.log("PERSON IS:  "+names[row]);
+            console.log("PERSON IS:  " + names[row]);
+            emptyRowCounter++;
         }
         value = false;
     }
@@ -198,7 +200,7 @@ function Test(props,size) {
     var counter = 0; //this will be used to count how many people are in each group
     var cursor = 0; //will be used to control placement into array
     var names = []; //array of everyones names for reference
-    var preference = 1;
+    var preference = 10;
     var sumRange = 10;
     for (var h = 0; h < dates.length; h++)
     {
@@ -207,16 +209,26 @@ function Test(props,size) {
         hasGroup[h] = false;
     }
 
+   
+
 
     findError(dates, keys, names);
     findRepeat(dates, keys, names);
 
+    var groupNum = (names.length - emptyRowCounter) % size;
+    groupNum = size - groupNum;
+    console.log("NEEDS " + groupNum + " SMALL GROUPS");
+
+    var numOfLargeGroups = (names.length - emptyRowCounter) - ((size-1) * (groupNum));
+    numOfLargeGroups = (numOfLargeGroups) / (size);
+    console.log("LARGE GROUPS: " + numOfLargeGroups);
+
     findDate(keys, sumArr, datesBool, dates, names);
 
-        console.log("NUM OF GROUPS IS: " + numOfGroups);
-        for (var row = 0; row < names.length; row++) {
+        console.log("NUM OF GROUPS IS: " + numOfGroups); //switch from row-by-row to column-by-column
+        for (var column = 2; column < keys.length; column++) {
 
-            for (var column = 2; column < keys.length; column++) {
+            for (var row = 0; row < names.length; row++) {
                 pointer++;
                 findDate(keys, sumArr, datesBool, dates, names);
 
@@ -238,7 +250,7 @@ function Test(props,size) {
                             //console.log(groups);
                             sum = sum + dates[other][column];
 
-                            if ((counter === size-3 && sum < sumRange && preference > names.length / 2) || (column === dates.length && other === dates.length)) //if group is full
+                            if ((counter == size-3 &&  numOfGroups >= numOfLargeGroups) || (column === dates.length && other === dates.length)) //if group is full
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -262,7 +274,7 @@ function Test(props,size) {
                                 break;
                             }
 
-                            if ((counter === size-2 && sum < sumRange) || (column === dates.length && other === dates.length)) //if group is full
+                            if ((counter == size-2) || (column === dates.length && other === dates.length)) //if group is full
                             {
                                 for (var kj = 0; kj < dates.length; kj++) {
                                     for (var lj = 0; lj < dates.length; lj++) {
@@ -309,7 +321,7 @@ function Test(props,size) {
     var newcount = 2;
     var groupsize = 1;
     console.log(size - 3);
-    for (var kjj = 0; kjj < names.length; kjj++) //find people who do not have a group, and brute force them into a smaller group that works
+   /* for (var kjj = 0; kjj < names.length; kjj++) //find people who do not have a group, and brute force them into a smaller group that works
     {
         if (hasGroup[kjj] === false)
         {
@@ -359,7 +371,7 @@ function Test(props,size) {
             }
             //groups.push(names[kjj]);
         }
-    }
+    } */
     console.log(groups);
     finalGroups[cursor + 1] = groups;
 
