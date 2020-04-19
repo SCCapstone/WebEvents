@@ -58,15 +58,15 @@ class SchedulerOptions extends React.Component{
                             key={direction}
                         >
             
-                            <Dropdown.Item onClick = {() => this.props.onClick(2)}>Group of 2 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(3)}>Group of 3 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(4)}>Group of 4 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(5)}>Group of 5 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(6)}>Group of 6 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(7)}>Group of 7 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(8)}>Group of 8 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(9)}>Group of 9 </Dropdown.Item>
-                            <Dropdown.Item onClick = {() => this.props.onClick(10)}>Group of 10 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(2)}>Group of 1-2 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(3)}>Group of 2-3 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(4)}>Group of 3-4 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(5)}>Group of 4-5 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(6)}>Group of 5-6 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(7)}>Group of 6-7 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(8)}>Group of 7-8 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(9)}>Group of 8-9 </Dropdown.Item>
+                            <Dropdown.Item onClick = {() => this.props.onClick(10)}>Group of 9-10 </Dropdown.Item>
                             
                             { /*console.log(this.state.groupsize)*/}
                         </DropdownButton>
