@@ -5,15 +5,16 @@ import "../CSS/webevents-main.css";
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 import workschedule from "./workschedule.js";
+import Popup from "reactjs-popup";
 
-var whatever;
 
 class SheetJSApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [], /* Array of Arrays e.g. [["a","b"],[1,2]] */
-            cols: []  /* Array of column objects e.g. { name: "C", K: 2 } */
+            cols: [],
+            detector: false  /* Array of column objects e.g. { name: "C", K: 2 } */
         };
         this.handleFile = this.handleFile.bind(this);
         this.exportFile = this.exportFile.bind(this);
@@ -38,7 +39,9 @@ class SheetJSApp extends React.Component {
             
             if (this.props.scheduleType === "seminar") {
                 console.log("seminar scheduler");
-                var groups = Test(data2, this.props.groupSize);
+                var emptyRows = Test(data2, this.props.groupSize, true);
+            
+                var groups = Test(data2, this.props.groupSize, false);
             }
             else if (this.props.scheduleType === "field") {
                 console.log("field scheduler")
@@ -52,6 +55,7 @@ class SheetJSApp extends React.Component {
 
             /* Update state */
             this.setState({ data: groups });
+            this.setState({ detector: emptyRows});
         };
         if(this.props.uploadFile != null) {
             if (rABS) 
@@ -88,34 +92,92 @@ class SheetJSApp extends React.Component {
         window.location.reload(false);
     };
 
+    
+
     render() {
-        return (
-            <div class="sheetjs">
-                <DragDropFile 
-                        handleFile={this.handleFile}
-                        processFile={this.props.processFile}
-                >
-                    <div className="col-xs-1">
-                        <DataInput 
-                            handleFile={this.handleFile} 
+//        let button;
+        
+        
+        let a = this.state.detector;
+        if (a == false){ //If popup needed, render this
+           // console.log("Here Here" + a);
+
+
+            return (
+                <div class="sheetjs">
+                    <DragDropFile 
+                            handleFile={this.handleFile}
                             processFile={this.props.processFile}
-                        />
-                    </div>
-                    <br/>
-                    <div>
-                        <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                            1. Process Uploaded File
-                        </button>
-                    </div>
-                    <br/>
-                    <div className="col-xs-2">   
-                        <button className="btn btn-success" onClick={() => this.exportFile()}>
-                            2. Download Processed Schedule
-                        </button>
-                    </div>
-                </DragDropFile>
-            </div>
-        );
+                    >
+                        <div className="col-xs-1">
+                            <DataInput 
+                                handleFile={this.handleFile} 
+                                processFile={this.props.processFile}
+                            />
+                        </div>
+                        <br/>
+
+                        <div>
+                            
+                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
+                                1. Process Uploaded File
+                            </button>
+                             
+
+                        </div>
+                        <br/>
+                        <div className="col-xs-2">   
+                            <button className="btn btn-success" onClick={() => this.exportFile()}>
+                                2. Download Processed Schedule
+                            </button>
+                        </div>
+                    </DragDropFile>
+                </div>
+            );
+        }
+        else{ //If no popup needed (ie no empty rows) render this
+            
+            
+            return (
+                <div class="sheetjs">
+                    <DragDropFile 
+                            handleFile={this.handleFile}
+                            processFile={this.props.processFile}
+                    >
+                        <div className="col-xs-1">
+                            <DataInput 
+                                handleFile={this.handleFile} 
+                                processFile={this.props.processFile}
+                            />
+                        </div>
+
+                        <br/>
+
+                        <Popup trigger = {
+                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
+                                Warning!!!
+                            </button>} position = "right">
+                                {close => (
+                                    <div>
+                                        Warning! You have empty rows in this file. 
+                                    <a className="close" onClick={close}>
+                                        &times;
+                                    </a>
+                                    </div>
+                                )}
+                            </Popup>
+                        
+                        <br/>
+                        
+                        <div className="col-xs-2">   
+                            <button className="btn btn-success" onClick={() => this.exportFile()}>
+                                2. Download Processed Schedule Anyway
+                            </button>
+                        </div>
+                    </DragDropFile>
+                </div>
+            );
+        }
     };
 };
 

@@ -1,5 +1,6 @@
 var hasBeenPromoted = [];
 var datesBool = [];
+var carry = false;
 //var maxPerGroup = 3; //this is number of people per group
 
 //This can return a key based on the value that you want (keys are the dates, values are the preference number)
@@ -123,10 +124,12 @@ function findError(dates, keys, names)
         if (value != true) {
             console.log("AFDAGFAFDAFADFA");
             console.log("PERSON IS:  " + names[row]);
+            carry = true;
             emptyRowCounter++;
         }
         value = false;
     }
+    return carry;
 }
 
 function findRepeat(dates, keys, names)
@@ -148,7 +151,7 @@ function findRepeat(dates, keys, names)
 }
 
 
-function Test(props,size) {
+function Test(props,size,carry1) {
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
@@ -212,7 +215,12 @@ function Test(props,size) {
    
 
 
-    findError(dates, keys, names);
+    let a = findError(dates, keys, names);
+    if (carry1 == true ){
+        return a;
+    }
+    
+
     findRepeat(dates, keys, names);
 
     var groupNum = (names.length - emptyRowCounter) % size;
