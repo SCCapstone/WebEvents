@@ -84,6 +84,8 @@ class SheetJSApp extends React.Component {
         if(this.props.isUploaded) {
             XLSX.writeFile(wb, "results.xlsx")
         }
+        this.setState({ data: [[]] });
+        window.location.reload(false);
     };
 
     render() {
