@@ -19,6 +19,7 @@ import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
 import RequestServer from "../components/RequestServer";
 import TemplateDownload from "../components/TemplateDownload";
+import ModalVideoPopup from "../components/ModalVideoPopup";
 
 /** Retired iCal properties
  * Lam Nguyen
@@ -131,6 +132,10 @@ class home extends Component {
     );
   }
 
+  renderModalVideoPopup() {
+    return <ModalVideoPopup />;
+  }
+
   render() {
     return (
       <div className="App">
@@ -148,6 +153,7 @@ class home extends Component {
                 */}
         <br />
         <div className="main-body">
+          {this.renderModalVideoPopup()}
           <div className="inner-main-body">
             <div className="Instructions">
               <h1>Quick Instructions</h1>
