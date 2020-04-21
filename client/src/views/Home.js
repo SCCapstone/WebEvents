@@ -71,12 +71,11 @@ class home extends Component {
     } else {
       console.log("The file in processFile is OK.");
     }
- 
+
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });
   }
-
 
   checkUpload() {
     if (this.state.uploadFile != null) {
@@ -160,7 +159,7 @@ class home extends Component {
                 </li>
 
                 <li>
-                  You must select the the scheduling type that you want to use
+                  You must select the scheduling type that you want to use
                 </li>
                 <li>
                   After you select the type, you have to select the specific
@@ -181,7 +180,7 @@ class home extends Component {
 
             {/* This is referenced by ScheduleOptions */}
             <div>
-              <h1>Select your group size and duplicity</h1>
+              <h1>Select your group size</h1>
               {this.renderScheduleOptions()}
             </div>
 
