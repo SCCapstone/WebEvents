@@ -49,7 +49,10 @@ class Instructions extends Component {
                 file. The downloaded template file will be dependant on the
                 scheduler selected from the dropdown menu.
                 <ul>
-                       <ul>-File types supported are .csv, .xls, .xlsx, .xlsm, .xltx, xltm </ul>
+                  <ul>
+                    -File types supported are .csv, .xls, .xlsx, .xlsm, .xltx,
+                    xltm{" "}
+                  </ul>
                   <ul>
                     -Seminar format is: Starting rows are first and last name
                     followed by preferences. The columns are dates and/or times
@@ -58,19 +61,26 @@ class Instructions extends Component {
                     priority.
                   </ul>
                   <ul>
-                    -Field format is: rows are the team names, and the columns are
-                                    dates and/or times the field is open, and the data must be a
-                                    list of priorities with 1 being top priority and higher
-                                    numbers being lower priority. This scheduling algorithm does
-                                    not account for size and will give each person a unique time
-                                    according to their preference.
+                    -Field format is: rows are the team names, and the columns
+                    are dates and/or times the field is open, and the data must
+                    be a list of priorities with 1 being top priority and higher
+                    numbers being lower priority. This scheduling algorithm does
+                    not account for size and will give each person a unique time
+                    according to their preference.
                   </ul>
-                                <ul>
-                                    -Work Scheduler format is: rows are the people, and the columns are the shifts. This scheduling algorithm takes in the size that you want for each shift,
-                                    and will try to assign everyone an optimal work schedule.
-                                    </ul>
+                  <ul>
+                    -Work Scheduler format is: rows are the people, and the
+                    columns are the shifts. This scheduling algorithm takes in
+                    the size that you want for each shift, and will try to
+                    assign everyone an optimal work schedule.
+                  </ul>
                 </ul>
               </li>
+              <img
+                class="user-instructions-img"
+                src="instructions.gif"
+                alt="Group size instructions image"
+              />
               <li style={{ textAlign: "left" }}>
                 Press the process button to schedule your data. Once the
                 calculation is finished your optimal schedule may be downloaded
