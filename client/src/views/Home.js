@@ -159,7 +159,7 @@ class home extends Component {
                 </li>
 
                 <li>
-                  You must select the the scheduling type that you want to use
+                  You must select the scheduling type that you want to use
                 </li>
                 <li>
                   After you select the type, you have to select the specific
