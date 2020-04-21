@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SheetJSApp from "./components/sheet.js";
-import App from './App';
+import SheetJSApp from "../client/src/components/sheet.js";
+import App from '../client/src/App';
 import { create } from "react-test-renderer";
 
 //makes sure that the app renders without crashing

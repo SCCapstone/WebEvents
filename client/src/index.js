@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./CSS/index.css";
+import "./CSS/webevents-main.css";
 import App from "./App"; // App.js
 import * as serviceWorker from "./components/serviceWorker";
 
