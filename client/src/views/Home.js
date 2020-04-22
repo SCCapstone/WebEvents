@@ -19,6 +19,7 @@ import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
 import RequestServer from "../components/RequestServer";
 import TemplateDownload from "../components/TemplateDownload";
+import ModalVideoPopup from "../components/ModalVideoPopup";
 
 /** Retired iCal properties
  * Lam Nguyen
@@ -71,12 +72,11 @@ class home extends Component {
     } else {
       console.log("The file in processFile is OK.");
     }
- 
+
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });
   }
-
 
   checkUpload() {
     if (this.state.uploadFile != null) {
@@ -132,6 +132,10 @@ class home extends Component {
     );
   }
 
+  renderModalVideoPopup() {
+    return <ModalVideoPopup />;
+  }
+
   render() {
     return (
       <div className="App">
@@ -149,6 +153,7 @@ class home extends Component {
                 */}
         <br />
         <div className="main-body">
+          {this.renderModalVideoPopup()}
           <div className="inner-main-body">
             <div className="Instructions">
               <h1>Quick Instructions</h1>
@@ -181,7 +186,7 @@ class home extends Component {
 
             {/* This is referenced by ScheduleOptions */}
             <div>
-              <h1>Select your group size and duplicity</h1>
+              <h1>Select your group size</h1>
               {this.renderScheduleOptions()}
             </div>
 

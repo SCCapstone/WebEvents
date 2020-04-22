@@ -207,7 +207,7 @@ function Test(props,size,carry1) {
     var counter = 0; //this will be used to count how many people are in each group
     var cursor = 0; //will be used to control placement into array
     var names = []; //array of everyones names for reference
-    var preference = 10;
+    var preference = 15;
     var sumRange = 10;
     for (var h = 0; h < dates.length; h++)
     {
