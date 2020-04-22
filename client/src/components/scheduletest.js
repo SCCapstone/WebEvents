@@ -107,7 +107,7 @@ function promoteOption(keys,boolArray,dates,names)
 var emptyRowCounter = 0;
 
 function findError(dates, keys, names)
-{
+{ carry = 0;
     console.log("FINDING ROW WITH NO PREFERENCES");
     var value = false;
     for (var row = 1; row < dates.length; row++)
@@ -124,7 +124,7 @@ function findError(dates, keys, names)
         if (value != true) {
             console.log("AFDAGFAFDAFADFA");
             console.log("PERSON IS:  " + names[row]);
-            carry = true;
+            carry = 1;
             emptyRowCounter++;
         }
         value = false;
@@ -134,6 +134,7 @@ function findError(dates, keys, names)
 
 function findRepeat(dates, keys, names)
 {  console.log("FINDING REPEATS");
+    carry = 0;
     var value = false;
     for (var row = 0; row < dates.length; row++) {
         for (var column = 2; column < keys.length; column++)
@@ -144,10 +145,13 @@ function findRepeat(dates, keys, names)
                     console.log("THERE ARE REPEATS with: " + names[row]);
                     console.log("1st value is: " + dates[row][column]);
                     console.log("2nd vale is: " + dates[row][other]);
+                    carry = 2;
+                    console.log("What is carry in repeat" + carry);
                 }
             }
         }
     }
+    return carry;
 }
 
 
@@ -216,12 +220,14 @@ function Test(props,size,carry1) {
 
 
     let a = findError(dates, keys, names);
-    if (carry1 == true ){
+    if (carry1 == 1 ){
         return a;
     }
     
-
-    findRepeat(dates, keys, names);
+    let b = findRepeat(dates, keys, names);
+    if (carry1 == 2){
+        return b;
+    }
 
     var groupNum = (names.length - emptyRowCounter) % size;
     groupNum = size - groupNum;
