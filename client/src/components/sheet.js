@@ -69,13 +69,8 @@ class SheetJSApp extends React.Component {
             console.log("ERROR 1084: Upload File is NULL!");
         }
     };
-    if (this.props.uploadFile != null) {
-      if (rABS) reader.readAsBinaryString(file);
-      else reader.readAsArrayBuffer(file);
-    } else {
-      console.log("ERROR 1084: Upload File is NULL!");
-    }
-  }
+    
+  
 
   // Method used by the first button to process file
   manualProcessFile() {
@@ -84,7 +79,7 @@ class SheetJSApp extends React.Component {
 
     this.props.checkUpload();
     //this.props.isUploaded = true;
-  }
+  };
 
   exportFile() {
     /* convert state to workbook */
@@ -98,29 +93,8 @@ class SheetJSApp extends React.Component {
     }
     this.setState({ data: [[]] });
     window.location.reload(false);
-  }
+  };
 
-  render() {
-    //        let button;
-
-    let a = this.state.detector;
-    if (a == false) {
-      //If popup needed, render this
-      // console.log("Here Here" + a);
-
-      return (
-        <div class="sheetjs">
-          <DragDropFile
-            handleFile={this.handleFile}
-            processFile={this.props.processFile}
-          >
-            <div className="col-xs-1">
-              <DataInput
-                handleFile={this.handleFile}
-                processFile={this.props.processFile}
-              />
-            </div>
-            <br /> 
 
     render() {
 //        let button;
@@ -290,22 +264,7 @@ class SheetJSApp extends React.Component {
     };
 };
 
-            <br />
-
-            <div className="col-xs-2">
-              <button
-                className="btn btn-success"
-                onClick={() => this.exportFile()}
-              >
-                2. Download Processed Schedule Anyway
-              </button>
-            </div>
-          </DragDropFile>
-        </div>
-      );
-    }
-  }
-}
+           
 
 /*
   Simple HTML5 file drag-and-drop wrapper
