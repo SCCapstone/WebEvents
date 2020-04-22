@@ -1,7 +1,6 @@
 import React from "react";
 import "../CSS/webevents-main.css";
 
-
 /**
  * this class for grabbing templated files
  * from the backend server. The downloaded
@@ -24,8 +23,8 @@ class TemplateDownload extends React.Component {
     fetch(
       "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/" +
         scheduleType
-    ).then(response => {
-      response.blob().then(blob => {
+    ).then((response) => {
+      response.blob().then((blob) => {
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement("a");
         a.href = url;

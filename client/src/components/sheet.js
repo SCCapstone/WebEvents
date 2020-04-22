@@ -51,7 +51,7 @@ class SheetJSApp extends React.Component {
             else if (this.props.scheduleType === "work")
             {
                 console.log("work scheduler");
-                var groups = workschedule(data2);
+                var groups = workschedule(data2, this.props.groupSize);
             }
 
             /* Update state */
