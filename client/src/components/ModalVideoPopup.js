@@ -4,7 +4,8 @@ import ModalVideo from "react-modal-video";
 
 /**
  * based on https://appleple.github.io/react-modal-video/
- *
+ * simple youtube viewer that closes when you click outside of the video.
+ * Implemented in Home.js
  */
 
 class ModalVideoPopup extends React.Component {
