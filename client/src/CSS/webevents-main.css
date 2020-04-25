@@ -235,7 +235,8 @@ img {
 
 .user-instructions-img {
   border: #101010;
-  border-style: dashed;
+  border-style: solid;
+  border-width: 3px;
   text-align: center;
   height: 50%;
   width: 50%;

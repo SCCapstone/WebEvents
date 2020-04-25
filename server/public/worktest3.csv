@@ -1,0 +1,8 @@
+first name,last name,Shift 1,Shift 2,Shift 3,Shift 4,Shift 5,Shift 6,Shift 7
+A,A,1,,,,2,,
+B,B,1,,,2,,,
+C,C,,1,,,2,,
+D,D,,1,,,,,
+E,E,,,1,,2,3,
+F,F,,,1,,,,
+G,G,,,,1,,2,3
