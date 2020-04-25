@@ -1,9 +1,16 @@
+/**
+ * The server is used to hand template files to the client.
+ * The get endpoints must match the spelling of the scheduler type from dropdown menu.
+ *
+ */
 const express = require("express");
 var multer = require("multer");
 var cors = require("cors");
 const app = express();
 app.use(cors());
-//function uploadPost() {
+/**
+ * the destination cd "public" is the file location that the server pulls from
+ */
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public");
@@ -26,17 +33,11 @@ app.post("/upload", function (req, res) {
 });
 //port running from mozilla docs
 const http = require("http");
-// hostname was 'localhost'
+/**
+ * localhost hostname when developing
+ */
 const hostname = "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com";
 const port = 8000;
-
-//Create HTTP server and listen on port 3000 for requests
-const server = http.createServer((req, res) => {
-  //Set the response HTTP header with HTTP status and Content type
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World\n");
-});
 
 //port to run on - if you change this change the proxy
 //const port = process.env.PORT || 5000;
@@ -50,12 +51,11 @@ app.get("/express_backend", (req, res) => {
   console.log("express_backend called");
   res.send({ express: "Your express backend is connected to react" });
 });
-/*app.get("/download", function(req, res) {
-  console.log("user downloading file from server");
-  const file = `/home/ubuntu/WebEvents/WebEvents/server/public/1582482911741-test.ical`;
-  res.download(file); // Set disposition and send it.
-});*/
 
+/**
+ * the below get endpoints are for downloading the scheduler test file
+ *
+ */
 app.get("/seminar", function (req, res) {
   console.log("user downloading: ");
   const file = "../server/public/SchedulingAppTestFile.csv";
