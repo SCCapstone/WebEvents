@@ -26,7 +26,7 @@ class ModalVideoPopup extends React.Component {
         <ModalVideo
           channel="youtube"
           isOpen={this.state.isOpen}
-          videoId="dQw4w9WgXcQ"
+          videoId="IRaycIhnl8o"
           onClose={() => this.setState({ isOpen: false })}
         />
       </div>
