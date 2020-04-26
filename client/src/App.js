@@ -15,7 +15,7 @@ import About from './views/About';
 import ContactUs from './views/ContactUs';
 import Error from './views/ErrorPage';
 import UserInstructions from "./views/UserInstructions";
-
+import '../node_modules/react-modal-video/scss/modal-video.scss';
 import TitleBar from "./components/sitewide/TitleBar";
 import Footer from "./components/sitewide/Footer.js";
 

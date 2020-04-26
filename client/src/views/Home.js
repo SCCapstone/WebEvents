@@ -43,8 +43,10 @@ class home extends Component {
 
       //Used by SheetJSApp
       uploadFile: null,
-
       isUploaded: false,
+
+      //Used by ModalVideoPopup
+      initialPopupVideo: true,
     };
   }
 
@@ -67,8 +69,10 @@ class home extends Component {
     //To Remove
     if (file == null) {
       // TODO Setup popup window and disable button
+      window.alert("The file being processed isn't uploaded yet, upload your file using the upload box below!");
       console.log("The file in processFile is null");
     } else {
+      //window.alert("The file is processed successfully, click the download button to receive the output file!");
       console.log("The file in processFile is OK.");
     }
 
@@ -132,9 +136,18 @@ class home extends Component {
   }
 
   renderModalVideoPopup() {
-    return <ModalVideoPopup />;
+    return (
+      <ModalVideoPopup 
+        isOpen={this.state.initialPopupVideo}
+        closeVideo={() => this.closePopupVideo()}
+      />
+    );
   }
 
+  closePopupVideo() {
+    window.alert("Closed Video?")
+    this.setState({ initialPopupVideo: false });
+  }
 
   render() {
     return (
@@ -143,7 +156,7 @@ class home extends Component {
           <img
             class="object-fit_cover"
             src="homepageBanner.jpg"
-            alt="home-major-image-1"
+            alt="home-major-1"
           />
         </div>
         {/*
