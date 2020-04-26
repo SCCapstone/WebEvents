@@ -17,7 +17,7 @@ import "../CSS/webevents-main.css";
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
-import RequestServer from "../components/RequestServer";
+//import RequestServer from "../components/obsolete/RequestServer";
 import TemplateDownload from "../components/TemplateDownload";
 import ModalVideoPopup from "../components/ModalVideoPopup";
 
@@ -105,7 +105,7 @@ class home extends Component {
     return (
       <div>
         <TemplateDownload scheduleType={this.state.scheduleType} />
-        <RequestServer />
+        {/** <RequestServer />*/}
       </div>
     );
   }
