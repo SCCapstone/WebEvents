@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.App {
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0; 
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* remove extra space below image */
+}
+
+
+
+/*
+    MainBody is a container to hold all central 
+    elements excluding the titlebar and footer
+
+    TODO: 
+        * Make it segmented and centralized.
+*/
+
+.main-body {
+    margin: 20px 0;
+    display: block;
+    text-align: center;
+    min-height: 1000px;
+}
+
+.inner-main-body {
+    width: 1000px;
+    height: 100%;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+}
+
+
+/*
+Retired old app.css
+Lam Nguyen
+2020-03-29
+
+#MainBody {
+    display: block;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height:80vh;
+    background-color: silver;
+}
+#MainBody-Left {
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: auto;
+    width: 20vw;
+    border: solid silver;
+}
+#MainBody-Center {
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: silver;
+
+
+    height: auto;
+    width: 55vw;
+    border: solid silver;
+}
+
+#MainBody-Right {
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: auto;
+    width: 25vw;
+    border: solid silver;
+
+}
+
+#padded-container-center {
+    margin: 3vh;
+    margin-top: 5vh;
+
+    height: 75vh;
+    background-color: white;
+    border: 3px grey solid;
+}
+#padded-container-left-type{
+    margin: 5vh; 
+    background-color: white;
+
+    height: 20vh;
+    width: 17vw;
+    border: 3px grey solid;
+
+    text-align: center;
+}
+#padded-container-left-option {
+    margin: 5vh; 
+    margin-top: 0vh;
+    background-color: white;
+
+    height: 55vh;
+    width: 17vw;
+
+    border: 3px grey solid;
+    text-align: center;
+}
+#padded-container-right-instructions {
+    margin: 5vh;
+    margin-left: 0vh;
+    background-color: white;
+
+    height: 75vh;
+    width: 22vw;
+
+    border: 3px grey solid;
+}
+.column-padding {
+    margin: 3vw; 
+    height: 100%;
+}
+*/
+
+/*.App {
+  border: 5px solid maroon;
+  text-align: center;
+  background: maroon;
+  color: black;
+  margin: 0px;
+  padding: 20px;
+}
+*/

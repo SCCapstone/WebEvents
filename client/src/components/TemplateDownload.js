@@ -1,6 +1,5 @@
 import React from "react";
-import "../CSS/sheet.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
 
 /**
  * this class for grabbing templated files
@@ -11,12 +10,14 @@ import "../CSS/DataPanel.css";
 class TemplateDownload extends React.Component {
   constructor(props) {
     super(props);
-    //this.handleChange = this.handleChange.bind(this);
   }
-  /*
-     handleChange(e) {
-         String schedulerType = e;
-     };*/
+
+  /**
+   * the fetch URL is for the URL of the server. The /scheduletype is for dynamic
+   * fetching. if you wish to add more schedule types you must add a backend
+   * endpoint. The scheduletype is chosen from dropdown menu and passed as props.
+   * This class is implemented in Home.js
+   */
 
   downloadTemplateFile = () => {
     var scheduleType = this.props.scheduleType;
@@ -24,8 +25,8 @@ class TemplateDownload extends React.Component {
     fetch(
       "http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com:8000/" +
         scheduleType
-    ).then(response => {
-      response.blob().then(blob => {
+    ).then((response) => {
+      response.blob().then((blob) => {
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement("a");
         a.href = url;

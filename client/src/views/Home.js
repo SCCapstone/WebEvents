@@ -12,14 +12,14 @@ import FileUpload from "../components/FileUpload";
 import FileDownloader from "../components/FileDownload";
 */
 
-import "../CSS/App.css";
-import "../CSS/Home.css";
-import "../CSS/DataPanel.css";
+import "../CSS/webevents-main.css";
+
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
-import RequestServer from "../components/RequestServer";
+//import RequestServer from "../components/obsolete/RequestServer";
 import TemplateDownload from "../components/TemplateDownload";
+import ModalVideoPopup from "../components/ModalVideoPopup";
 
 /** Retired iCal properties
  * Lam Nguyen
@@ -44,6 +44,8 @@ class home extends Component {
 
       //Used by SheetJSApp
       uploadFile: null,
+
+      isUploaded: false,
     };
   }
 
@@ -65,6 +67,7 @@ class home extends Component {
   processFile(file) {
     //To Remove
     if (file == null) {
+      // TODO Setup popup window and disable button
       console.log("The file in processFile is null");
     } else {
       console.log("The file in processFile is OK.");
@@ -73,6 +76,12 @@ class home extends Component {
     console.log("processFile(file): Attempted process file");
 
     this.setState({ uploadFile: file });
+  }
+
+  checkUpload() {
+    if (this.state.uploadFile != null) {
+      this.state.isUploaded = true;
+    }
   }
 
   renderScheduleType() {
@@ -96,7 +105,7 @@ class home extends Component {
     return (
       <div>
         <TemplateDownload scheduleType={this.state.scheduleType} />
-        <RequestServer />
+        {/** <RequestServer />*/}
       </div>
     );
   }
@@ -114,28 +123,17 @@ class home extends Component {
               uploadFile={this.state.uploadFile}
               processFile={(file) => this.processFile(file)}
               scheduleType={this.state.scheduleType}
+              isUploaded={this.state.isUploaded}
+              checkUpload={() => this.checkUpload()}
             />
           </div>
         </div>
-
-        {/* Retired iCal container
-                    This scheduler seems to be specifically excel sheets only
-                    Lam Nguyen
-                    2020-03-29
-
-                <div id="ical-Container">
-                    <div id="padded-text">
-                        <h1>ICal Files Input</h1>
-                        <p>File extensions supported: .ical</p>
-                        <br/>
-                        <FileUpload />
-                        <br/>
-                        <FileDownloader />
-                    </div>
-                </div>
-                */}
       </div>
     );
+  }
+
+  renderModalVideoPopup() {
+    return <ModalVideoPopup />;
   }
 
   render() {
@@ -155,6 +153,7 @@ class home extends Component {
                 */}
         <br />
         <div className="main-body">
+          {this.renderModalVideoPopup()}
           <div className="inner-main-body">
             <div className="Instructions">
               <h1>Quick Instructions</h1>
@@ -166,7 +165,7 @@ class home extends Component {
                 </li>
 
                 <li>
-                  You must select the the scheduling type that you want to use
+                  You must select the scheduling type that you want to use
                 </li>
                 <li>
                   After you select the type, you have to select the specific
@@ -187,7 +186,7 @@ class home extends Component {
 
             {/* This is referenced by ScheduleOptions */}
             <div>
-              <h1>Select your group size and duplicity</h1>
+              <h1>Select your group size</h1>
               {this.renderScheduleOptions()}
             </div>
 
