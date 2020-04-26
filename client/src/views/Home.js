@@ -13,7 +13,6 @@ import FileDownloader from "../components/FileDownload";
 */
 
 import "../CSS/webevents-main.css";
-
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
