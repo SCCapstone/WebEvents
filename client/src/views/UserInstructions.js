@@ -16,7 +16,7 @@ class Instructions extends Component {
           <img
             class="object-fit_cover"
             src="Banner3.jpg"
-            alt="home-major-image-1"
+            alt="home-major-1"
           />
         </div>
 
@@ -32,7 +32,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="InstructionsSchedulerType.png"
-                alt="Scheduler instructions image"
+                alt="Scheduler instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Input the needed variables of the selected schedule type,
@@ -41,7 +41,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="InstructionsGroupSize.png"
-                alt="Group size instructions image"
+                alt="Group size instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Upload a data file for the schedule you would like to make. If
@@ -79,7 +79,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="instructions.gif"
-                alt="Group size instructions image"
+                alt="Group size instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Press the process button to schedule your data. Once the

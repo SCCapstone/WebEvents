@@ -11,7 +11,7 @@ function findError(dates, keys, names) {
                 break;
             }
         }
-        if (value != true) {
+        if (value !== true) {
             console.log("AFDAGFAFDAFADFA");
             console.log("PERSON IS:  " + names[row]);
         }
@@ -22,11 +22,11 @@ function findError(dates, keys, names) {
 function findRepeat(dates, keys, names) {
     var boolArray;
     console.log("FINDING REPEATS");
-    var value = false;
+    //var value = false; unused variable
     for (var row = 0; row < dates.length; row++) {
         for (var column = 2; column < keys.length; column++) {
             for (var other = column + 1; other < dates.length; other++) {
-                if (dates[row][column] == dates[row][other] && dates[row][other] != 999999 && dates[row][column] != 999999) {
+                if (dates[row][column] === dates[row][other] && dates[row][other] !== 999999 && dates[row][column] !== 999999) {
                    // boolArray[row] = true; //means that there is a repeat in this file
                     console.log("THERE ARE REPEATS with: " + names[row]);
                     console.log("1st value is: " + dates[row][column]);
@@ -124,11 +124,11 @@ function fieldscheduler(props)
     }
     finalDate[0] = "No preferences";
 
-    for (var i = 0; i < spreadsheet.length; i++)
+    for (var k = 0; k < spreadsheet.length; k++)
     {
-        if (hasGroup[i] != true)
+        if (hasGroup[k] !== true)
         {
-            finalDate.push(teams[i]);
+            finalDate.push(teams[k]);
         }
     }
     finalGroups[cursor] = finalDate;

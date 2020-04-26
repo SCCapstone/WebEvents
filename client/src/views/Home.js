@@ -79,7 +79,7 @@ class home extends Component {
 
   checkUpload() {
     if (this.state.uploadFile != null) {
-      this.state.isUploaded = true;
+      this.setState({ isUploaded: true });
     }
   }
 
