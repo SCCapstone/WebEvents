@@ -120,7 +120,7 @@ function findError(dates, keys, names)
                 break;
             }
         }
-        if (value != true) {
+        if (value !== true) {
             console.log("AFDAGFAFDAFADFA");
             console.log("PERSON IS:  " + names[row]);
             carry = 1;
@@ -134,13 +134,13 @@ function findError(dates, keys, names)
 function findRepeat(dates, keys, names)
 {  console.log("FINDING REPEATS");
     carry = 0;
-    var value = false;
+    //var value = false;
     for (var row = 0; row < dates.length; row++) {
         for (var column = 2; column < keys.length; column++)
         {
             for (var other = column + 1; other < dates.length; other++)
             {
-                if (dates[row][column] == dates[row][other] && dates[row][other] != 999999 && dates[row][column] != 999999) {
+                if (dates[row][column]===dates[row][other] && dates[row][other] !== 999999 && dates[row][column] !== 999999) {
                     console.log("THERE ARE REPEATS with: " + names[row]);
                     console.log("1st value is: " + dates[row][column]);
                     console.log("2nd vale is: " + dates[row][other]);
@@ -218,12 +218,12 @@ function Test(props,size,carry1) {
 
     //these are used for popups
     let a = findError(dates, keys, names);
-    if (carry1 == 1 ){
+    if (carry1===1 ){
         return a;
     }
     
     let b = findRepeat(dates, keys, names);
-    if (carry1 == 2){
+    if (carry1 === 2){
         return b;
     }
 
@@ -257,7 +257,7 @@ function Test(props,size,carry1) {
 
                             sum = sum + dates[other][column];
 
-                            if ((counter == size-3 &&  numOfGroups >= numOfLargeGroups) || (column === dates.length && other === dates.length)) //if group is full, mark everyone as having groups
+                            if ((counter === size-3 &&  numOfGroups >= numOfLargeGroups) || (column === dates.length && other === dates.length)) //if group is full, mark everyone as having groups
                             {
                                 for (var k = 0; k < dates.length; k++) {
                                     for (var l = 0; l < dates.length; l++) {
@@ -278,7 +278,7 @@ function Test(props,size,carry1) {
                                 break;
                             }
 
-                            if ((counter == size-2) || (column === dates.length && other === dates.length)) //if group is full
+                            if ((counter === size-2) || (column === dates.length && other === dates.length)) //if group is full
                             {
                                 for (var kj = 0; kj < dates.length; kj++) {
                                     for (var lj = 0; lj < dates.length; lj++) {
@@ -318,8 +318,8 @@ function Test(props,size,carry1) {
     //var num;
     groups[0] = "No group"
     //cursor = 2;
-    var newcount = 2;
-    var groupsize = 1;
+   // var newcount = 2;
+    //var groupsize = 1;
     console.log(size - 3);
     console.log(groups);
     finalGroups[cursor + 1] = groups;

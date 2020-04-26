@@ -17,7 +17,7 @@ class About extends Component {
           <img
             class="object-fit_cover"
             src="Banner4.jpg"
-            alt="home-major-image-1"
+            alt="home-major-1"
           />
         </div>
 

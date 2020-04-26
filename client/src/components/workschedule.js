@@ -57,7 +57,7 @@ function workschedule(props, size) {
         {
             //shift[r] = [];
            // console.log(employee[r])
-            if (workweek[r][c] <= pref && shiftworked[r] < maxShifts && shiftfull[c] == false)
+            if (workweek[r][c] <= pref && shiftworked[r] < maxShifts && shiftfull[c] === false)
             {
                 shiftworked[r] += 1;
                 counter = counter + 1;
@@ -74,7 +74,7 @@ function workschedule(props, size) {
                 console.log("shifts worked " + employee[r] + " " + shiftworked[r]);
                 for(var r2 = 0; r2 < employee.length; r2++)
                 {
-                    if(r2 != r && workweek[r2][c] <= (pref+1) && shiftworked[r2] < maxShifts && shiftfull[c] == false)
+                    if(r2 !== r && workweek[r2][c] <= (pref+1) && shiftworked[r2] < maxShifts && shiftfull[c] === false)
                     {
                         counter = counter + 1;
                         shiftworked[r2] = shiftworked[r2] + 1;
@@ -93,7 +93,7 @@ function workschedule(props, size) {
                 console.log("sf " + shiftfull[c]);
                 //console.log("WWrc" + workweek[r][c]);
                 
-                if(shiftfull[c] == true)
+                if(shiftfull[c] === true)
                 {
                     finalShift[index] = shift;
                     console.log("fS is " + finalShift);
@@ -128,7 +128,7 @@ function workschedule(props, size) {
     {
         for (r = 0; r < workweek.length; r++)
         {
-            if (shiftfull[c] != true && shiftworked[r] < maxShifts)
+            if (shiftfull[c] !== true && shiftworked[r] < maxShifts)
             {
                 shiftworked[r] += 1;
                 counter = counter + 1;
@@ -138,17 +138,17 @@ function workschedule(props, size) {
                 shift[0] = keys[c];
                 shift[1] = employee[r];
                 //shift[2] = workweek[r][c];
-                for(var r2 = 0; r2 < employee.length; r2++)
+                for(var r3 = 0; r3 < employee.length; r3++)
                 {
-                    if(r2 != r && shiftworked[r2] < maxShifts && shiftfull[c] == false)
+                    if(r3 !== r && shiftworked[r3] < maxShifts && shiftfull[c] === false)
                     {
                         counter = counter + 1;
                         if(counter >= shiftmax)
                         {
                             shiftfull[c] = true;
                         }
-                        shiftworked[r2] += 1;
-                        shift[counter] = employee[r2];
+                        shiftworked[r3] += 1;
+                        shift[counter] = employee[r3];
                     }
                 }
 

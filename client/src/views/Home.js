@@ -13,7 +13,6 @@ import FileDownloader from "../components/FileDownload";
 */
 
 import "../CSS/webevents-main.css";
-
 import SchedulerType from "../components/SchedulerType.js";
 import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
@@ -80,7 +79,7 @@ class home extends Component {
 
   checkUpload() {
     if (this.state.uploadFile != null) {
-      this.state.isUploaded = true;
+      this.setState({ isUploaded: true });
     }
   }
 
@@ -135,6 +134,7 @@ class home extends Component {
   renderModalVideoPopup() {
     return <ModalVideoPopup />;
   }
+
 
   render() {
     return (

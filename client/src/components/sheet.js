@@ -21,8 +21,7 @@ class SheetJSApp extends React.Component {
         this.exportFile = this.exportFile.bind(this);
     };
     
-    handleFile() {
-
+    handleFile() {        
         var file = this.props.uploadFile;
 
         const reader = new FileReader();
@@ -35,27 +34,29 @@ class SheetJSApp extends React.Component {
             const wsname = wb.SheetNames[0];
             const ws = wb.Sheets[wsname];
             /* Convert array of arrays */
-            const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+            //const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
             const data2 = XLSX.utils.sheet_to_json(ws, { blankCell: false, defval: 999999 });
-            
+
+            var emptyRows, repeats, groups;
+
             if (this.props.scheduleType === "seminar") {
                 console.log("seminar scheduler");
-                var emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                var repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
-                var groups = Test(data2, this.props.groupSize, 0);
+                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
+                groups = Test(data2, this.props.groupSize, 0);
             }
             else if (this.props.scheduleType === "field") {
                 console.log("field scheduler")
-                var emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                var repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
-                var groups = fieldscheduler(data2);
+                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
+                groups = fieldscheduler(data2);
             }
             else if (this.props.scheduleType === "work")
             {
                 console.log("work scheduler");
-                var emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                var repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
-                var groups = workschedule(data2, this.props.groupSize);
+                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
+                groups = workschedule(data2, this.props.groupSize);
             }
 
             /* Update state */
@@ -101,12 +102,12 @@ class SheetJSApp extends React.Component {
 
 
     render() {
-//        let button;
+    //        let button;
         
         let a = this.state.detector; 
         //(a = 0... no popups, a = 1... emptyrows, a = 2... repeats, a = 3... both)
         console.log("Returning the " + a + " if-statement");
-        if (a == 0){ //If no popup needed
+        if (a === 0){ //If no popup needed
 
             return (
                 <div class="sheetjs">
@@ -121,14 +122,10 @@ class SheetJSApp extends React.Component {
                             />
                         </div>
                         <br/>
-
                         <div>
-                            
                             <button id="upload-button" onClick={() => this.manualProcessFile()}>
                                 1. Process Uploaded File
                             </button>
-                             
-
                         </div>
                         <br/>
                         <div className="col-xs-2">   
@@ -140,9 +137,8 @@ class SheetJSApp extends React.Component {
                 </div>
             );
         }
-        else if(a == 1){ //If empty rows popup needed
-            
-            
+        else if(a === 1){ //If empty rows popup needed
+
             return (
                 <div class="sheetjs">
                     <DragDropFile 
@@ -165,9 +161,9 @@ class SheetJSApp extends React.Component {
                                 {close => (
                                     <div>
                                         Warning! You have empty rows in this file. 
-                                    <a className="close" onClick={close}>
+                                    <button className="close" onClick={close}>
                                         &times;
-                                    </a>
+                                    </button>
                                     </div>
                                 )}
                             </Popup>
@@ -183,7 +179,7 @@ class SheetJSApp extends React.Component {
                 </div>
             );
         }
-        else if(a == 2){ //repeats popup needed
+        else if(a === 2){ //repeats popup needed
             return (
                 <div class="sheetjs">
                     <DragDropFile 
@@ -206,9 +202,9 @@ class SheetJSApp extends React.Component {
                                 {close => (
                                     <div>
                                         Warning! You have repeats in this file. 
-                                    <a className="close" onClick={close}>
+                                    <button className="close" onClick={close}>
                                         &times;
-                                    </a>
+                                    </button>
                                     </div>
                                 )}
                             </Popup>
@@ -247,9 +243,9 @@ class SheetJSApp extends React.Component {
                                 {close => (
                                     <div>
                                         Warning! You have empty rows AND repeats in this file. 
-                                    <a className="close" onClick={close}>
+                                    <button className="close" onClick={close}>
                                         &times;
-                                    </a>
+                                    </button>
                                     </div>
                                 )}
                             </Popup>

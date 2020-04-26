@@ -8,9 +8,14 @@ import "../CSS/webevents-main.css";
  */
 
 class TemplateDownload extends React.Component {
+
+  /** Useless consctructor
+
+  no-useless-constructor
+  
   constructor(props) {
     super(props);
-  }
+  }*/
 
   /**
    * the fetch URL is for the URL of the server. The /scheduletype is for dynamic
