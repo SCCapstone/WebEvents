@@ -1,143 +1,426 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`sheets component Matches the snapshot 1`] = `
-<div
-  onDragEnter={[Function]}
-  onDragOver={[Function]}
-  onDrop={[Function]}
->
-  <div
-    className="row"
-  >
+<div>
+  <head>
+    <meta
+      charset="utf-8"
+    />
+    <meta
+      content="width=device-width"
+      name="viewport"
+    />
+    <meta
+      content="website description"
+      name="description"
+    />
+    <meta
+      content="Lam Nguyen"
+      name="author"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      crossorigin="anonymous"
+      src="https://kit.fontawesome.com/b22242fa13.js"
+    />
+  </head>
+  <div>
     <div
-      className="col-xs-1"
-    >
-      <form
-        className="form-inline"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            htmlFor="file"
-          >
-            Spreadsheet:
-          </label>
-          <input
-            accept=".xlsx,.xlsb,.xlsm,.xls,.xml,.csv,.txt,.ods,.fods,.uos,.sylk,.dif,.dbf,.prn,.qpw,.123,.wb*,.wq*,.html,.htm"
-            className="form-control"
-            id="file"
-            onChange={[Function]}
-            type="file"
-          />
-        </div>
-      </form>
-    </div>
-  </div>
-  <div
-    className="button"
-  >
-    <div
-      className="col-xs-2"
-    >
-      <button
-        className="btn btn-success"
-        disabled={true}
-        onClick={[Function]}
-      >
-        Export
-      </button>
-    </div>
-  </div>
-  <div
-    className="row2"
-  >
-    <div
-      className="col-xs-3"
+      class="header"
     >
       <div
-        className="table-responsive"
+        class="inner-header"
       >
-        <table
-          className="table table-striped"
+        <div
+          class="logo-container"
         >
-          <thead>
-            <tr />
-          </thead>
-          <tbody />
-        </table>
+          <a
+            href="home"
+          >
+            <h1>
+              Web
+              <span>
+                 Events Scheduling 
+              </span>
+            </h1>
+          </a>
+        </div>
+        <ul
+          class="basic-navigation"
+        >
+          <a
+            href="home"
+          >
+            <li>
+              Home
+            </li>
+          </a>
+          <a
+            href="about"
+          >
+            <li>
+              About us
+            </li>
+          </a>
+          <a
+            href="instructions"
+          >
+            <li>
+              Instructions
+            </li>
+          </a>
+          <a
+            href="contact"
+          >
+            <li>
+              Contact us
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div
+        className="redLine"
+      />
+    </div>
+    <div
+      className="App"
+    >
+      <div
+        class="intro-banner img-cont"
+      >
+        <img
+          alt="home-major-image-1"
+          class="object-fit_cover"
+          src="homepageBanner.jpg"
+        />
+      </div>
+      <br />
+      <div
+        className="main-body"
+      >
+        <div>
+          <div
+            aria-label="You just openned the modal video"
+            className="modal-video"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="dialog"
+            tabIndex="-1"
+          >
+            <div
+              className="modal-video-body"
+            >
+              <div
+                className="modal-video-inner"
+              >
+                <div
+                  className="modal-video-movie-wrap"
+                  style={
+                    Object {
+                      "paddingBottom": "56.25%",
+                    }
+                  }
+                >
+                  <button
+                    aria-label="Close the modal by clicking here"
+                    className="modal-video-close-btn"
+                    onKeyDown={[Function]}
+                  />
+                  <iframe
+                    allowFullScreen={true}
+                    frameBorder="0"
+                    height="230"
+                    src="//www.youtube.com/embed/IRaycIhnl8o?autoplay=1&cc_load_policy=1&controls=1&disablekb=0&enablejsapi=0&fs=1&iv_load_policy=1&loop=0&rel=0&showinfo=1&start=0&wmode=transparent&theme=dark"
+                    tabIndex="-1"
+                    width="460"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="inner-main-body"
+        >
+          <div
+            className="Instructions"
+          >
+            <h1>
+              Quick Instructions
+            </h1>
+            To use this application, follow the steps below:
+            <ol>
+              <li>
+                The file must be in the correct format of First name- Last name- preferences for all of the people
+              </li>
+              <li>
+                You must select the scheduling type that you want to use
+              </li>
+              <li>
+                After you select the type, you have to select the specific options for that type
+              </li>
+              <li>
+                Finally, you will upload your file, and click the export file to download the finished schedule.
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h1>
+              Select the type of scheduler
+            </h1>
+            <div
+              className="schedulerTypeCont"
+            >
+              <div
+                className="scheduleTypeBar"
+              >
+                <div
+                  className="dropright"
+                  onKeyDown={[Function]}
+                >
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="dropdown-toggle btn btn-secondary"
+                    disabled={false}
+                    id="dropdown-button-drop-right"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                     Scheduler Type 
+                  </button>
+                </div>
+                <h5>
+                  Selected Schedule Type: 
+                  field
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1>
+              Select your group size
+            </h1>
+            <div
+              className="schedulerTypeCont"
+            >
+              <div
+                className="scheduleTypeBar"
+              >
+                <div
+                  className="dropdown"
+                  onKeyDown={[Function]}
+                >
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="dropdown-toggle btn btn-secondary"
+                    disabled={false}
+                    id="dropdown-button-drop-down"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                     Group Size 
+                  </button>
+                </div>
+                <h5>
+                  Selected Group Size: 
+                  2
+                  -
+                  3
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1>
+              Need a scheduler template?
+            </h1>
+            <div>
+              <div
+                className="template-cont"
+              >
+                <button
+                  id="template-button"
+                  onClick={[Function]}
+                >
+                  Download 
+                  field
+                   Template File
+                </button>
+              </div>
+              <div
+                className="RequestServer"
+              >
+                <p
+                  className="request"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              id="DataPanel-Container"
+            >
+              <div
+                id="Excel-Container"
+              >
+                <div
+                  id="padded-text"
+                >
+                  <h1>
+                    Upload your Spreadsheet
+                  </h1>
+                  <p>
+                    File extensions supported: .csv, .xls, .xlsx, .xlsm, .xltx, xltm
+                  </p>
+                  <div
+                    class="sheetjs"
+                  >
+                    <div
+                      onDragEnter={[Function]}
+                      onDragOver={[Function]}
+                      onDrop={[Function]}
+                    >
+                      <div
+                        className="col-xs-1"
+                      >
+                        <input
+                          accept=".xlsx,.xlsb,.xlsm,.xls,.xml,.csv,.txt,.ods,.fods,.uos,.sylk,.dif,.dbf,.prn,.qpw,.123,.wb*,.wq*,.html,.htm"
+                          className="form-control"
+                          onChange={[Function]}
+                          type="file"
+                        />
+                      </div>
+                      <br />
+                      <div>
+                        <button
+                          id="upload-button"
+                          onClick={[Function]}
+                        >
+                          1. Process Uploaded File
+                        </button>
+                      </div>
+                      <br />
+                      <div
+                        className="col-xs-2"
+                      >
+                        <button
+                          className="btn btn-success"
+                          onClick={[Function]}
+                        >
+                          2. Download Processed Schedule
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`test component Matches the snapshot 1`] = `
-<div
-  onDragEnter={[Function]}
-  onDragOver={[Function]}
-  onDrop={[Function]}
->
-  <div
-    className="row"
-  >
     <div
-      className="col-xs-1"
-    >
-      <form
-        className="form-inline"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            htmlFor="file"
-          >
-            Spreadsheet:
-          </label>
-          <input
-            accept=".xlsx,.xlsb,.xlsm,.xls,.xml,.csv,.txt,.ods,.fods,.uos,.sylk,.dif,.dbf,.prn,.qpw,.123,.wb*,.wq*,.html,.htm"
-            className="form-control"
-            id="file"
-            onChange={[Function]}
-            type="file"
-          />
-        </div>
-      </form>
-    </div>
-  </div>
-  <div
-    className="button"
-  >
-    <div
-      className="col-xs-2"
-    >
-      <button
-        className="btn btn-success"
-        disabled={true}
-        onClick={[Function]}
-      >
-        Export
-      </button>
-    </div>
-  </div>
-  <div
-    className="row2"
-  >
-    <div
-      className="col-xs-3"
+      class="footer"
     >
       <div
-        className="table-responsive"
+        class="inner-footer"
       >
-        <table
-          className="table table-striped"
+        <div
+          class="logo-container"
         >
-          <thead>
-            <tr />
-          </thead>
-          <tbody />
-        </table>
+          <img
+            alt="WebEvents Logo"
+            src="logo512.png"
+          />
+        </div>
+        <div
+          class="footer-third"
+        >
+          <h1 />
+          <li>
+            <a>
+              <i
+                class="fab fa-facebook-square"
+              />
+            </a>
+          </li>
+          <li>
+            <a>
+              <i
+                class="fab fa-twitter-square"
+              />
+            </a>
+          </li>
+          <li>
+            <a>
+              <i
+                class="fab fa-instagram-square"
+              />
+            </a>
+          </li>
+          <li>
+            <a>
+              <i
+                class="fab fa-linkedin"
+              />
+            </a>
+          </li>
+        </div>
+        <div
+          class="footer-third"
+        >
+          <h1>
+            More
+          </h1>
+          <li>
+            <a
+              href="https://www.sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/josevidal.php"
+            >
+              Professor Jose Vidal
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://capstone.cse.sc.edu/"
+            >
+              UofSC Capstone
+            </a>
+          </li>
+        </div>
+        <div
+          class="footer-third"
+        >
+          <h1>
+            Links
+          </h1>
+          <li>
+            <a
+              href="https://github.com/SCCapstone/WebEvents"
+            >
+              Our Github
+            </a>
+          </li>
+          <br />
+          <li>
+            <a
+              href="https://github.com/SCCapstone/WebEvents/wiki"
+            >
+              Visit our Wiki
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/SCCapstone/WebEvents/wiki/Legal-Issues"
+            >
+              Legal Issues
+            </a>
+          </li>
+        </div>
       </div>
     </div>
   </div>
