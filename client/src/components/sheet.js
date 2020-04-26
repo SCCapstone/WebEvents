@@ -46,11 +46,15 @@ class SheetJSApp extends React.Component {
             }
             else if (this.props.scheduleType === "field") {
                 console.log("field scheduler")
+                var emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+                var repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
                 var groups = fieldscheduler(data2);
             }
             else if (this.props.scheduleType === "work")
             {
                 console.log("work scheduler");
+                var emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+                var repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
                 var groups = workschedule(data2, this.props.groupSize);
             }
 
