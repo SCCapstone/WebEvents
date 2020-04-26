@@ -10,12 +10,14 @@ import "../CSS/webevents-main.css";
 class TemplateDownload extends React.Component {
   constructor(props) {
     super(props);
-    //this.handleChange = this.handleChange.bind(this);
   }
-  /*
-     handleChange(e) {
-         String schedulerType = e;
-     };*/
+
+  /**
+   * the fetch URL is for the URL of the server. The /scheduletype is for dynamic
+   * fetching. if you wish to add more schedule types you must add a backend
+   * endpoint. The scheduletype is chosen from dropdown menu and passed as props.
+   * This class is implemented in Home.js
+   */
 
   downloadTemplateFile = () => {
     var scheduleType = this.props.scheduleType;
