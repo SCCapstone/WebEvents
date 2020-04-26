@@ -21,8 +21,7 @@ class SheetJSApp extends React.Component {
         this.exportFile = this.exportFile.bind(this);
     };
     
-    handleFile() {
-
+    handleFile() {        
         var file = this.props.uploadFile;
 
         const reader = new FileReader();
@@ -97,7 +96,7 @@ class SheetJSApp extends React.Component {
 
 
     render() {
-//        let button;
+    //        let button;
         
         let a = this.state.detector; 
         //(a = 0... no popups, a = 1... emptyrows, a = 2... repeats, a = 3... both)
@@ -117,14 +116,10 @@ class SheetJSApp extends React.Component {
                             />
                         </div>
                         <br/>
-
                         <div>
-                            
                             <button id="upload-button" onClick={() => this.manualProcessFile()}>
                                 1. Process Uploaded File
                             </button>
-                             
-
                         </div>
                         <br/>
                         <div className="col-xs-2">   
@@ -137,8 +132,7 @@ class SheetJSApp extends React.Component {
             );
         }
         else if(a == 1){ //If empty rows popup needed
-            
-            
+
             return (
                 <div class="sheetjs">
                     <DragDropFile 
