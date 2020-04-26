@@ -80,7 +80,7 @@ function fieldscheduler(props)
     }
     //console.log(spreadsheet);
     for (var h = 0; h < spreadsheet.length; h++) {
-        teams[h] = spreadsheet[h][0];
+        teams[h] = spreadsheet[h][0] + " "+spreadsheet[h][1];
         finalDate[h] = [];
         hasGroup[h] = false;
         //console.log(teams[h]);
@@ -110,7 +110,7 @@ function fieldscheduler(props)
                 finalDate[0] = keys[column];
                // console.log("Dates is: "+keys[column]);
                 finalDate[1] = teams[row];  
-                finalDate[2] = "Preference value is: "+spreadsheet[row][column];
+                //finalDate[2] = "Preference value is: "+spreadsheet[row][column];
                 //console.log("Pushing array");
                 finalGroups[cursor] = finalDate; //push it into final array
                 // console.log(finalGroups[cursor]);
@@ -122,6 +122,16 @@ function fieldscheduler(props)
         }
         prefLimit++;
     }
+    finalDate[0] = "No preferences";
+
+    for (var i = 0; i < spreadsheet.length; i++)
+    {
+        if (hasGroup[i] != true)
+        {
+            finalDate.push(teams[i]);
+        }
+    }
+    finalGroups[cursor] = finalDate;
 
     return finalGroups;
 }
