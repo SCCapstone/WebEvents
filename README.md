@@ -1,27 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
+</br>
 server was set up using medium guide: 
 https://medium.com/@maison.moa/setting-up-an-express-backend-server-for-create-react-app-bc7620b20a61
-
-and file upload guided by:
-https://medium.com/@kris101/react-file-upload-the-easy-way-with-nodejs-e94c5e81fb8
-along with serverside of: 
+</br>
+along with: 
 https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
 
  ### TO RUN THE APPLICATION
  
- After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run sudo npm start, and the application should start in your local host. In another terminal session go into the server folder and npm install node modules, and then run the server using node server.js. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the process button to run the algorithm on it followed by the download button to download the processed file. 
+ After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run sudo npm start, and the application should start in your local host. In another terminal session go into the server folder and npm install node modules, and then run the server using node server.js. 
+ </br></br>You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com. 
+ </br></br>To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the process button to run the algorithm on it followed by the download button to download the processed file. 
  
-the client server file structure is:
-WebEvents (whole app)
-    Client(all react frontend stuff there)
-        -npm install
-        -sudo npm start
-        -npm test
-    Server(all backend stuff)
-        -npm install
-        -node server.js
+the client server file structure is:</br>
+WebEvents (whole app)</br>
+    &emsp;Client(all react frontend stuff there)</br>
+        &emsp;&emsp;-npm install</br>
+        &emsp;&emsp;-sudo npm start</br>
+        &emsp;&emsp;-npm test</br>
+    &emsp;Server(template downloads)</br>
+        &emsp;&emsp;-npm install</br>
+        &emsp;&emsp;-node server.js</br>
     
 
 ## Available Scripts
@@ -36,9 +36,9 @@ Next, the node modules must be installed and migrated. This has to be done once 
 
 Afterwwards, start the app: 
 
-### `npm start`
+### `sudo npm start`
 
-[ By default, the development server is set to start at port 80 on your local machine, you can also specify <PORT_NUMBER> ]
+[ By default, the development server is set to start at port 80 on your local machine which requires administrator privilages, you can also specify <PORT_NUMBER> if you wish to change from port 80]
 
 Runs the app in the development mode.<br />
 Open [http://localhost](http://localhost) to view it in the browser.
