@@ -20,12 +20,9 @@ exports[`sheets component Matches the snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-         Scheduler Type 
+        Scheduler Type
       </button>
     </div>
-    <h5>
-      Selected Schedule Type: 
-    </h5>
   </div>
 </div>
 `;

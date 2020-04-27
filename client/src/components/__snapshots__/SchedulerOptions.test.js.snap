@@ -23,11 +23,6 @@ exports[`sheets component Matches the snapshot 1`] = `
          Group Size 
       </button>
     </div>
-    <h5>
-      Selected Group Size: 
-      NaN
-      -
-    </h5>
   </div>
 </div>
 `;
