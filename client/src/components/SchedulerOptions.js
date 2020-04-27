@@ -1,6 +1,4 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-//import Checkbox from 'react';
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
@@ -11,21 +9,11 @@ class SchedulerOptions extends React.Component {
     this.props.parentCallback("Hey Popsie, How�s it going?");
   };
 
-  //todo
-  //add groupsize 5-12
-  //add duplicants True or False ie checkbox
-
   constructor(props) {
     super(props);
-    //this.set2 = this.set2.bind(this);
     this.state = {
       dupes: false,
     };
-    /*  this.handleChangeOnGroup = this.handleChangeOnGroup.bind(this);
-        handleChangeOnGroup(e)
-        {
-            this.props.setState(e.target.groupsize);
-        } */
   }
 
   allowDupes = () => {
@@ -77,17 +65,6 @@ class SchedulerOptions extends React.Component {
               {/*console.log(this.state.groupsize)*/}
             </DropdownButton>
           ))}
-          <h5>
-            Selected Group Size: {this.props.groupSize - 1}-
-            {this.props.groupSize}
-          </h5>
-
-          {/*
-                    Refactoring Successful 
-                    Lam Nguyen
-                    2020-03-29 1858
-                    Removed the following line creating the secondary upload
-                    */}
         </div>
       </div>
     );

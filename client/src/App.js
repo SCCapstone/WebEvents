@@ -15,7 +15,7 @@ import About from './views/About';
 import ContactUs from './views/ContactUs';
 import Error from './views/ErrorPage';
 import UserInstructions from "./views/UserInstructions";
-
+import '../node_modules/react-modal-video/scss/modal-video.scss';
 import TitleBar from "./components/sitewide/TitleBar";
 import Footer from "./components/sitewide/Footer.js";
 
@@ -30,6 +30,7 @@ const App = () => {
         <meta name="author" content="Lam Nguyen"/>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/b22242fa13.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <BrowserRouter>
         <div>

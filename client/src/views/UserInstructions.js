@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../CSS/webevents-main.css";
+import ModalVideoPopup from "../components/ModalVideoPopup";
 
 class Instructions extends Component {
   constructor(props) {
@@ -8,20 +9,24 @@ class Instructions extends Component {
       navbarClass: "instructions",
     };
   }
+  renderModalVideoPopup() {
+    return (
+      <ModalVideoPopup
+        isOpen={this.state.initialPopupVideo}
+        closeVideo={() => this.closePopupVideo()}
+      />
+    );
+  }
 
   render() {
     return (
       <div id="MainBody">
         <div class="intro-banner img-cont">
-          <img
-            class="object-fit_cover"
-            src="Banner3.jpg"
-            alt="home-major-image-1"
-          />
+          <img class="object-fit_cover" src="Banner3.jpg" alt="home-major-1" />
         </div>
-
-        <div class="MainBody-inner">
-          <div id="padded-container-center">
+        {this.renderModalVideoPopup()}
+        <div className="MainBody-inner">
+          <div className="padded-container-center">
             <h1>Instructions how to use Web Events</h1>
             <h4>How to use:</h4>
             <ol>
@@ -32,7 +37,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="InstructionsSchedulerType.png"
-                alt="Scheduler instructions image"
+                alt="Scheduler instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Input the needed variables of the selected schedule type,
@@ -41,7 +46,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="InstructionsGroupSize.png"
-                alt="Group size instructions image"
+                alt="Group size instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Upload a data file for the schedule you would like to make. If
@@ -79,7 +84,7 @@ class Instructions extends Component {
               <img
                 class="user-instructions-img"
                 src="instructions.gif"
-                alt="Group size instructions image"
+                alt="Group size instructions"
               />
               <li style={{ textAlign: "left" }}>
                 Press the process button to schedule your data. Once the
