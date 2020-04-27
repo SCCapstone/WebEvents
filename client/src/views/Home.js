@@ -18,7 +18,6 @@ import SchedulerOption from "../components/SchedulerOptions.js";
 import SheetJSApp from "../components/sheet";
 //import RequestServer from "../components/obsolete/RequestServer";
 import TemplateDownload from "../components/TemplateDownload";
-import ModalVideoPopup from "../components/ModalVideoPopup";
 
 /** Retired iCal properties
  * Lam Nguyen
@@ -70,7 +69,9 @@ class home extends Component {
     //To Remove
     if (file == null) {
       // TODO Setup popup window and disable button
-      window.alert("The file being processed isn't uploaded yet, upload your file using the upload box below!");
+      window.alert(
+        "The file being processed isn't uploaded yet, upload your file using the upload box below!"
+      );
       console.log("The file in processFile is null");
     } else {
       //window.alert("The file is processed successfully, click the download button to receive the output file!");
@@ -88,15 +89,16 @@ class home extends Component {
     }
   }
 
-  doProcessed() { this.setState({ isProcessed: true }); }
+  doProcessed() {
+    this.setState({ isProcessed: true });
+  }
 
-  renderStatus() { 
-    if (this.state.scheduleType !== "null") 
-      return (<h5>Selected Scheduler type: {this.state.scheduleType}</h5>); 
+  renderStatus() {
+    if (this.state.scheduleType !== "null")
+      return <h5>Selected Scheduler type: {this.state.scheduleType}</h5>;
   }
 
   renderScheduleType() {
-
     return (
       <div>
         <h1>Select the type of scheduler</h1>
@@ -111,11 +113,18 @@ class home extends Component {
 
   renderGroupSize() {
     if (this.state.groupSize !== 0)
-      return(<h5>Selected Group Size: {this.state.groupSize - 1}-{this.state.groupSize}</h5>);
+      return (
+        <h5>
+          Selected Group Size: {this.state.groupSize - 1}-{this.state.groupSize}
+        </h5>
+      );
   }
 
   renderScheduleOptions() {
-    if ( this.state.scheduleType !== "field" && this.state.scheduleType !== "null") {
+    if (
+      this.state.scheduleType !== "field" &&
+      this.state.scheduleType !== "null"
+    ) {
       return (
         <div>
           <h1>Select your group size</h1>
@@ -132,7 +141,9 @@ class home extends Component {
     if (this.state.groupSize !== 0 || this.state.scheduleType === "field") {
       return (
         <div>
-          <h1>Need the template for the {this.state.scheduleType} scheduler?</h1>
+          <h1>
+            Need the template for the {this.state.scheduleType} scheduler?
+          </h1>
           <TemplateDownload scheduleType={this.state.scheduleType} />
           {/** <RequestServer />*/}
         </div>
@@ -140,7 +151,7 @@ class home extends Component {
     }
   }
   renderDataPanel() {
-    if(this.state.groupSize !== 0 || this.state.scheduleType === "field") {
+    if (this.state.groupSize !== 0 || this.state.scheduleType === "field") {
       return (
         <div id="DataPanel-Container">
           <div id="Excel-Container">
@@ -166,17 +177,8 @@ class home extends Component {
     }
   }
 
-  renderModalVideoPopup() {
-    return (
-      <ModalVideoPopup 
-        isOpen={this.state.initialPopupVideo}
-        closeVideo={() => this.closePopupVideo()}
-      />
-    );
-  }
-
   closePopupVideo() {
-    window.alert("Closed Video?")
+    window.alert("Closed Video?");
     this.setState({ initialPopupVideo: false });
   }
 
@@ -191,7 +193,7 @@ class home extends Component {
           />
         </div>
         <br />
-        {this.renderModalVideoPopup()}
+
         <div className="main-body">
           <div className="inner-main-body">
             <div className="Instructions">
@@ -228,7 +230,6 @@ class home extends Component {
 
             {/* This is for the excel file input*/}
             {this.renderDataPanel()}
-
           </div>
         </div>
 

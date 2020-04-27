@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../CSS/webevents-main.css";
+import ModalVideoPopup from "../components/ModalVideoPopup";
 
 class Instructions extends Component {
   constructor(props) {
@@ -8,18 +9,22 @@ class Instructions extends Component {
       navbarClass: "instructions",
     };
   }
+  renderModalVideoPopup() {
+    return (
+      <ModalVideoPopup
+        isOpen={this.state.initialPopupVideo}
+        closeVideo={() => this.closePopupVideo()}
+      />
+    );
+  }
 
   render() {
     return (
       <div id="MainBody">
         <div class="intro-banner img-cont">
-          <img
-            class="object-fit_cover"
-            src="Banner3.jpg"
-            alt="home-major-1"
-          />
+          <img class="object-fit_cover" src="Banner3.jpg" alt="home-major-1" />
         </div>
-
+        {this.renderModalVideoPopup()}
         <div className="MainBody-inner">
           <div className="padded-container-center">
             <h1>Instructions how to use Web Events</h1>
