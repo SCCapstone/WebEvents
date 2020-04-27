@@ -17,7 +17,7 @@ class ContactUs extends Component {
                <img
                class="object-fit_cover"
                src="Banner2.jpg"
-               alt="home-major-image-1"
+               alt="home-major-1"
                />
             </div>
             <div class="MainBody-inner center">
