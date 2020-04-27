@@ -23,27 +23,6 @@ class Footer extends Component {
           </div>
 
           <div class="footer-third">
-            <h1></h1>
-            <li>
-              <a>
-                <i class="fab fa-facebook-square"></i>
-              </a>
-            </li>
-            <li>
-              <a>
-                <i class="fab fa-twitter-square"></i>
-              </a>
-            </li>
-            <li>
-              <a>
-                <i class="fab fa-instagram-square"></i>
-              </a>
-            </li>
-            <li>
-              <a>
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
           </div>
           <div class="footer-third">
             <h1>More</h1>

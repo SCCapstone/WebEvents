@@ -17,11 +17,11 @@ class About extends Component {
           <img
             class="object-fit_cover"
             src="Banner4.jpg"
-            alt="home-major-image-1"
+            alt="home-major-1"
           />
         </div>
 
-        <div class="MainBody-inner">
+        <div className="MainBody-inner">
           <h1>About US</h1>
           <h4>
             Nate Zajac: Team Captain, Editor, Frontend Support <br />
