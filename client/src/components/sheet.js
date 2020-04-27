@@ -40,16 +40,13 @@ class SheetJSApp extends React.Component {
             var emptyRows, repeats, groups;
 
             if (this.props.scheduleType === "seminar") {
-                console.log("seminar scheduler");
                 groups = Test(data2, this.props.groupSize, 0);
             }
             else if (this.props.scheduleType === "field") {
-                console.log("field scheduler")
                 groups = fieldscheduler(data2);
             }
             else if (this.props.scheduleType === "work")
             {
-                console.log("work scheduler");
                 groups = workschedule(data2, this.props.groupSize);
             }
 
@@ -80,16 +77,13 @@ class SheetJSApp extends React.Component {
                     break;
             }
 
-            if (confirmation) {
-                window.alert("You are okay:)");
-            } else {
-                window.alert("You are not okay :c")
+            if (!confirmation) {
                 window.location.reload();
             }
 
         };
 
-        if(this.props.uploadFile != null) {
+        if(this.props.uploadFile !== null) {
             if (rABS) 
                 reader.readAsBinaryString(file); 
             else 
@@ -125,7 +119,17 @@ class SheetJSApp extends React.Component {
     this.setState({ data: [[]] });
     window.location.reload(false);
   };
-
+  renderUploadButton() {
+    if(this.props.uploadFile) {
+        return (
+            <div>
+                <button id="upload-button" onClick={() => this.manualProcessFile()}>
+                    1. Process Uploaded File
+                </button>
+            </div>
+        );
+    }
+  }
   renderDownloadButton() {
       if(this.props.isProcessed) {
         return (
@@ -159,11 +163,7 @@ class SheetJSApp extends React.Component {
                         />
                     </div>
                     <br/>
-                    <div>
-                        <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                            1. Process Uploaded File
-                        </button>
-                    </div>
+                    {this.renderUploadButton()}
                     <br/>
                     {this.renderDownloadButton()}
                 </DragDropFile>

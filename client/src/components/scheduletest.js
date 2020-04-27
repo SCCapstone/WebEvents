@@ -1,6 +1,7 @@
 var hasBeenPromoted = [];
 var datesBool = [];
 var carry = false;
+var very_big_number = 100;
 
 //This can return a key based on the value that you want (keys are the dates, values are the preference number)
 Object.prototype.getKey = function (value) {
@@ -107,13 +108,11 @@ var emptyRowCounter = 0;
 
 function findError(dates, keys, names)
 { carry = 0;
-    console.log("FINDING ROW WITH NO PREFERENCES");
     var value = false;
     for (var row = 1; row < dates.length; row++)
     {
         for (var column = 2; column < keys.length; column++)
         {
-            console.log(dates[row][column]);
             if (dates[row][column] < 500)
             {
                 value = true; //this means it has at least one entry
@@ -121,8 +120,6 @@ function findError(dates, keys, names)
             }
         }
         if (value !== true) {
-            console.log("AFDAGFAFDAFADFA");
-            console.log("PERSON IS:  " + names[row]);
             carry = 1;
             emptyRowCounter++;
         }
@@ -132,7 +129,7 @@ function findError(dates, keys, names)
 }
 
 function findRepeat(dates, keys, names)
-{  console.log("FINDING REPEATS");
+{
     carry = 0;
     //var value = false;
     for (var row = 0; row < dates.length; row++) {
@@ -141,11 +138,7 @@ function findRepeat(dates, keys, names)
             for (var other = column + 1; other < dates.length; other++)
             {
                 if (dates[row][column]===dates[row][other] && dates[row][other] !== 999999 && dates[row][column] !== 999999) {
-                    console.log("THERE ARE REPEATS with: " + names[row]);
-                    console.log("1st value is: " + dates[row][column]);
-                    console.log("2nd vale is: " + dates[row][other]);
                     carry = 2;
-                    console.log("What is carry in repeat" + carry);
                 }
             }
         }
@@ -158,11 +151,10 @@ function Test(props,size,carry1) {
 
     keys = Object.keys(props[1]);
     vals = [keys.length][keys.length];
-    console.log(keys);
     for (var i = 0; i < props.length; i++) {
 
         dates[i] = []; //initialize the array
-        for (var j = 0; j < 35; j++) //testing getting the first 9 options
+        for (var j = 0; j < very_big_number; j++) //testing getting the first 9 options
         {
             dates[i][j] = [];
             vals = Object.values(props[i]);
@@ -229,15 +221,12 @@ function Test(props,size,carry1) {
 
     var groupNum = (names.length - emptyRowCounter) % size;
     groupNum = size - groupNum;
-    console.log("NEEDS " + groupNum + " SMALL GROUPS");
 
     var numOfLargeGroups = (names.length - emptyRowCounter) - ((size-1) * (groupNum));
     numOfLargeGroups = (numOfLargeGroups) / (size);
-    console.log("LARGE GROUPS: " + numOfLargeGroups);
 
     findDate(keys, sumArr, datesBool, dates, names);
 
-        console.log("NUM OF GROUPS IS: " + numOfGroups); //switch from row-by-row to column-by-column
         for (var column = 2; column < keys.length; column++) {
 
             for (var row = 0; row < names.length; row++) {
@@ -252,7 +241,6 @@ function Test(props,size,carry1) {
                             //sets first name as first index of array, dates as second
                             groups[0] = keys[column];
                             groups[1] = names[row];
-                             console.log("There is a match with: " + dates[other][0]);
                             groups[counter + 2] = names[other];      //starts to set other name into array
 
                             sum = sum + dates[other][column];
@@ -314,14 +302,11 @@ function Test(props,size,carry1) {
            // console.log("PREF IS: " + preference);
         }
     //}
-    console.log(hasGroup);
     //var num;
     groups[0] = "No group"
     //cursor = 2;
    // var newcount = 2;
     //var groupsize = 1;
-    console.log(size - 3);
-    console.log(groups);
     finalGroups[cursor + 1] = groups;
 
     groups[0] = "No group";

@@ -38,7 +38,6 @@ class SchedulerType extends React.Component {
                         {console.log(this.state.type)}
                         </DropdownButton>
                     ))} 
-                    <h5>Selected Scheduler: {this.props.SchedulerType}</h5>
                 </div>
             </div>
         );

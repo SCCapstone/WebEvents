@@ -28,11 +28,11 @@ img {
   margin: 20px 0;
   display: block;
   text-align: center;
-  min-height: 1000px;
+  min-height: 400px;
 }
 
 .inner-main-body {
-  width: 1000px;
+  width: auto;
   height: 100%;
   display: inline-block;
   margin: 0 auto;
@@ -439,10 +439,48 @@ button[type="Options"].btn:hover {
   background-color: red;
 }
 
-
-.main-body div {
-  margin-bottom: 20px;
+.inner-main-body div:first-child {
+  margin-top: 20px;
 }
-.main-body div:last-child {
+
+.inner-main-body div {
+  margin-bottom: 10px;
+}
+
+.inner-main-body div:last-child {
   margin-bottom: 5px;
+}
+
+.padded-container-center {
+  text-align: center;
+}
+
+.padded-container-center img {
+  width: 500px;
+  margin: auto;
+  padding: auto;
+}
+.main-body img::after {
+  margin-bottom: 30px;
+}
+.padded-container-center ol li {
+  margin: 10px 0;
+}
+
+.MainBody-inner p:last-child {
+  margin-bottom: 50px;
+}
+
+.MainBody-inner p:last-child {
+  margin-bottom: 50px;
+}
+
+@media (max-width:900px){
+  #navbar.hidden{
+      display: none;
+  }
+
+  #main-nav{
+      padding: 5px;
+  }
 }

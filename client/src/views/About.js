@@ -21,7 +21,7 @@ class About extends Component {
           />
         </div>
 
-        <div class="MainBody-inner">
+        <div className="MainBody-inner">
           <h1>About US</h1>
           <h4>
             Nate Zajac: Team Captain, Editor, Frontend Support <br />
