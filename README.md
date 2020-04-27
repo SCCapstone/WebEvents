@@ -11,7 +11,7 @@ https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-
 
  ### TO RUN THE APPLICATION
  
- After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run npm start, and the application should start in your local host. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the export button to run the algorithm on it. The only current working option is the group size option. The odd part is that the Excel file input in the center of the screen is not the part that acutally works. You must upload it at the upload at the bottom left part of the screen. This will be fixed for RC1. The scheduler type option does not work either, so you cannot actually test the field scheduling algorithm, but what it does is assign a single team to a field at an individual time.
+ After you download the files, you will first need to cd into the client folder, and npm install from there. From there, you will run sudo npm start, and the application should start in your local host. In another terminal session go into the server folder and npm install node modules, and then run the server using node server.js. You should not have to this, as the app is currently deployed at: http://ec2-3-133-106-204.us-east-2.compute.amazonaws.com. To use the application, there are two files attached. First is the Test.csv file, which is the file that was given to us by our client. You will upload this, and then hit the process button to run the algorithm on it followed by the download button to download the processed file. 
  
 the client server file structure is:
 WebEvents (whole app)
@@ -36,12 +36,12 @@ Next, the node modules must be installed and migrated. This has to be done once 
 
 Afterwwards, start the app: 
 
-### `npm start <PORT_NUMBER>`
+### `npm start`
 
-[ By default, the development server is set to start at port 3000 on your local machine, you can also specify <PORT_NUMBER> ]
+[ By default, the development server is set to start at port 80 on your local machine, you can also specify <PORT_NUMBER> ]
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost](http://localhost) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
