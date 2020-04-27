@@ -76,6 +76,7 @@ class SheetJSApp extends React.Component {
                         " rows (multiple entries for specific people/groups) in the input file!");
                     break;
                 default:
+                    confirmation = true;
                     break;
             }
 
