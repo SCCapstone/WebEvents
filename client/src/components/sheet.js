@@ -5,7 +5,6 @@ import "../CSS/webevents-main.css";
 import Test from "./scheduletest.js";
 import fieldscheduler from "./fieldschedule.js";
 import workschedule from "./workschedule.js";
-import Popup from "reactjs-popup";
 
 class SheetJSApp extends React.Component {
 
@@ -26,6 +25,7 @@ class SheetJSApp extends React.Component {
 
         const reader = new FileReader();
         const rABS = !!reader.readAsBinaryString;
+
         reader.onload = (e) => {
             /* Parse data */
             const bstr = e.target.result;
@@ -40,32 +40,50 @@ class SheetJSApp extends React.Component {
             var emptyRows, repeats, groups;
 
             if (this.props.scheduleType === "seminar") {
-                console.log("seminar scheduler");
-                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
                 groups = Test(data2, this.props.groupSize, 0);
             }
             else if (this.props.scheduleType === "field") {
-                console.log("field scheduler")
-                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
                 groups = fieldscheduler(data2);
             }
             else if (this.props.scheduleType === "work")
             {
-                console.log("work scheduler");
-                emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
-                repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
                 groups = workschedule(data2, this.props.groupSize);
             }
 
+            emptyRows = Test(data2, this.props.groupSize, 1); //if there are empty rows, this will = 1 ... else 0
+            repeats = Test(data2, this.props.groupSize, 2); // if there are repeats, this will = 2 ... else 0
+
             /* Update state */
             this.setState({ data: groups });
-            //console.log("there there " + emptyRows + " " + repeats);
             this.setState({ detector: (emptyRows + repeats)});
             
+            var confirmation = 0;
+            switch (this.state.detector) {
+                case 1:
+                    confirmation = window.confirm("The uploaded file is ill-formatted, there are "+
+                        "empty rows (people/groups without preferences) in the input file!");
+                    break;
+                case 2:
+                    confirmation = window.alert("The uploaded file is ill-formatted, there are "+
+                        "repeated rows (multiple entries for specific people/groups) in the input file!");
+                    break;
+                case 3:
+                    confirmation = window.alert("The uploaded file is ill-formatted, there are "+
+                        "empty rows (people/groups without preferences) and repeated"+
+                        " rows (multiple entries for specific people/groups) in the input file!");
+                    break;
+                default:
+                    confirmation = true;
+                    break;
+            }
+
+            if (!confirmation) {
+                window.location.reload();
+            }
+
         };
-        if(this.props.uploadFile != null) {
+
+        if(this.props.uploadFile !== null) {
             if (rABS) 
                 reader.readAsBinaryString(file); 
             else 
@@ -73,6 +91,8 @@ class SheetJSApp extends React.Component {
         } else {
             console.log("ERROR 1084: Upload File is NULL!");
         }
+
+        
     };
     
   
@@ -83,7 +103,7 @@ class SheetJSApp extends React.Component {
     this.handleFile();
 
     this.props.checkUpload();
-    //this.props.isUploaded = true;
+    this.props.doProcessed();
   };
 
   exportFile() {
@@ -99,168 +119,56 @@ class SheetJSApp extends React.Component {
     this.setState({ data: [[]] });
     window.location.reload(false);
   };
-
-
+  renderUploadButton() {
+    if(this.props.uploadFile) {
+        return (
+            <div>
+                <button id="upload-button" onClick={() => this.manualProcessFile()}>
+                    1. Process Uploaded File
+                </button>
+            </div>
+        );
+    }
+  }
+  renderDownloadButton() {
+      if(this.props.isProcessed) {
+        return (
+            <div className="col-xs-2">   
+                <button className="btn btn-success" onClick={() => this.exportFile()}>
+                    2. Download Processed Schedule
+                </button>
+            </div>
+        );
+      }
+  }
     render() {
-    //        let button;
-        
+
+        /** Thanks Steven, but I am going to retire this section for now
+         //        let button
         let a = this.state.detector; 
         //(a = 0... no popups, a = 1... emptyrows, a = 2... repeats, a = 3... both)
         console.log("Returning the " + a + " if-statement");
         if (a === 0){ //If no popup needed
-
-            return (
-                <div class="sheetjs">
-                    <DragDropFile 
-                            handleFile={this.handleFile}
+        */
+        return (
+            <div class="sheetjs">
+                <DragDropFile 
+                        handleFile={this.handleFile}
+                        processFile={this.props.processFile}
+                >
+                    <div className="col-xs-1">
+                        <DataInput 
+                            handleFile={this.handleFile} 
                             processFile={this.props.processFile}
-                    >
-                        <div className="col-xs-1">
-                            <DataInput 
-                                handleFile={this.handleFile} 
-                                processFile={this.props.processFile}
-                            />
-                        </div>
-                        <br/>
-                        <div>
-                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                                1. Process Uploaded File
-                            </button>
-                        </div>
-                        <br/>
-                        <div className="col-xs-2">   
-                            <button className="btn btn-success" onClick={() => this.exportFile()}>
-                                2. Download Processed Schedule
-                            </button>
-                        </div>
-                    </DragDropFile>
-                </div>
-            );
-        }
-        else if(a === 1){ //If empty rows popup needed
-
-            return (
-                <div class="sheetjs">
-                    <DragDropFile 
-                            handleFile={this.handleFile}
-                            processFile={this.props.processFile}
-                    >
-                        <div className="col-xs-1">
-                            <DataInput 
-                                handleFile={this.handleFile} 
-                                processFile={this.props.processFile}
-                            />
-                        </div>
-
-                        <br/>
-
-                        <Popup trigger = {
-                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                                Warning!!!
-                            </button>} position = "right">
-                                {close => (
-                                    <div>
-                                        Warning! You have empty rows in this file. 
-                                    <button className="close" onClick={close}>
-                                        &times;
-                                    </button>
-                                    </div>
-                                )}
-                            </Popup>
-                        
-                        <br/>
-                        
-                        <div className="col-xs-2">   
-                            <button className="btn btn-success" onClick={() => this.exportFile()}>
-                                2. Download Processed Schedule Anyway
-                            </button>
-                        </div>
-                    </DragDropFile>
-                </div>
-            );
-        }
-        else if(a === 2){ //repeats popup needed
-            return (
-                <div class="sheetjs">
-                    <DragDropFile 
-                            handleFile={this.handleFile}
-                            processFile={this.props.processFile}
-                    >
-                        <div className="col-xs-1">
-                            <DataInput 
-                                handleFile={this.handleFile} 
-                                processFile={this.props.processFile}
-                            />
-                        </div>
-
-                        <br/>
-
-                        <Popup trigger = {
-                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                                Warning!!!
-                            </button>} position = "right">
-                                {close => (
-                                    <div>
-                                        Warning! You have repeats in this file. 
-                                    <button className="close" onClick={close}>
-                                        &times;
-                                    </button>
-                                    </div>
-                                )}
-                            </Popup>
-                        
-                        <br/>
-                        
-                        <div className="col-xs-2">   
-                            <button className="btn btn-success" onClick={() => this.exportFile()}>
-                                2. Download Processed Schedule Anyway
-                            </button>
-                        </div>
-                    </DragDropFile>
-                </div>
-            );
-        }
-        else{
-            return (
-                <div class="sheetjs">
-                    <DragDropFile 
-                            handleFile={this.handleFile}
-                            processFile={this.props.processFile}
-                    >
-                        <div className="col-xs-1">
-                            <DataInput 
-                                handleFile={this.handleFile} 
-                                processFile={this.props.processFile}
-                            />
-                        </div>
-
-                        <br/>
-
-                        <Popup trigger = {
-                            <button id="upload-button" onClick={() => this.manualProcessFile()}>
-                                Warning!!!
-                            </button>} position = "right">
-                                {close => (
-                                    <div>
-                                        Warning! You have empty rows AND repeats in this file. 
-                                    <button className="close" onClick={close}>
-                                        &times;
-                                    </button>
-                                    </div>
-                                )}
-                            </Popup>
-                        
-                        <br/>
-                        
-                        <div className="col-xs-2">   
-                            <button className="btn btn-success" onClick={() => this.exportFile()}>
-                                2. Download Processed Schedule Anyway
-                            </button>
-                        </div>
-                    </DragDropFile>
-                </div>
-            );
-        }
+                        />
+                    </div>
+                    <br/>
+                    {this.renderUploadButton()}
+                    <br/>
+                    {this.renderDownloadButton()}
+                </DragDropFile>
+            </div>
+        );
     };
 };
 
@@ -319,7 +227,9 @@ class DataInput extends React.Component {
   }
   handleChange(e) {
     const files = e.target.files;
-    if (files && files[0]) this.props.processFile(files[0]);
+    if (files && files[0]) {
+        this.props.processFile(files[0]);
+    }
   }
 
   render() {

@@ -36,15 +36,18 @@ class home extends Component {
       navbarClass: "home",
 
       //Used by SchedulerTypes
-      scheduleType: "field", // default value, needs to be reset or readjusted
+      scheduleType: "null", // default value, needs to be reset or readjusted
 
       //Used by ScheduleOptions
-      groupSize: 3, // default value, needs to be reset or readjusted
+      groupSize: 0, // default value, needs to be reset or readjusted
 
       //Used by SheetJSApp
       uploadFile: null,
-
       isUploaded: false,
+      isProcessed: false,
+
+      //Used by ModalVideoPopup
+      initialPopupVideo: true,
     };
   }
 
@@ -67,8 +70,10 @@ class home extends Component {
     //To Remove
     if (file == null) {
       // TODO Setup popup window and disable button
+      window.alert("The file being processed isn't uploaded yet, upload your file using the upload box below!");
       console.log("The file in processFile is null");
     } else {
+      //window.alert("The file is processed successfully, click the download button to receive the output file!");
       console.log("The file in processFile is OK.");
     }
 
@@ -83,58 +88,97 @@ class home extends Component {
     }
   }
 
+  doProcessed() { this.setState({ isProcessed: true }); }
+
+  renderStatus() { 
+    if (this.state.scheduleType !== "null") 
+      return (<h5>Selected Scheduler type: {this.state.scheduleType}</h5>); 
+  }
+
   renderScheduleType() {
+
     return (
-      <SchedulerType
-        onClick={(x) => this.handleTypeSelect(x)}
-        schedulerType={this.state.scheduleType}
-      />
+      <div>
+        <h1>Select the type of scheduler</h1>
+        <SchedulerType
+          onClick={(x) => this.handleTypeSelect(x)}
+          schedulerType={this.state.scheduleType}
+        />
+        {this.renderStatus()}
+      </div>
     );
+  }
+
+  renderGroupSize() {
+    if (this.state.groupSize !== 0)
+      return(<h5>Selected Group Size: {this.state.groupSize - 1}-{this.state.groupSize}</h5>);
   }
 
   renderScheduleOptions() {
-    return (
-      <SchedulerOption
-        onClick={(x) => this.handleGroupSizeSelect(x)}
-        groupSize={this.state.groupSize}
-      />
-    );
+    if ( this.state.scheduleType !== "field" && this.state.scheduleType !== "null") {
+      return (
+        <div>
+          <h1>Select your group size</h1>
+          <SchedulerOption
+            onClick={(x) => this.handleGroupSizeSelect(x)}
+            groupSize={this.state.groupSize}
+          />
+          {this.renderGroupSize()}
+        </div>
+      );
+    }
   }
   renderSchedulerTemplate() {
-    return (
-      <div>
-        <TemplateDownload scheduleType={this.state.scheduleType} />
-        {/** <RequestServer />*/}
-      </div>
-    );
+    if (this.state.groupSize !== 0 || this.state.scheduleType === "field") {
+      return (
+        <div>
+          <h1>Need the template for the {this.state.scheduleType} scheduler?</h1>
+          <TemplateDownload scheduleType={this.state.scheduleType} />
+          {/** <RequestServer />*/}
+        </div>
+      );
+    }
   }
   renderDataPanel() {
-    return (
-      <div id="DataPanel-Container">
-        <div id="Excel-Container">
-          <div id="padded-text">
-            <h1>Upload your Spreadsheet</h1>
-            <p>
-              File extensions supported: .csv, .xls, .xlsx, .xlsm, .xltx, xltm
-            </p>
-            <SheetJSApp
-              groupSize={this.state.groupSize}
-              uploadFile={this.state.uploadFile}
-              processFile={(file) => this.processFile(file)}
-              scheduleType={this.state.scheduleType}
-              isUploaded={this.state.isUploaded}
-              checkUpload={() => this.checkUpload()}
-            />
+    if(this.state.groupSize !== 0 || this.state.scheduleType === "field") {
+      return (
+        <div id="DataPanel-Container">
+          <div id="Excel-Container">
+            <div id="padded-text">
+              <h1>Upload your Spreadsheet</h1>
+              <p>
+                File extensions supported: .csv, .xls, .xlsx, .xlsm, .xltx, xltm
+              </p>
+              <SheetJSApp
+                groupSize={this.state.groupSize}
+                uploadFile={this.state.uploadFile}
+                processFile={(file) => this.processFile(file)}
+                scheduleType={this.state.scheduleType}
+                isUploaded={this.state.isUploaded}
+                isProcessed={this.state.isProcessed}
+                doProcessed={() => this.doProcessed()}
+                checkUpload={() => this.checkUpload()}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 
   renderModalVideoPopup() {
-    return <ModalVideoPopup />;
+    return (
+      <ModalVideoPopup 
+        isOpen={this.state.initialPopupVideo}
+        closeVideo={() => this.closePopupVideo()}
+      />
+    );
   }
 
+  closePopupVideo() {
+    window.alert("Closed Video?")
+    this.setState({ initialPopupVideo: false });
+  }
 
   render() {
     return (
@@ -143,17 +187,12 @@ class home extends Component {
           <img
             class="object-fit_cover"
             src="homepageBanner.jpg"
-            alt="home-major-image-1"
+            alt="home-major-1"
           />
         </div>
-        {/*
-                    <h1>Debug Area</h1>
-                    1. Schedule Type {this.state.scheduleType} <br/>
-                    2. Group Size {this.state.groupSize} 
-                */}
         <br />
+        {this.renderModalVideoPopup()}
         <div className="main-body">
-          {this.renderModalVideoPopup()}
           <div className="inner-main-body">
             <div className="Instructions">
               <h1>Quick Instructions</h1>
@@ -177,27 +216,19 @@ class home extends Component {
                 </li>
               </ol>
             </div>
-            {/* this is referenced by ScheduleTypes */}
 
-            <div>
-              <h1>Select the type of scheduler</h1>
-              {this.renderScheduleType()}
-            </div>
+            {/* this is referenced by ScheduleTypes */}
+            {this.renderScheduleType()}
 
             {/* This is referenced by ScheduleOptions */}
-            <div>
-              <h1>Select your group size</h1>
-              {this.renderScheduleOptions()}
-            </div>
+            {this.renderScheduleOptions()}
 
             {/* This is for the template downloads*/}
-            <div>
-              <h1>Need a scheduler template?</h1>
-              {this.renderSchedulerTemplate()}
-            </div>
+            {this.renderSchedulerTemplate()}
 
             {/* This is for the excel file input*/}
-            <div>{this.renderDataPanel()}</div>
+            {this.renderDataPanel()}
+
           </div>
         </div>
 

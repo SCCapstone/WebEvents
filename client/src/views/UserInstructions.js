@@ -20,8 +20,8 @@ class Instructions extends Component {
           />
         </div>
 
-        <div class="MainBody-inner">
-          <div id="padded-container-center">
+        <div className="MainBody-inner">
+          <div className="padded-container-center">
             <h1>Instructions how to use Web Events</h1>
             <h4>How to use:</h4>
             <ol>
