@@ -438,3 +438,11 @@ button[type="Options"].btn:hover {
   width: 100%;
   background-color: red;
 }
+
+
+.main-body div {
+  margin-bottom: 20px;
+}
+.main-body div:last-child {
+  margin-bottom: 5px;
+}

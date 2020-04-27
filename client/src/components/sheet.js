@@ -108,7 +108,7 @@ class SheetJSApp extends React.Component {
     this.handleFile();
 
     this.props.checkUpload();
-    //this.props.isUploaded = true;
+    this.props.doProcessed();
   };
 
   exportFile() {
@@ -125,7 +125,17 @@ class SheetJSApp extends React.Component {
     window.location.reload(false);
   };
 
-
+  renderDownloadButton() {
+      if(this.props.isProcessed) {
+        return (
+            <div className="col-xs-2">   
+                <button className="btn btn-success" onClick={() => this.exportFile()}>
+                    2. Download Processed Schedule
+                </button>
+            </div>
+        );
+      }
+  }
     render() {
 
         /** Thanks Steven, but I am going to retire this section for now
@@ -154,11 +164,7 @@ class SheetJSApp extends React.Component {
                         </button>
                     </div>
                     <br/>
-                    <div className="col-xs-2">   
-                        <button className="btn btn-success" onClick={() => this.exportFile()}>
-                            2. Download Processed Schedule
-                        </button>
-                    </div>
+                    {this.renderDownloadButton()}
                 </DragDropFile>
             </div>
         );

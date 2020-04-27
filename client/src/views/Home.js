@@ -44,6 +44,7 @@ class home extends Component {
       //Used by SheetJSApp
       uploadFile: null,
       isUploaded: false,
+      isProcessed: false,
 
       //Used by ModalVideoPopup
       initialPopupVideo: true,
@@ -87,26 +88,39 @@ class home extends Component {
     }
   }
 
+  doProcessed() { 
+    this.setState({ isProcessed: true }); 
+  }
+
   renderScheduleType() {
     return (
-      <SchedulerType
-        onClick={(x) => this.handleTypeSelect(x)}
-        schedulerType={this.state.scheduleType}
-      />
+      <div>
+        <h1>Select the type of scheduler</h1>
+        <SchedulerType
+          onClick={(x) => this.handleTypeSelect(x)}
+          schedulerType={this.state.scheduleType}
+        />
+      </div>
     );
   }
 
   renderScheduleOptions() {
-    return (
-      <SchedulerOption
-        onClick={(x) => this.handleGroupSizeSelect(x)}
-        groupSize={this.state.groupSize}
-      />
-    );
+    if ( this.state.scheduleType !== "field" ) {
+      return (
+        <div>
+          <h1>Select your group size</h1>
+          <SchedulerOption
+            onClick={(x) => this.handleGroupSizeSelect(x)}
+            groupSize={this.state.groupSize}
+          />
+        </div>
+      );
+    }
   }
   renderSchedulerTemplate() {
     return (
       <div>
+        <h1>Need the template for the {this.state.scheduleType} scheduler?</h1>
         <TemplateDownload scheduleType={this.state.scheduleType} />
         {/** <RequestServer />*/}
       </div>
@@ -127,6 +141,8 @@ class home extends Component {
               processFile={(file) => this.processFile(file)}
               scheduleType={this.state.scheduleType}
               isUploaded={this.state.isUploaded}
+              isProcessed={this.state.isProcessed}
+              doProcessed={() => this.doProcessed()}
               checkUpload={() => this.checkUpload()}
             />
           </div>
@@ -159,11 +175,6 @@ class home extends Component {
             alt="home-major-1"
           />
         </div>
-        {/*
-                    <h1>Debug Area</h1>
-                    1. Schedule Type {this.state.scheduleType} <br/>
-                    2. Group Size {this.state.groupSize} 
-                */}
         <br />
         <div className="main-body">
           {this.renderModalVideoPopup()}
@@ -190,27 +201,19 @@ class home extends Component {
                 </li>
               </ol>
             </div>
-            {/* this is referenced by ScheduleTypes */}
 
-            <div>
-              <h1>Select the type of scheduler</h1>
-              {this.renderScheduleType()}
-            </div>
+            {/* this is referenced by ScheduleTypes */}
+            {this.renderScheduleType()}
 
             {/* This is referenced by ScheduleOptions */}
-            <div>
-              <h1>Select your group size</h1>
-              {this.renderScheduleOptions()}
-            </div>
+            {this.renderScheduleOptions()}
 
             {/* This is for the template downloads*/}
-            <div>
-              <h1>Need a scheduler template?</h1>
-              {this.renderSchedulerTemplate()}
-            </div>
+            {this.renderSchedulerTemplate()}
 
             {/* This is for the excel file input*/}
-            <div>{this.renderDataPanel()}</div>
+            {this.renderDataPanel()}
+
           </div>
         </div>
 
