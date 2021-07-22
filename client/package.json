@@ -24,7 +24,7 @@
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.0",
     "reactjs-popup": "^1.5.0",
-    "xlsx": "^0.15.5"
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "cross-env PORT=80 react-scripts start",
